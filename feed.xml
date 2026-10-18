@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+    <title>Sirena</title>
+    <link href="https://nevemerus.github.io/primepride/feed.xml" rel="self" />
+    <link href="https://nevemerus.github.io/primepride" />
+    <updated>2026-10-18T19:48:34+03:00</updated>
+    <author>
+        <name>Sirena</name>
+    </author>
+    <id>https://nevemerus.github.io/primepride</id>
+
+    <entry>
+        <title>Интерактивная мышка с датчиком движения</title>
+        <author>
+            <name>Sirena</name>
+        </author>
+        <link href="https://nevemerus.github.io/primepride/blog/interaktivnaya-myshka-s-datchikom-dvizheniya/"/>
+        <id>https://nevemerus.github.io/primepride/blog/interaktivnaya-myshka-s-datchikom-dvizheniya/</id>
+        <media:content url="https://nevemerus.github.io/primepride/media/posts/13/123.png" medium="image" />
+            <category term="магазин: Игрушки"/>
+
+        <updated>2026-10-17T16:24:17+03:00</updated>
+            <summary type="html">
+                <![CDATA[
+                        <img src="https://nevemerus.github.io/primepride/media/posts/13/123.png" alt="Интерактивная мышка с датчиком движения" />
+                    Интерактивная мышка с датчиком движения
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://nevemerus.github.io/primepride/media/posts/13/123.png" class="type:primaryImage" alt="Интерактивная мышка с датчиком движения" /></p>
+                <p>Интерактивная мышка с датчиком движения</p>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Статья 1</title>
+        <author>
+            <name>Sirena</name>
+        </author>
+        <link href="https://nevemerus.github.io/primepride/blog/statya-1-kak-my-nashli-sirenu/"/>
+        <id>https://nevemerus.github.io/primepride/blog/statya-1-kak-my-nashli-sirenu/</id>
+            <category term="блог: Наша история"/>
+
+        <updated>2026-10-12T21:03:30+03:00</updated>
+            <summary type="html">
+                <![CDATA[
+                    Как мы нашли Сирену 🐆 Мы искали бенгальскую кошку полтора месяца. Не импульсивно — изучали породу, читали форумы, смотрели видео. И вот что узнали: ▪️ Бенгалы — потомки дикой бенгальской кошки и домашней. Отсюда их леопардовый окрас и энергия. ▪️ Они не боятся воды. Многие&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                
+    <h2 id="kak-my-nashli-sirenu">
+      Как мы нашли Сирену 🐆
+    </h2>
+
+  <p>
+    <br>Мы искали бенгальскую кошку полтора месяца. Не импульсивно — изучали породу, читали форумы, смотрели видео. И вот что узнали:
+<br>
+<br>▪️  Бенгалы — потомки дикой бенгальской кошки и домашней. Отсюда их леопардовый окрас и энергия.
+<br>▪️  Они не боятся воды. Многие сами лезут в ванну или раковину.
+<br>▪️  Очень разговорчивые. У них широкий диапазон звуков — от мурлыканья до настоящего «рыка».
+<br>▪️  Высокий интеллект. Открывают двери, шкафы, учат команды.
+<br>▪️  Требуют много внимания и активности. С ними нельзя просто «посидеть на диване».
+<br>
+<br>После теории начали звонить заводчикам с Авито. Разговаривали долго, расспрашивали про уход, характер, сюрпризы, которые могут поджидать. Большинство отвечали шаблонно или торопили нас.
+<br>
+<br>Но одна заводчица зацепила. Во-первых, она была вежлива и терпелива — отвечала на одни и те же вопросы по несколько раз. Во-вторых, показала родителей котёнка и рассказала не только о плюсах породы, но и о минусах — честно, без прикрас. В-третьих, котята жили в чистоте, были приучены к лотку и не боялись людей. Мы поняли: здесь к кошкам относятся как к членам семьи, а не как к товару.
+<br>
+<br>Поехали за котёнком в Люберцы. Ехали обратно — и не знали, как её назвать. Имя само не приходило.
+<br>
+<br>Привезли домой — она сразу выбрала угол у входной двери. И три дня плакала. Звала маму. Сердце разрывалось.
+<br>
+<br>А имя появилось позже. Когда мы везли её в ветеринарку, она орала так громко, что заглушала шум старого вагона метро. Вот так и стала Сиреной. С ярким характером и громким голосом!
+<br>
+<br><br>«<em>Мы в ответе за тех, кого приручили</em>».
+  </p>
+            ]]>
+        </content>
+    </entry>
+</feed>

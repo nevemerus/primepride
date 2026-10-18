@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://nevemerus.github.io/primepride/sitemap.xml
