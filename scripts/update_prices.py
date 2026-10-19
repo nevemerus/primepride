@@ -6,8 +6,8 @@ from datetime import datetime
 API_TOKEN = os.environ.get('GDESLON_API_TOKEN')
 
 if not API_TOKEN:
-    print("Ошибка: токен не установлен")
-    exit(1)
+    print("Предупреждение: токен не установлен, пропускаем")
+    exit(0)
 
 SEARCH_QUERY = "корм+для+кошек"
 URL = f"https://www.gdeslon.ru/api/search.xml?q={SEARCH_QUERY}&l=10&p=1&_gs_at={API_TOKEN}"
@@ -46,5 +46,7 @@ try:
     print(f"Обновлено {len(products)} товаров")
     
 except Exception as e:
-    print(f"Ошибка: {e}")
-    exit(0)
+    print(f"Ошибка при обновлении (возможно API ещё не активирован): {e}")
+    print("Продолжаем работу, файл products.json не изменён")
+
+exit(0)
