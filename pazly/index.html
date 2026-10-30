@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Пазлы - Sirena</title><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://nevemerus.github.io/primepride/pazly/"><link rel="alternate" type="application/atom+xml" href="https://nevemerus.github.io/primepride/feed.xml" title="Sirena - RSS"><link rel="alternate" type="application/json" href="https://nevemerus.github.io/primepride/feed.json" title="Sirena - JSON"><meta property="og:title" content="Пазлы"><meta property="og:site_name" content="Sirena"><meta property="og:description" content=""><meta property="og:url" content="https://nevemerus.github.io/primepride/pazly/"><meta property="og:type" content="article"><link rel="stylesheet" href="https://nevemerus.github.io/primepride/assets/css/style.css?v&#x3D;2c0939c0c4815ec2c3e7fecf8a71b1b1"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://nevemerus.github.io/primepride/pazly/"},"headline":"Пазлы","datePublished":"2026-10-29T23:28+03:00","dateModified":"2026-10-30T21:52+03:00","description":"","author":{"@type":"Person","name":"Sirena","url":"https://nevemerus.github.io/primepride/authors/sirena/"},"publisher":{"@type":"Organization","name":"Sirena"}}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Пазлы - Sirena</title><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://nevemerus.github.io/primepride/pazly/"><link rel="alternate" type="application/atom+xml" href="https://nevemerus.github.io/primepride/feed.xml" title="Sirena - RSS"><link rel="alternate" type="application/json" href="https://nevemerus.github.io/primepride/feed.json" title="Sirena - JSON"><meta property="og:title" content="Пазлы"><meta property="og:site_name" content="Sirena"><meta property="og:description" content=""><meta property="og:url" content="https://nevemerus.github.io/primepride/pazly/"><meta property="og:type" content="article"><link rel="stylesheet" href="https://nevemerus.github.io/primepride/assets/css/style.css?v&#x3D;2c0939c0c4815ec2c3e7fecf8a71b1b1"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://nevemerus.github.io/primepride/pazly/"},"headline":"Пазлы","datePublished":"2026-10-29T23:28+03:00","dateModified":"2026-10-30T21:59+03:00","description":"","author":{"@type":"Person","name":"Sirena","url":"https://nevemerus.github.io/primepride/authors/sirena/"},"publisher":{"@type":"Organization","name":"Sirena"}}</script><noscript><style>img[loading] {
                     opacity: 1;
                 }</style></noscript></head><body class="page-template"><header class="top js-header"><a class="logo" href="https://nevemerus.github.io/primepride/">Sirena</a><nav class="navbar js-navbar" aria-label="Main"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://nevemerus.github.io/primepride/" title="Главная страница Sirena Bengal House" target="_self">Главная</a></li><li><a href="https://nevemerus.github.io/primepride/magazin/" title="Магазин Sirena Bengal House — товары для кошек" target="_self">Магазин</a></li><li><a href="https://nevemerus.github.io/primepride/vstupay-v-primepride/" title="Поддержать проект и получить эксклюзивный контент о бенгалах" target="_blank">Вступай в PrimePride🐾</a></li><li><a href="https://nevemerus.github.io/primepride/bengalgames/" title="Бенгальские игры" target="_self">Бенгальские игры 🎮</a></li></ul></nav></header><main class="page"><article class="content"><div class="hero hero--noimage"><header class="hero__content"><div class="wrapper"><h1>Пазлы</h1></div></header></div><div class="entry-wrapper content__entry"><div id="bengal-puzzle-wrapper"></div><p><script>(function() {
     var wrapper = document.getElementById('bengal-puzzle-wrapper');
@@ -20,16 +20,18 @@
         cols: 3,
         snapRadius: 35,
         canvasWidth: 1400,
-        canvasHeight: 1400
+        canvasHeight: 1400,
+        backgroundUrl: 'https://nevemerus.github.io/primepride/LapkiBengalPuzzle.jpg'
     };
 
     var state = {
-        pieces: [], image: null, isPaused: false, isComplete: false, elapsedTime: 0,
+        pieces: [], image: null, backgroundImage: null, isPaused: false, isComplete: false, elapsedTime: 0,
         timerInterval: null, dragPiece: null, dragOffsetX: 0, dragOffsetY: 0,
         moveCount: 0, mistakes: 0, achievements: [], gameStarted: false,
         canvas: null, ctx: null, showImage: false, gamesCount: 0, comboCount: 0,
         zoomLevel: 1, backgroundColor: '#fafafa', bgColorIndex: 0,
-        assemblyX: 0, assemblyY: 0, assemblyW: 0, assemblyH: 0
+        assemblyX: 0, assemblyY: 0, assemblyW: 0, assemblyH: 0,
+        pieceGroups: [], draggedGroup: []
     };
 
     var BG_COLORS = ['#fafafa', '#d0d0d0', '#666666'];
@@ -39,16 +41,16 @@
         { id: 'quarter', title: 'Четверть пути', desc: 'Собери 25% пазла', icon: '📊', unlocked: false },
         { id: 'half', title: 'Половина дела', desc: 'Собери 50% пазла', icon: '⚡', unlocked: false },
         { id: 'three_quarters', title: 'Почти готово', desc: 'Собери 75% пазла', icon: '🔥', unlocked: false },
-        { id: 'speed_30', title: 'Молния', desc: 'Собери за 30 секунд', icon: '⚡', unlocked: false },
+        { id: 'speed_30', title: 'Молния', desc: 'Собери за 30 секунд', icon: '', unlocked: false },
         { id: 'speed_60', title: 'Скорость', desc: 'Собери за 1 минуту', icon: '🏎️', unlocked: false },
         { id: 'speed_120', title: 'Быстро', desc: 'Собери за 2 минуты', icon: '💨', unlocked: false },
         { id: 'master', title: 'Мастер', desc: 'Собери пазл полностью', icon: '👑', unlocked: false },
         { id: 'perfect', title: 'Идеально', desc: 'Без единой ошибки', icon: '💎', unlocked: false },
-        { id: 'no_hints', title: 'Самостоятельно', desc: 'Собери без подсказок', icon: '🌟', unlocked: false },
+        { id: 'no_hints', title: 'Самостоятельно', desc: 'Собери без подсказок', icon: '', unlocked: false },
         { id: 'five_games', title: 'Опытный', desc: 'Сыграй 5 игр', icon: '🎮', unlocked: false },
         { id: 'ten_games', title: 'Ветеран', desc: 'Сыграй 10 игр', icon: '🏆', unlocked: false },
         { id: 'quick_start', title: 'Стартовый рывок', desc: '3 кусочка за 10 сек', icon: '🚀', unlocked: false },
-        { id: 'combo', title: 'Комбо', desc: '5 кусочков подряд', icon: '🔗', unlocked: false },
+        { id: 'combo', title: 'Комбо', desc: '5 кусочков подряд', icon: '', unlocked: false },
         { id: 'patient', title: 'Терпение', desc: 'Играй 10+ минут', icon: '⏳', unlocked: false }
     ];
 
@@ -671,6 +673,8 @@
         state.dragPiece = null;
         state.zoomLevel = 1;
         state.bgColorIndex = 0;
+        state.pieceGroups = [];
+        state.draggedGroup = [];
 
         state.achievements = ACHIEVEMENTS.map(function(a) {
             return { id: a.id, title: a.title, desc: a.desc, icon: a.icon, unlocked: false };
@@ -685,7 +689,6 @@
         setZoom(1);
         setBackgroundColor(BG_COLORS[0]);
 
-        // Сброс цвета таймера
         var timerCloud = document.getElementById('bpTimer');
         if (timerCloud) timerCloud.style.color = '#ffffff';
 
@@ -703,12 +706,20 @@
         img.crossOrigin = 'anonymous';
         img.onload = function() {
             state.image = img;
-            createPieces();
-            buildProgressBar();
-            startTimer();
-            setupCanvas();
-            draw();
-            updateUI();
+            
+            // Загрузка фонового изображения
+            var bgImg = new Image();
+            bgImg.crossOrigin = 'anonymous';
+            bgImg.onload = function() {
+                state.backgroundImage = bgImg;
+                createPieces();
+                buildProgressBar();
+                startTimer();
+                setupCanvas();
+                draw();
+                updateUI();
+            };
+            bgImg.src = CONFIG.backgroundUrl;
         };
         img.onerror = function() {
             alert('Не удалось загрузить изображение. Проверьте ссылку!');
@@ -773,6 +784,7 @@
                     width: dpW, height: dpH,
                     shape: shapes[r][c],
                     isPlaced: false,
+                    groupId: null,
                     id: 'p_' + r + '_' + c
                 });
             }
@@ -821,6 +833,54 @@
         }, {passive: false});
     }
 
+    function arePiecesAdjacent(piece1, piece2) {
+        // Проверяем, являются ли кусочки соседними в правильной позиции
+        var dr = Math.abs(piece1.row - piece2.row);
+        var dc = Math.abs(piece1.col - piece2.col);
+        return (dr === 1 && dc === 0) || (dr === 0 && dc === 1);
+    }
+
+    function getPiecesNearby(piece) {
+        var nearby = [];
+        var threshold = piece.width * 1.5; // Расстояние для "склеивания"
+        
+        for (var i = 0; i < state.pieces.length; i++) {
+            var other = state.pieces[i];
+            if (other === piece || other.isPlaced) continue;
+            
+            var dx = Math.abs(other.currentX - piece.currentX);
+            var dy = Math.abs(other.currentY - piece.currentY);
+            
+            if (dx < threshold && dy < threshold) {
+                nearby.push(other);
+            }
+        }
+        return nearby;
+    }
+
+    function findGroup(piece) {
+        var group = [piece];
+        var visited = {};
+        visited[piece.id] = true;
+        
+        var queue = [piece];
+        while (queue.length > 0) {
+            var current = queue.shift();
+            var nearby = getPiecesNearby(current);
+            
+            for (var i = 0; i < nearby.length; i++) {
+                var neighbor = nearby[i];
+                if (!visited[neighbor.id] && arePiecesAdjacent(current, neighbor)) {
+                    visited[neighbor.id] = true;
+                    group.push(neighbor);
+                    queue.push(neighbor);
+                }
+            }
+        }
+        
+        return group;
+    }
+
     function isPiecePlacedAt(row, col) {
         var i;
         for (i = 0; i < state.pieces.length; i++) {
@@ -850,6 +910,15 @@
         var canvas = state.canvas;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+        // Рисуем фоновое изображение за пределами игровой зоны
+        if (state.backgroundImage) {
+            ctx.save();
+            ctx.globalAlpha = 0.3;
+            ctx.drawImage(state.backgroundImage, 0, 0, canvas.width, canvas.height);
+            ctx.restore();
+        }
+
+        // Цвет фона внутри игровой зоны
         ctx.fillStyle = state.backgroundColor;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -881,24 +950,43 @@
             ctx.globalAlpha = 1.0;
         }
 
+        // Сортируем кусочки: сначала неустановленные, потом установленные
+        var piecesToDraw = state.pieces.slice().sort(function(a, b) {
+            if (a.isPlaced && !b.isPlaced) return 1;
+            if (!a.isPlaced && b.isPlaced) return -1;
+            return 0;
+        });
+
         var i;
-        for (i = 0; i < state.pieces.length; i++) {
-            if (state.pieces[i].isPlaced && state.pieces[i] !== state.dragPiece) {
-                drawJigsawPiece(state.pieces[i], false, true);
+        for (i = 0; i < piecesToDraw.length; i++) {
+            var piece = piecesToDraw[i];
+            if (piece.isPlaced && piece !== state.dragPiece && state.draggedGroup.indexOf(piece) === -1) {
+                drawJigsawPiece(piece, false, true);
             }
         }
-        for (i = 0; i < state.pieces.length; i++) {
-            if (state.pieces[i].isPlaced && state.pieces[i] !== state.dragPiece) {
-                drawOpenEdges(state.pieces[i]);
+        for (i = 0; i < piecesToDraw.length; i++) {
+            var piece = piecesToDraw[i];
+            if (piece.isPlaced && piece !== state.dragPiece && state.draggedGroup.indexOf(piece) === -1) {
+                drawOpenEdges(piece);
             }
         }
-        for (i = 0; i < state.pieces.length; i++) {
-            if (!state.pieces[i].isPlaced && state.pieces[i] !== state.dragPiece) {
-                drawJigsawPiece(state.pieces[i], false, false);
+        for (i = 0; i < piecesToDraw.length; i++) {
+            var piece = piecesToDraw[i];
+            if (!piece.isPlaced && piece !== state.dragPiece && state.draggedGroup.indexOf(piece) === -1) {
+                drawJigsawPiece(piece, false, false);
             }
         }
+        
+        // Рисуем перетаскиваемый кусочек и его группу
         if (state.dragPiece) {
             drawJigsawPiece(state.dragPiece, true, false);
+            // Рисуем остальные кусочки группы
+            for (i = 0; i < state.draggedGroup.length; i++) {
+                var groupPiece = state.draggedGroup[i];
+                if (groupPiece !== state.dragPiece) {
+                    drawJigsawPiece(groupPiece, true, false);
+                }
+            }
         }
 
         if (!state.isComplete && !state.isPaused) {
@@ -1099,6 +1187,8 @@
         var x = coords.x;
         var y = coords.y;
         var i;
+        
+        // Ищем кусочек под курсором (сначала неустановленные)
         for (i = state.pieces.length - 1; i >= 0; i--) {
             var p = state.pieces[i];
             if (p.isPlaced) continue;
@@ -1107,8 +1197,26 @@
                 state.dragPiece = p;
                 state.dragOffsetX = x - p.currentX;
                 state.dragOffsetY = y - p.currentY;
-                state.pieces.splice(i, 1);
-                state.pieces.push(p);
+                
+                // Находим группу кусочков, которые нужно перемещать вместе
+                state.draggedGroup = findGroup(p);
+                
+                // Сохраняем смещения для каждого кусочка в группе
+                for (var j = 0; j < state.draggedGroup.length; j++) {
+                    var gp = state.draggedGroup[j];
+                    gp.dragOffsetX = gp.currentX - p.currentX;
+                    gp.dragOffsetY = gp.currentY - p.currentY;
+                }
+                
+                // Удаляем все кусочки группы из массива и добавляем в конец (чтобы рисовались сверху)
+                for (var k = state.draggedGroup.length - 1; k >= 0; k--) {
+                    var gp = state.draggedGroup[k];
+                    var idx = state.pieces.indexOf(gp);
+                    if (idx !== -1) {
+                        state.pieces.splice(idx, 1);
+                        state.pieces.push(gp);
+                    }
+                }
                 break;
             }
         }
@@ -1117,24 +1225,42 @@
     function handleMove(e) {
         if (!state.dragPiece) return;
         var coords = getCoords(e);
+        
+        // Двигаем главный кусочек
         var newX = coords.x - state.dragOffsetX;
         var newY = coords.y - state.dragOffsetY;
-
+        
         // Ограничение: кусочки не могут выйти за рыжую границу
         var borderMargin = 5;
         var maxX = CONFIG.canvasWidth - state.dragPiece.width - borderMargin;
         var maxY = CONFIG.canvasHeight - state.dragPiece.height - borderMargin;
         newX = Math.max(borderMargin, Math.min(maxX, newX));
         newY = Math.max(borderMargin, Math.min(maxY, newY));
-
+        
         state.dragPiece.currentX = newX;
         state.dragPiece.currentY = newY;
+        
+        // Двигаем остальные кусочки группы
+        for (var i = 0; i < state.draggedGroup.length; i++) {
+            var gp = state.draggedGroup[i];
+            if (gp !== state.dragPiece) {
+                gp.currentX = newX + gp.dragOffsetX;
+                gp.currentY = newY + gp.dragOffsetY;
+                
+                // Также ограничиваем группу
+                var gpMaxX = CONFIG.canvasWidth - gp.width - borderMargin;
+                var gpMaxY = CONFIG.canvasHeight - gp.height - borderMargin;
+                gp.currentX = Math.max(borderMargin, Math.min(gpMaxX, gp.currentX));
+                gp.currentY = Math.max(borderMargin, Math.min(gpMaxY, gp.currentY));
+            }
+        }
     }
 
     function handleEnd() {
         if (!state.dragPiece) return;
         var p = state.dragPiece;
         state.dragPiece = null;
+        state.draggedGroup = [];
         state.moveCount++;
 
         var dx = p.currentX - p.correctX;
@@ -1200,7 +1326,6 @@
     function showCompletion() {
         var canvasArea = document.getElementById('bpCanvasArea');
 
-        // Меняем цвет таймера на рыжий
         var timerCloud = document.getElementById('bpTimer');
         if (timerCloud) timerCloud.style.color = '#ff6b35';
 
@@ -1361,7 +1486,6 @@
         var timerCloud = document.getElementById('bpTimer');
 
         if (state.isPaused) {
-            // Таймер останавливается — меняем цвет на рыжий
             if (timerCloud) timerCloud.style.color = '#ff6b35';
 
             var ctx = state.ctx;
@@ -1373,7 +1497,6 @@
             ctx.textBaseline = 'middle';
             ctx.fillText('ПАУЗА', state.canvas.width / 2, state.canvas.height / 2);
         } else {
-            // Возобновление — белый цвет
             if (timerCloud) timerCloud.style.color = '#ffffff';
             draw();
         }
