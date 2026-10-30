@@ -1,7 +1,7 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Пазлы - Sirena</title><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://nevemerus.github.io/primepride/pazly/"><link rel="alternate" type="application/atom+xml" href="https://nevemerus.github.io/primepride/feed.xml" title="Sirena - RSS"><link rel="alternate" type="application/json" href="https://nevemerus.github.io/primepride/feed.json" title="Sirena - JSON"><meta property="og:title" content="Пазлы"><meta property="og:site_name" content="Sirena"><meta property="og:description" content=""><meta property="og:url" content="https://nevemerus.github.io/primepride/pazly/"><meta property="og:type" content="article"><link rel="stylesheet" href="https://nevemerus.github.io/primepride/assets/css/style.css?v&#x3D;2c0939c0c4815ec2c3e7fecf8a71b1b1"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://nevemerus.github.io/primepride/pazly/"},"headline":"Пазлы","datePublished":"2026-10-29T23:28+03:00","dateModified":"2026-10-30T17:41+03:00","description":"","author":{"@type":"Person","name":"Sirena","url":"https://nevemerus.github.io/primepride/authors/sirena/"},"publisher":{"@type":"Organization","name":"Sirena"}}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Пазлы - Sirena</title><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://nevemerus.github.io/primepride/pazly/"><link rel="alternate" type="application/atom+xml" href="https://nevemerus.github.io/primepride/feed.xml" title="Sirena - RSS"><link rel="alternate" type="application/json" href="https://nevemerus.github.io/primepride/feed.json" title="Sirena - JSON"><meta property="og:title" content="Пазлы"><meta property="og:site_name" content="Sirena"><meta property="og:description" content=""><meta property="og:url" content="https://nevemerus.github.io/primepride/pazly/"><meta property="og:type" content="article"><link rel="stylesheet" href="https://nevemerus.github.io/primepride/assets/css/style.css?v&#x3D;2c0939c0c4815ec2c3e7fecf8a71b1b1"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://nevemerus.github.io/primepride/pazly/"},"headline":"Пазлы","datePublished":"2026-10-29T23:28+03:00","dateModified":"2026-10-30T21:52+03:00","description":"","author":{"@type":"Person","name":"Sirena","url":"https://nevemerus.github.io/primepride/authors/sirena/"},"publisher":{"@type":"Organization","name":"Sirena"}}</script><noscript><style>img[loading] {
                     opacity: 1;
                 }</style></noscript></head><body class="page-template"><header class="top js-header"><a class="logo" href="https://nevemerus.github.io/primepride/">Sirena</a><nav class="navbar js-navbar" aria-label="Main"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://nevemerus.github.io/primepride/" title="Главная страница Sirena Bengal House" target="_self">Главная</a></li><li><a href="https://nevemerus.github.io/primepride/magazin/" title="Магазин Sirena Bengal House — товары для кошек" target="_self">Магазин</a></li><li><a href="https://nevemerus.github.io/primepride/vstupay-v-primepride/" title="Поддержать проект и получить эксклюзивный контент о бенгалах" target="_blank">Вступай в PrimePride🐾</a></li><li><a href="https://nevemerus.github.io/primepride/bengalgames/" title="Бенгальские игры" target="_self">Бенгальские игры 🎮</a></li></ul></nav></header><main class="page"><article class="content"><div class="hero hero--noimage"><header class="hero__content"><div class="wrapper"><h1>Пазлы</h1></div></header></div><div class="entry-wrapper content__entry"><div id="bengal-puzzle-wrapper"></div><p><script>(function() {
-    const wrapper = document.getElementById('bengal-puzzle-wrapper');
+    var wrapper = document.getElementById('bengal-puzzle-wrapper');
     wrapper.style.all = 'initial';
     wrapper.style.display = 'block';
     wrapper.style.width = '100%';
@@ -14,32 +14,36 @@
     wrapper.style.overflowX = 'hidden';
     wrapper.style.color = '#1a1a1a';
 
-    const CONFIG = {
+    var CONFIG = {
         imageUrl: 'https://nevemerus.github.io/primepride/sirenka.jpg',
         rows: 3,
         cols: 3,
         snapRadius: 35,
-        canvasWidth: 900,
-        canvasHeight: 675
+        canvasWidth: 1400,
+        canvasHeight: 1400
     };
 
-    let state = {
+    var state = {
         pieces: [], image: null, isPaused: false, isComplete: false, elapsedTime: 0,
         timerInterval: null, dragPiece: null, dragOffsetX: 0, dragOffsetY: 0,
         moveCount: 0, mistakes: 0, achievements: [], gameStarted: false,
-        canvas: null, ctx: null, showImage: false, gamesCount: 0, comboCount: 0
+        canvas: null, ctx: null, showImage: false, gamesCount: 0, comboCount: 0,
+        zoomLevel: 1, backgroundColor: '#fafafa', bgColorIndex: 0,
+        assemblyX: 0, assemblyY: 0, assemblyW: 0, assemblyH: 0
     };
 
-    const ACHIEVEMENTS = [
+    var BG_COLORS = ['#fafafa', '#d0d0d0', '#666666'];
+
+    var ACHIEVEMENTS = [
         { id: 'first', title: 'Первый шаг', desc: 'Установи первый кусочек', icon: '🎯', unlocked: false },
         { id: 'quarter', title: 'Четверть пути', desc: 'Собери 25% пазла', icon: '📊', unlocked: false },
         { id: 'half', title: 'Половина дела', desc: 'Собери 50% пазла', icon: '⚡', unlocked: false },
-        { id: 'three_quarters', title: 'Почти готово', desc: 'Собери 75% пазла', icon: '', unlocked: false },
+        { id: 'three_quarters', title: 'Почти готово', desc: 'Собери 75% пазла', icon: '🔥', unlocked: false },
         { id: 'speed_30', title: 'Молния', desc: 'Собери за 30 секунд', icon: '⚡', unlocked: false },
         { id: 'speed_60', title: 'Скорость', desc: 'Собери за 1 минуту', icon: '🏎️', unlocked: false },
         { id: 'speed_120', title: 'Быстро', desc: 'Собери за 2 минуты', icon: '💨', unlocked: false },
         { id: 'master', title: 'Мастер', desc: 'Собери пазл полностью', icon: '👑', unlocked: false },
-        { id: 'perfect', title: 'Идеально', desc: 'Без единой ошибки', icon: '', unlocked: false },
+        { id: 'perfect', title: 'Идеально', desc: 'Без единой ошибки', icon: '💎', unlocked: false },
         { id: 'no_hints', title: 'Самостоятельно', desc: 'Собери без подсказок', icon: '🌟', unlocked: false },
         { id: 'five_games', title: 'Опытный', desc: 'Сыграй 5 игр', icon: '🎮', unlocked: false },
         { id: 'ten_games', title: 'Ветеран', desc: 'Сыграй 10 игр', icon: '🏆', unlocked: false },
@@ -49,28 +53,26 @@
     ];
 
     function createPage() {
-        const page = document.createElement('div');
-        page.style.maxWidth = '1100px';
+        var page = document.createElement('div');
+        page.style.maxWidth = '1400px';
         page.style.margin = '0 auto';
         page.style.padding = '40px 20px';
         page.style.minHeight = '100vh';
 
-        // Заголовок
-        const titleDiv = document.createElement('div');
+        var titleDiv = document.createElement('div');
         titleDiv.style.display = 'flex';
         titleDiv.style.alignItems = 'center';
         titleDiv.style.justifyContent = 'center';
         titleDiv.style.gap = '20px';
         titleDiv.style.marginBottom = '50px';
-        titleDiv.style.padding = '0 10px';
 
-        const line1 = document.createElement('div');
+        var line1 = document.createElement('div');
         line1.style.flex = '1';
         line1.style.height = '2px';
         line1.style.background = '#1a1a1a';
         line1.style.maxWidth = '200px';
 
-        const h1 = document.createElement('h1');
+        var h1 = document.createElement('h1');
         h1.style.fontSize = '56px';
         h1.style.fontWeight = '900';
         h1.style.color = '#1a1a1a';
@@ -79,17 +81,17 @@
         h1.style.whiteSpace = 'nowrap';
         h1.style.fontFamily = 'Georgia, Times New Roman, serif';
 
-        const wordBengal = document.createElement('span');
+        var wordBengal = document.createElement('span');
         wordBengal.textContent = 'Bengal';
         wordBengal.style.marginRight = '30px';
 
-        const wordPuzzles = document.createElement('span');
+        var wordPuzzles = document.createElement('span');
         wordPuzzles.textContent = 'Puzzles';
 
         h1.appendChild(wordBengal);
         h1.appendChild(wordPuzzles);
 
-        const line2 = document.createElement('div');
+        var line2 = document.createElement('div');
         line2.style.flex = '1';
         line2.style.height = '2px';
         line2.style.background = '#1a1a1a';
@@ -100,25 +102,23 @@
         titleDiv.appendChild(line2);
         page.appendChild(titleDiv);
 
-        // Начальный экран
-        const startScreen = document.createElement('div');
+        var startScreen = document.createElement('div');
         startScreen.id = 'bpStartScreen';
         startScreen.style.maxWidth = '600px';
         startScreen.style.margin = '0 auto';
 
-        const settingsList = document.createElement('div');
+        var settingsList = document.createElement('div');
         settingsList.style.display = 'flex';
         settingsList.style.flexDirection = 'column';
         settingsList.style.gap = '24px';
         settingsList.style.marginBottom = '50px';
 
-        // Строки
-        const row1 = document.createElement('div');
+        var row1 = document.createElement('div');
         row1.style.display = 'flex';
         row1.style.alignItems = 'baseline';
         row1.style.gap = '20px';
 
-        const label1 = document.createElement('label');
+        var label1 = document.createElement('label');
         label1.textContent = 'Строки:';
         label1.style.fontSize = '14px';
         label1.style.fontWeight = '700';
@@ -126,9 +126,8 @@
         label1.style.letterSpacing = '2px';
         label1.style.color = '#1a1a1a';
         label1.style.minWidth = '200px';
-        label1.style.flexShrink = '0';
 
-        const select1 = document.createElement('select');
+        var select1 = document.createElement('select');
         select1.id = 'bpRows';
         select1.style.flex = '1';
         select1.style.background = 'transparent';
@@ -138,11 +137,9 @@
         select1.style.fontSize = '16px';
         select1.style.color = '#1a1a1a';
         select1.style.outline = 'none';
-        select1.style.cursor = 'pointer';
-        select1.style.fontFamily = 'inherit';
 
-        [2, 3, 4, 5, 6].forEach(val => {
-            const opt = document.createElement('option');
+        [2, 3, 4, 5, 6, 7, 8, 10].forEach(function(val) {
+            var opt = document.createElement('option');
             opt.value = val;
             opt.textContent = val;
             if (val === 3) opt.selected = true;
@@ -153,13 +150,12 @@
         row1.appendChild(select1);
         settingsList.appendChild(row1);
 
-        // Столбцы
-        const row2 = document.createElement('div');
+        var row2 = document.createElement('div');
         row2.style.display = 'flex';
         row2.style.alignItems = 'baseline';
         row2.style.gap = '20px';
 
-        const label2 = document.createElement('label');
+        var label2 = document.createElement('label');
         label2.textContent = 'Столбцы:';
         label2.style.fontSize = '14px';
         label2.style.fontWeight = '700';
@@ -167,9 +163,8 @@
         label2.style.letterSpacing = '2px';
         label2.style.color = '#1a1a1a';
         label2.style.minWidth = '200px';
-        label2.style.flexShrink = '0';
 
-        const select2 = document.createElement('select');
+        var select2 = document.createElement('select');
         select2.id = 'bpCols';
         select2.style.flex = '1';
         select2.style.background = 'transparent';
@@ -179,11 +174,9 @@
         select2.style.fontSize = '16px';
         select2.style.color = '#1a1a1a';
         select2.style.outline = 'none';
-        select2.style.cursor = 'pointer';
-        select2.style.fontFamily = 'inherit';
 
-        [2, 3, 4, 5, 6].forEach(val => {
-            const opt = document.createElement('option');
+        [2, 3, 4, 5, 6, 7, 8, 10].forEach(function(val) {
+            var opt = document.createElement('option');
             opt.value = val;
             opt.textContent = val;
             if (val === 3) opt.selected = true;
@@ -194,13 +187,12 @@
         row2.appendChild(select2);
         settingsList.appendChild(row2);
 
-        // Ссылка
-        const row3 = document.createElement('div');
+        var row3 = document.createElement('div');
         row3.style.display = 'flex';
         row3.style.alignItems = 'baseline';
         row3.style.gap = '20px';
 
-        const label3 = document.createElement('label');
+        var label3 = document.createElement('label');
         label3.textContent = 'Ссылка на изображение:';
         label3.style.fontSize = '14px';
         label3.style.fontWeight = '700';
@@ -208,9 +200,8 @@
         label3.style.letterSpacing = '2px';
         label3.style.color = '#1a1a1a';
         label3.style.minWidth = '200px';
-        label3.style.flexShrink = '0';
 
-        const input3 = document.createElement('input');
+        var input3 = document.createElement('input');
         input3.type = 'text';
         input3.id = 'bpUrlInput';
         input3.value = CONFIG.imageUrl;
@@ -223,20 +214,26 @@
         input3.style.fontSize = '16px';
         input3.style.color = '#1a1a1a';
         input3.style.outline = 'none';
-        input3.style.fontFamily = 'inherit';
 
         row3.appendChild(label3);
         row3.appendChild(input3);
         settingsList.appendChild(row3);
 
+        var piecesInfo = document.createElement('div');
+        piecesInfo.id = 'bpPiecesInfo';
+        piecesInfo.style.textAlign = 'center';
+        piecesInfo.style.fontSize = '14px';
+        piecesInfo.style.color = '#666';
+        piecesInfo.style.marginTop = '10px';
+        settingsList.appendChild(piecesInfo);
+
         startScreen.appendChild(settingsList);
 
-        // Кнопка старт
-        const btnWrap = document.createElement('div');
+        var btnWrap = document.createElement('div');
         btnWrap.style.textAlign = 'center';
         btnWrap.style.margin = '40px 0';
 
-        const startBtn = document.createElement('button');
+        var startBtn = document.createElement('button');
         startBtn.id = 'bpStartBtn';
         startBtn.textContent = 'НАЧАТЬ ИГРУ';
         startBtn.style.display = 'inline-block';
@@ -251,14 +248,13 @@
         startBtn.style.color = '#1a1a1a';
         startBtn.style.cursor = 'pointer';
         startBtn.style.transition = 'all 0.3s ease';
-        startBtn.style.fontFamily = 'inherit';
 
-        startBtn.addEventListener('mouseenter', () => {
+        startBtn.addEventListener('mouseenter', function() {
             startBtn.style.background = '#1a1a1a';
             startBtn.style.color = '#ffffff';
             startBtn.style.transform = 'scale(1.05)';
         });
-        startBtn.addEventListener('mouseleave', () => {
+        startBtn.addEventListener('mouseleave', function() {
             startBtn.style.background = 'transparent';
             startBtn.style.color = '#1a1a1a';
             startBtn.style.transform = 'scale(1)';
@@ -267,8 +263,7 @@
         btnWrap.appendChild(startBtn);
         startScreen.appendChild(btnWrap);
 
-        // Разделитель
-        const divider = document.createElement('div');
+        var divider = document.createElement('div');
         divider.style.width = '100%';
         divider.style.height = '1px';
         divider.style.background = '#1a1a1a';
@@ -277,14 +272,14 @@
 
         page.appendChild(startScreen);
 
-        // Игровой экран
-        const gameScreen = document.createElement('div');
+        var gameScreen = document.createElement('div');
         gameScreen.id = 'bpGameScreen';
         gameScreen.style.display = 'none';
 
-        const gameContainer = document.createElement('div');
+        var gameContainer = document.createElement('div');
+        gameContainer.id = 'bpGameContainer';
         gameContainer.style.position = 'relative';
-        gameContainer.style.maxWidth = '900px';
+        gameContainer.style.maxWidth = '1400px';
         gameContainer.style.margin = '0 auto';
         gameContainer.style.border = '1px solid #d0d0d0';
         gameContainer.style.borderRadius = '12px';
@@ -292,8 +287,7 @@
         gameContainer.style.background = '#ffffff';
         gameContainer.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
 
-        // Тулбар
-        const toolbar = document.createElement('div');
+        var toolbar = document.createElement('div');
         toolbar.style.position = 'relative';
         toolbar.style.height = '70px';
         toolbar.style.background = '#ffffff';
@@ -303,103 +297,74 @@
         toolbar.style.justifyContent = 'space-between';
         toolbar.style.padding = '0 20px';
 
-        const toolbarLeft = document.createElement('div');
+        var toolbarLeft = document.createElement('div');
         toolbarLeft.style.display = 'flex';
         toolbarLeft.style.alignItems = 'center';
         toolbarLeft.style.gap = '12px';
 
-        const pauseBtn = document.createElement('button');
-        pauseBtn.id = 'bpPauseBtn';
-        pauseBtn.textContent = '⏸';
-        pauseBtn.title = 'Пауза';
-        pauseBtn.style.width = '44px';
-        pauseBtn.style.height = '44px';
-        pauseBtn.style.borderRadius = '50%';
-        pauseBtn.style.border = '2px solid #ff6b35';
-        pauseBtn.style.background = '#ffffff';
-        pauseBtn.style.cursor = 'pointer';
-        pauseBtn.style.display = 'flex';
-        pauseBtn.style.alignItems = 'center';
-        pauseBtn.style.justifyContent = 'center';
-        pauseBtn.style.fontSize = '20px';
-        pauseBtn.style.transition = 'all 0.2s ease';
-        pauseBtn.style.color = '#ff6b35';
-        pauseBtn.style.flexShrink = '0';
+        function makeCircleBtn(id, html, title) {
+            var btn = document.createElement('button');
+            btn.id = id;
+            btn.innerHTML = '<span style="font-size:20px;">' + html + '</span>';
+            btn.title = title;
+            btn.style.width = '44px';
+            btn.style.height = '44px';
+            btn.style.borderRadius = '50%';
+            btn.style.border = '2px solid #ff6b35';
+            btn.style.background = '#ffffff';
+            btn.style.cursor = 'pointer';
+            btn.style.display = 'flex';
+            btn.style.alignItems = 'center';
+            btn.style.justifyContent = 'center';
+            btn.style.transition = 'all 0.2s ease';
+            btn.style.color = '#ff6b35';
+            btn.addEventListener('mouseenter', function() {
+                btn.style.background = '#ff6b35';
+                btn.style.color = '#ffffff';
+            });
+            btn.addEventListener('mouseleave', function() {
+                btn.style.background = '#ffffff';
+                btn.style.color = '#ff6b35';
+            });
+            return btn;
+        }
 
-        pauseBtn.addEventListener('mouseenter', () => {
-            pauseBtn.style.background = '#ff6b35';
-            pauseBtn.style.color = '#ffffff';
-            pauseBtn.style.transform = 'scale(1.1)';
-        });
-        pauseBtn.addEventListener('mouseleave', () => {
-            pauseBtn.style.background = '#ffffff';
-            pauseBtn.style.color = '#ff6b35';
-            pauseBtn.style.transform = 'scale(1)';
-        });
+        function makeSmallCircleBtn(id, html, title) {
+            var btn = document.createElement('button');
+            btn.id = id;
+            btn.innerHTML = '<span style="font-size:14px; font-weight: 700;">' + html + '</span>';
+            btn.title = title;
+            btn.style.width = '40px';
+            btn.style.height = '40px';
+            btn.style.borderRadius = '50%';
+            btn.style.border = '2px solid #ff6b35';
+            btn.style.background = '#ffffff';
+            btn.style.cursor = 'pointer';
+            btn.style.display = 'flex';
+            btn.style.alignItems = 'center';
+            btn.style.justifyContent = 'center';
+            btn.style.transition = 'all 0.2s ease';
+            btn.style.color = '#ff6b35';
+            btn.addEventListener('mouseenter', function() {
+                btn.style.background = '#ff6b35';
+                btn.style.color = '#ffffff';
+            });
+            btn.addEventListener('mouseleave', function() {
+                btn.style.background = '#ffffff';
+                btn.style.color = '#ff6b35';
+            });
+            return btn;
+        }
 
-        const showBtn = document.createElement('button');
-        showBtn.id = 'bpShowBtn';
-        showBtn.textContent = '👁';
-        showBtn.title = 'Показать картинку';
-        showBtn.style.width = '44px';
-        showBtn.style.height = '44px';
-        showBtn.style.borderRadius = '50%';
-        showBtn.style.border = '2px solid #ff6b35';
-        showBtn.style.background = '#ffffff';
-        showBtn.style.cursor = 'pointer';
-        showBtn.style.display = 'flex';
-        showBtn.style.alignItems = 'center';
-        showBtn.style.justifyContent = 'center';
-        showBtn.style.fontSize = '20px';
-        showBtn.style.transition = 'all 0.2s ease';
-        showBtn.style.color = '#ff6b35';
-        showBtn.style.flexShrink = '0';
-
-        showBtn.addEventListener('mouseenter', () => {
-            showBtn.style.background = '#ff6b35';
-            showBtn.style.color = '#ffffff';
-            showBtn.style.transform = 'scale(1.1)';
-        });
-        showBtn.addEventListener('mouseleave', () => {
-            showBtn.style.background = '#ffffff';
-            showBtn.style.color = '#ff6b35';
-            showBtn.style.transform = 'scale(1)';
-        });
-
-        const achBtn = document.createElement('button');
-        achBtn.id = 'bpAchBtn';
-        achBtn.textContent = '🏆';
-        achBtn.title = 'Достижения';
-        achBtn.style.width = '44px';
-        achBtn.style.height = '44px';
-        achBtn.style.borderRadius = '50%';
-        achBtn.style.border = '2px solid #ff6b35';
-        achBtn.style.background = '#ffffff';
-        achBtn.style.cursor = 'pointer';
-        achBtn.style.display = 'flex';
-        achBtn.style.alignItems = 'center';
-        achBtn.style.justifyContent = 'center';
-        achBtn.style.fontSize = '20px';
-        achBtn.style.transition = 'all 0.2s ease';
-        achBtn.style.color = '#ff6b35';
-        achBtn.style.flexShrink = '0';
-
-        achBtn.addEventListener('mouseenter', () => {
-            achBtn.style.background = '#ff6b35';
-            achBtn.style.color = '#ffffff';
-            achBtn.style.transform = 'scale(1.1)';
-        });
-        achBtn.addEventListener('mouseleave', () => {
-            achBtn.style.background = '#ffffff';
-            achBtn.style.color = '#ff6b35';
-            achBtn.style.transform = 'scale(1)';
-        });
+        var pauseBtn = makeCircleBtn('bpPauseBtn', '⏸', 'Пауза');
+        var showBtn = makeCircleBtn('bpShowBtn', '👁', 'Показать картинку');
+        var achBtn = makeCircleBtn('bpAchBtn', '🏆', 'Достижения');
 
         toolbarLeft.appendChild(pauseBtn);
         toolbarLeft.appendChild(showBtn);
         toolbarLeft.appendChild(achBtn);
 
-        const timerCloud = document.createElement('div');
+        var timerCloud = document.createElement('div');
         timerCloud.id = 'bpTimer';
         timerCloud.textContent = '00:00';
         timerCloud.style.position = 'absolute';
@@ -416,96 +381,111 @@
         timerCloud.style.letterSpacing = '2px';
         timerCloud.style.minWidth = '120px';
         timerCloud.style.textAlign = 'center';
-        timerCloud.style.boxShadow = '0 4px 15px rgba(0,0,0,0.3)';
+        timerCloud.style.transition = 'color 0.3s ease';
 
-        const counterInline = document.createElement('div');
-        counterInline.style.position = 'absolute';
-        counterInline.style.left = 'calc(50% + 80px)';
-        counterInline.style.top = '50%';
-        counterInline.style.transform = 'translateY(-50%)';
-        counterInline.style.fontSize = '14px';
-        counterInline.style.fontWeight = '600';
-        counterInline.style.color = '#1a1a1a';
-        counterInline.style.display = 'flex';
-        counterInline.style.alignItems = 'center';
-        counterInline.style.gap = '4px';
-        counterInline.style.whiteSpace = 'nowrap';
-
-        const counterIcon = document.createElement('span');
-        counterIcon.textContent = '🧩';
-
-        const counterText = document.createElement('span');
-        counterText.id = 'bpCounter';
-        counterText.textContent = '0 / 0';
-
-        counterInline.appendChild(counterIcon);
-        counterInline.appendChild(counterText);
-
-        const toolbarRight = document.createElement('div');
+        var toolbarRight = document.createElement('div');
         toolbarRight.style.display = 'flex';
         toolbarRight.style.alignItems = 'center';
-        toolbarRight.style.gap = '12px';
+        toolbarRight.style.gap = '10px';
 
-        const menuBtn = document.createElement('button');
-        menuBtn.id = 'bpMenuBtn';
-        menuBtn.textContent = '☰';
-        menuBtn.title = 'Меню';
-        menuBtn.style.width = '44px';
-        menuBtn.style.height = '44px';
-        menuBtn.style.borderRadius = '50%';
-        menuBtn.style.border = '2px solid #ff6b35';
-        menuBtn.style.background = '#ffffff';
-        menuBtn.style.cursor = 'pointer';
-        menuBtn.style.display = 'flex';
-        menuBtn.style.alignItems = 'center';
-        menuBtn.style.justifyContent = 'center';
-        menuBtn.style.fontSize = '20px';
-        menuBtn.style.transition = 'all 0.2s ease';
-        menuBtn.style.color = '#ff6b35';
-        menuBtn.style.flexShrink = '0';
+        var zoomResetBtn = makeSmallCircleBtn('bpZoomResetBtn', '1:1', 'Сбросить зум');
 
-        menuBtn.addEventListener('mouseenter', () => {
-            menuBtn.style.background = '#ff6b35';
-            menuBtn.style.color = '#ffffff';
-            menuBtn.style.transform = 'scale(1.1)';
+        var bgColorBtn = document.createElement('button');
+        bgColorBtn.id = 'bpBgColorBtn';
+        bgColorBtn.title = 'Сменить цвет фона';
+        bgColorBtn.style.width = '40px';
+        bgColorBtn.style.height = '40px';
+        bgColorBtn.style.borderRadius = '50%';
+        bgColorBtn.style.border = '2px solid #ff6b35';
+        bgColorBtn.style.background = state.backgroundColor;
+        bgColorBtn.style.cursor = 'pointer';
+        bgColorBtn.style.transition = 'all 0.2s ease';
+        bgColorBtn.addEventListener('mouseenter', function() {
+            bgColorBtn.style.transform = 'scale(1.1)';
         });
-        menuBtn.addEventListener('mouseleave', () => {
-            menuBtn.style.background = '#ffffff';
-            menuBtn.style.color = '#ff6b35';
-            menuBtn.style.transform = 'scale(1)';
+        bgColorBtn.addEventListener('mouseleave', function() {
+            bgColorBtn.style.transform = 'scale(1)';
         });
 
+        var fullscreenBtn = makeCircleBtn('bpFullscreenBtn', '⛶', 'На весь экран');
+        var menuBtn = makeCircleBtn('bpMenuBtn', '☰', 'Меню');
+
+        toolbarRight.appendChild(zoomResetBtn);
+        toolbarRight.appendChild(bgColorBtn);
+        toolbarRight.appendChild(fullscreenBtn);
         toolbarRight.appendChild(menuBtn);
 
         toolbar.appendChild(toolbarLeft);
         toolbar.appendChild(timerCloud);
-        toolbar.appendChild(counterInline);
         toolbar.appendChild(toolbarRight);
         gameContainer.appendChild(toolbar);
 
-        // Canvas area
-        const canvasArea = document.createElement('div');
+        var progressBarContainer = document.createElement('div');
+        progressBarContainer.id = 'bpProgressBarContainer';
+        progressBarContainer.style.width = '100%';
+        progressBarContainer.style.height = '10px';
+        progressBarContainer.style.background = '#e8e8e8';
+        progressBarContainer.style.position = 'relative';
+        progressBarContainer.style.overflow = 'hidden';
+        progressBarContainer.style.borderTop = '1px solid #e0e0e0';
+        progressBarContainer.style.borderBottom = '1px solid #e0e0e0';
+
+        var progressBarFill = document.createElement('div');
+        progressBarFill.id = 'bpProgressBarFill';
+        progressBarFill.style.position = 'absolute';
+        progressBarFill.style.top = '0';
+        progressBarFill.style.left = '0';
+        progressBarFill.style.height = '100%';
+        progressBarFill.style.width = '0%';
+        progressBarFill.style.background = 'linear-gradient(90deg, #ff6b35 0%, #ff8c5a 50%, #ff6b35 100%)';
+        progressBarFill.style.transition = 'width 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        progressBarFill.style.boxShadow = '0 0 8px rgba(255, 107, 53, 0.5)';
+
+        var progressBarSegments = document.createElement('div');
+        progressBarSegments.id = 'bpProgressBarSegments';
+        progressBarSegments.style.position = 'absolute';
+        progressBarSegments.style.top = '0';
+        progressBarSegments.style.left = '0';
+        progressBarSegments.style.width = '100%';
+        progressBarSegments.style.height = '100%';
+        progressBarSegments.style.display = 'flex';
+
+        progressBarContainer.appendChild(progressBarFill);
+        progressBarContainer.appendChild(progressBarSegments);
+        gameContainer.appendChild(progressBarContainer);
+
+        var canvasArea = document.createElement('div');
         canvasArea.id = 'bpCanvasArea';
         canvasArea.style.position = 'relative';
         canvasArea.style.width = '100%';
-        canvasArea.style.background = '#fafafa';
+        canvasArea.style.height = '1200px';
+        canvasArea.style.background = state.backgroundColor;
+        canvasArea.style.transition = 'background 0.3s ease';
+        canvasArea.style.overflow = 'auto';
 
-        const canvas = document.createElement('canvas');
+        var canvasWrapper = document.createElement('div');
+        canvasWrapper.id = 'bpCanvasWrapper';
+        canvasWrapper.style.position = 'relative';
+        canvasWrapper.style.width = CONFIG.canvasWidth + 'px';
+        canvasWrapper.style.height = CONFIG.canvasHeight + 'px';
+        canvasWrapper.style.margin = '0 auto';
+        canvasWrapper.style.transformOrigin = 'top left';
+        canvasWrapper.style.transition = 'transform 0.2s ease';
+
+        var canvas = document.createElement('canvas');
         canvas.id = 'bpCanvas';
         canvas.width = CONFIG.canvasWidth;
         canvas.height = CONFIG.canvasHeight;
         canvas.style.display = 'block';
-        canvas.style.width = '100%';
-        canvas.style.height = 'auto';
         canvas.style.cursor = 'grab';
 
-        canvasArea.appendChild(canvas);
+        canvasWrapper.appendChild(canvas);
+        canvasArea.appendChild(canvasWrapper);
         gameContainer.appendChild(canvasArea);
         gameScreen.appendChild(gameContainer);
         page.appendChild(gameScreen);
 
-        // Модалка достижений
-        const achOverlay = document.createElement('div');
+        var achOverlay = document.createElement('div');
         achOverlay.id = 'bpAchOverlay';
         achOverlay.style.display = 'none';
         achOverlay.style.position = 'fixed';
@@ -519,7 +499,7 @@
         achOverlay.style.justifyContent = 'center';
         achOverlay.style.padding = '20px';
 
-        const achModal = document.createElement('div');
+        var achModal = document.createElement('div');
         achModal.style.background = '#ffffff';
         achModal.style.borderRadius = '16px';
         achModal.style.padding = '30px';
@@ -529,22 +509,22 @@
         achModal.style.overflowY = 'auto';
         achModal.style.border = '2px solid #ff6b35';
 
-        const achTitle = document.createElement('h3');
-        achTitle.textContent = '🏆 Достижения';
+        var achTitle = document.createElement('h3');
+        achTitle.textContent = 'Достижения';
         achTitle.style.fontSize = '24px';
         achTitle.style.margin = '0 0 20px 0';
         achTitle.style.textAlign = 'center';
         achTitle.style.fontWeight = '800';
         achModal.appendChild(achTitle);
 
-        const achGrid = document.createElement('div');
+        var achGrid = document.createElement('div');
         achGrid.id = 'bpAchGrid';
         achGrid.style.display = 'grid';
         achGrid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(180px, 1fr))';
         achGrid.style.gap = '12px';
         achModal.appendChild(achGrid);
 
-        const achClose = document.createElement('button');
+        var achClose = document.createElement('button');
         achClose.id = 'bpAchClose';
         achClose.textContent = 'Закрыть';
         achClose.style.display = 'block';
@@ -557,54 +537,157 @@
         achClose.style.fontSize = '14px';
         achClose.style.fontWeight = '700';
         achClose.style.cursor = 'pointer';
-        achClose.style.textTransform = 'uppercase';
-        achClose.style.letterSpacing = '1px';
         achModal.appendChild(achClose);
 
         achOverlay.appendChild(achModal);
         page.appendChild(achOverlay);
 
-        // Toast container
-        const toastContainer = document.createElement('div');
+        var toastContainer = document.createElement('div');
         toastContainer.id = 'bpToastContainer';
         page.appendChild(toastContainer);
 
         wrapper.appendChild(page);
 
-        // Event listeners
         document.getElementById('bpStartBtn').addEventListener('click', startGame);
         document.getElementById('bpPauseBtn').addEventListener('click', togglePause);
         document.getElementById('bpShowBtn').addEventListener('click', toggleShowImage);
         document.getElementById('bpAchBtn').addEventListener('click', openAchievements);
-        document.getElementById('bpAchClose').addEventListener('click', () => {
+        document.getElementById('bpAchClose').addEventListener('click', function() {
             document.getElementById('bpAchOverlay').style.display = 'none';
         });
         document.getElementById('bpMenuBtn').addEventListener('click', backToMenu);
-        document.getElementById('bpAchOverlay').addEventListener('click', (e) => {
+        document.getElementById('bpFullscreenBtn').addEventListener('click', toggleFullscreen);
+        document.getElementById('bpZoomResetBtn').addEventListener('click', function() { setZoom(1); });
+        document.getElementById('bpBgColorBtn').addEventListener('click', cycleBackgroundColor);
+
+        document.getElementById('bpAchOverlay').addEventListener('click', function(e) {
             if (e.target.id === 'bpAchOverlay') {
                 document.getElementById('bpAchOverlay').style.display = 'none';
             }
         });
+
+        document.getElementById('bpRows').addEventListener('change', updatePiecesInfo);
+        document.getElementById('bpCols').addEventListener('change', updatePiecesInfo);
+        updatePiecesInfo();
+    }
+
+    function cycleBackgroundColor() {
+        state.bgColorIndex = (state.bgColorIndex + 1) % BG_COLORS.length;
+        setBackgroundColor(BG_COLORS[state.bgColorIndex]);
+        var btn = document.getElementById('bpBgColorBtn');
+        if (btn) {
+            btn.style.background = BG_COLORS[state.bgColorIndex];
+        }
+    }
+
+    function setBackgroundColor(color) {
+        state.backgroundColor = color;
+        var canvasArea = document.getElementById('bpCanvasArea');
+        if (canvasArea) {
+            canvasArea.style.background = color;
+        }
+    }
+
+    function toggleFullscreen() {
+        var container = document.getElementById('bpGameContainer');
+        if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement) {
+            if (container.requestFullscreen) container.requestFullscreen();
+            else if (container.webkitRequestFullscreen) container.webkitRequestFullscreen();
+            else if (container.mozRequestFullScreen) container.mozRequestFullScreen();
+            else if (container.msRequestFullscreen) container.msRequestFullscreen();
+        } else {
+            if (document.exitFullscreen) document.exitFullscreen();
+            else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+            else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
+        }
+    }
+
+    function changeZoom(delta) {
+        var newZoom = Math.max(0.2, Math.min(3, state.zoomLevel + delta));
+        setZoom(newZoom);
+    }
+
+    function setZoom(zoom) {
+        state.zoomLevel = Math.max(0.2, Math.min(3, zoom));
+        var wrapper = document.getElementById('bpCanvasWrapper');
+        if (wrapper) {
+            wrapper.style.transform = 'scale(' + state.zoomLevel + ')';
+        }
+    }
+
+    function updatePiecesInfo() {
+        var rows = parseInt(document.getElementById('bpRows').value);
+        var cols = parseInt(document.getElementById('bpCols').value);
+        var total = rows * cols;
+        var info = document.getElementById('bpPiecesInfo');
+        var difficulty = '';
+        if (total <= 9) difficulty = ' (Легко)';
+        else if (total <= 20) difficulty = ' (Средне)';
+        else if (total <= 36) difficulty = ' (Сложно)';
+        else if (total <= 64) difficulty = ' (Очень сложно)';
+        else difficulty = ' (Эксперт)';
+        info.textContent = 'Всего кусочков: ' + total + difficulty;
+    }
+
+    function buildProgressBar() {
+        var segments = document.getElementById('bpProgressBarSegments');
+        if (!segments) return;
+        segments.innerHTML = '';
+        var total = state.pieces.length;
+        if (total === 0) return;
+        for (var i = 0; i < total; i++) {
+            var seg = document.createElement('div');
+            seg.style.flex = '1';
+            seg.style.borderRight = i < total - 1 ? '1px solid rgba(255,255,255,0.6)' : 'none';
+            seg.style.height = '100%';
+            segments.appendChild(seg);
+        }
     }
 
     function startGame() {
-        const url = document.getElementById('bpUrlInput').value.trim();
-        const rows = parseInt(document.getElementById('bpRows').value);
-        const cols = parseInt(document.getElementById('bpCols').value);
+        var url = document.getElementById('bpUrlInput').value.trim();
+        var rows = parseInt(document.getElementById('bpRows').value);
+        var cols = parseInt(document.getElementById('bpCols').value);
 
         if (!url) { alert('Введите ссылку на изображение'); return; }
 
-        CONFIG.imageUrl = url; CONFIG.rows = rows; CONFIG.cols = cols;
-        state.isComplete = false; state.isPaused = false;
-        state.elapsedTime = 0; state.moveCount = 0; state.mistakes = 0;
-        state.pieces = []; state.showImage = false; state.comboCount = 0;
-        state.achievements = ACHIEVEMENTS.map(a => ({...a}));
+        localStorage.removeItem('bp_game_state');
+
+        CONFIG.imageUrl = url;
+        CONFIG.rows = rows;
+        CONFIG.cols = cols;
+
+        var totalPieces = rows * cols;
+        CONFIG.snapRadius = Math.max(15, Math.min(35, 100 / Math.sqrt(totalPieces)));
+
+        state.isComplete = false;
+        state.isPaused = false;
+        state.elapsedTime = 0;
+        state.moveCount = 0;
+        state.mistakes = 0;
+        state.pieces = [];
+        state.showImage = false;
+        state.comboCount = 0;
+        state.dragPiece = null;
+        state.zoomLevel = 1;
+        state.bgColorIndex = 0;
+
+        state.achievements = ACHIEVEMENTS.map(function(a) {
+            return { id: a.id, title: a.title, desc: a.desc, icon: a.icon, unlocked: false };
+        });
         loadAchievements();
 
         saveGamesCount();
 
         document.getElementById('bpStartScreen').style.display = 'none';
         document.getElementById('bpGameScreen').style.display = 'block';
+
+        setZoom(1);
+        setBackgroundColor(BG_COLORS[0]);
+
+        // Сброс цвета таймера
+        var timerCloud = document.getElementById('bpTimer');
+        if (timerCloud) timerCloud.style.color = '#ffffff';
 
         loadImage(url);
     }
@@ -616,11 +699,12 @@
     }
 
     function loadImage(url) {
-        const img = new Image();
+        var img = new Image();
         img.crossOrigin = 'anonymous';
         img.onload = function() {
             state.image = img;
             createPieces();
+            buildProgressBar();
             startTimer();
             setupCanvas();
             draw();
@@ -633,20 +717,33 @@
     }
 
     function createPieces() {
-        const rows = CONFIG.rows, cols = CONFIG.cols;
-        const imgW = state.image.width, imgH = state.image.height;
-        const cW = CONFIG.canvasWidth, cH = CONFIG.canvasHeight;
+        var rows = CONFIG.rows;
+        var cols = CONFIG.cols;
+        var imgW = state.image.width;
+        var imgH = state.image.height;
+        var cW = CONFIG.canvasWidth;
+        var cH = CONFIG.canvasHeight;
 
-        const pieceW = imgW / cols, pieceH = imgH / rows;
-        const scale = Math.min(cW / imgW, cH / imgH) * 0.85;
-        const displayW = imgW * scale, displayH = imgH * scale;
-        const offsetX = (cW - displayW) / 2, offsetY = (cH - displayH) / 2;
-        const dpW = pieceW * scale, dpH = pieceH * scale;
+        var pieceW = imgW / cols;
+        var pieceH = imgH / rows;
+        var scale = Math.min(cW / imgW, cH / imgH) * 0.55;
+        var displayW = imgW * scale;
+        var displayH = imgH * scale;
+        var offsetX = (cW - displayW) / 2;
+        var offsetY = (cH - displayH) / 2;
+        var dpW = pieceW * scale;
+        var dpH = pieceH * scale;
 
-        const shapes = [];
-        for (let r = 0; r < rows; r++) {
+        state.assemblyX = offsetX;
+        state.assemblyY = offsetY;
+        state.assemblyW = displayW;
+        state.assemblyH = displayH;
+
+        var shapes = [];
+        var r, c;
+        for (r = 0; r < rows; r++) {
             shapes[r] = [];
-            for (let c = 0; c < cols; c++) {
+            for (c = 0; c < cols; c++) {
                 shapes[r][c] = {
                     top: r === 0 ? 0 : -shapes[r-1][c].bottom,
                     right: c === cols-1 ? 0 : (Math.random() > 0.5 ? 1 : -1),
@@ -657,26 +754,29 @@
         }
 
         state.pieces = [];
-        for (let r = 0; r < rows; r++) {
-            for (let c = 0; c < cols; c++) {
-                const correctX = offsetX + c * dpW;
-                const correctY = offsetY + r * dpH;
-                let startX, startY;
+        for (r = 0; r < rows; r++) {
+            for (c = 0; c < cols; c++) {
+                var correctX = offsetX + c * dpW;
+                var correctY = offsetY + r * dpH;
+                var startX, startY;
+                var attempts = 0;
                 do {
-                    startX = Math.random() * (cW - dpW * 1.3);
-                    startY = Math.random() * (cH - dpH * 1.3);
-                } while (Math.abs(startX - correctX) < dpW * 2 && Math.abs(startY - correctY) < dpH * 2);
+                    startX = Math.random() * (cW - dpW * 1.5);
+                    startY = Math.random() * (cH - dpH * 1.5);
+                    attempts++;
+                } while (attempts < 100 && Math.abs(startX - correctX) < dpW * 1.5 && Math.abs(startY - correctY) < dpH * 1.5);
 
                 state.pieces.push({
-                    row: r, col: c, correctX, correctY,
+                    row: r, col: c,
+                    correctX: correctX, correctY: correctY,
                     currentX: startX, currentY: startY,
                     width: dpW, height: dpH,
                     shape: shapes[r][c],
-                    isPlaced: false, id: `p_${r}_${c}`
+                    isPlaced: false,
+                    id: 'p_' + r + '_' + c
                 });
             }
         }
-        restoreState();
     }
 
     function setupCanvas() {
@@ -687,100 +787,253 @@
         state.canvas.addEventListener('mousemove', handleMove);
         state.canvas.addEventListener('mouseup', handleEnd);
         state.canvas.addEventListener('mouseleave', handleEnd);
-        state.canvas.addEventListener('touchstart', (e) => { e.preventDefault(); handleStart(e.touches[0]); }, {passive: false});
-        state.canvas.addEventListener('touchmove', (e) => { e.preventDefault(); handleMove(e.touches[0]); }, {passive: false});
-        state.canvas.addEventListener('touchend', (e) => { e.preventDefault(); handleEnd(); }, {passive: false});
+        state.canvas.addEventListener('touchstart', function(e) { e.preventDefault(); handleStart(e.touches[0]); }, {passive: false});
+        state.canvas.addEventListener('touchmove', function(e) { e.preventDefault(); handleMove(e.touches[0]); }, {passive: false});
+        state.canvas.addEventListener('touchend', function(e) { e.preventDefault(); handleEnd(); }, {passive: false});
+
+        var canvasArea = document.getElementById('bpCanvasArea');
+        canvasArea.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            var delta = e.deltaY > 0 ? -0.2 : 0.2;
+            changeZoom(delta);
+        }, {passive: false});
+
+        var pinchStartDist = 0;
+        var pinchStartZoom = 1;
+        canvasArea.addEventListener('touchstart', function(e) {
+            if (e.touches.length === 2) {
+                e.preventDefault();
+                var dx = e.touches[0].clientX - e.touches[1].clientX;
+                var dy = e.touches[0].clientY - e.touches[1].clientY;
+                pinchStartDist = Math.sqrt(dx*dx + dy*dy);
+                pinchStartZoom = state.zoomLevel;
+            }
+        }, {passive: false});
+        canvasArea.addEventListener('touchmove', function(e) {
+            if (e.touches.length === 2) {
+                e.preventDefault();
+                var dx = e.touches[0].clientX - e.touches[1].clientX;
+                var dy = e.touches[0].clientY - e.touches[1].clientY;
+                var dist = Math.sqrt(dx*dx + dy*dy);
+                var scale = dist / pinchStartDist;
+                setZoom(pinchStartZoom * scale);
+            }
+        }, {passive: false});
+    }
+
+    function isPiecePlacedAt(row, col) {
+        var i;
+        for (i = 0; i < state.pieces.length; i++) {
+            if (state.pieces[i].row === row && state.pieces[i].col === col && state.pieces[i].isPlaced) {
+                return state.pieces[i];
+            }
+        }
+        return null;
+    }
+
+    function getOpenEdges(piece) {
+        var row = piece.row;
+        var col = piece.col;
+        var rows = CONFIG.rows;
+        var cols = CONFIG.cols;
+        return {
+            top: row === 0 || !isPiecePlacedAt(row - 1, col),
+            right: col === cols - 1 || !isPiecePlacedAt(row, col + 1),
+            bottom: row === rows - 1 || !isPiecePlacedAt(row + 1, col),
+            left: col === 0 || !isPiecePlacedAt(row, col - 1)
+        };
     }
 
     function draw() {
         if (!state.ctx || !state.canvas) return;
-        const ctx = state.ctx, canvas = state.canvas;
+        var ctx = state.ctx;
+        var canvas = state.canvas;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        ctx.fillStyle = '#fafafa';
+        ctx.fillStyle = state.backgroundColor;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctx.strokeStyle = 'rgba(60, 60, 60, 0.12)';
-        ctx.lineWidth = 1;
-        for (let x = 0; x < canvas.width; x += 40) {
-            ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
-        }
-        for (let y = 0; y < canvas.height; y += 40) {
-            ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
-        }
+        // Черная пунктирная рамка вокруг зоны сборки
+        ctx.strokeStyle = 'rgba(0, 0, 0, 0.4)';
+        ctx.lineWidth = 3;
+        ctx.setLineDash([15, 10]);
+        ctx.strokeRect(state.assemblyX - 10, state.assemblyY - 10,
+            state.assemblyW + 20, state.assemblyH + 20);
+        ctx.setLineDash([]);
 
-        if (state.pieces.length > 0) {
-            const first = state.pieces[0], last = state.pieces[state.pieces.length - 1];
-            ctx.strokeStyle = 'rgba(255, 107, 53, 0.4)';
-            ctx.lineWidth = 2;
-            ctx.setLineDash([10, 10]);
-            ctx.strokeRect(first.correctX - 5, first.correctY - 5,
-                last.correctX + last.width - first.correctX + 10,
-                last.correctY + last.height - first.correctY + 10);
-            ctx.setLineDash([]);
-        }
+        // Тонкая рыжая линия — граница, за которую нельзя убрать кусочки
+        var borderMargin = 5;
+        ctx.strokeStyle = 'rgba(255, 107, 53, 0.6)';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([]);
+        ctx.strokeRect(borderMargin, borderMargin,
+            canvas.width - borderMargin * 2, canvas.height - borderMargin * 2);
 
         if (state.showImage && state.image) {
-            ctx.globalAlpha = 0.2;
-            const img = state.image;
-            const scale = Math.min(canvas.width / img.width, canvas.height / img.height) * 0.85;
-            const dw = img.width * scale, dh = img.height * scale;
-            const dx = (canvas.width - dw) / 2, dy = (canvas.height - dh) / 2;
+            ctx.globalAlpha = 0.15;
+            var img = state.image;
+            var sc = Math.min(canvas.width / img.width, canvas.height / img.height) * 0.55;
+            var dw = img.width * sc;
+            var dh = img.height * sc;
+            var dx = (canvas.width - dw) / 2;
+            var dy = (canvas.height - dh) / 2;
             ctx.drawImage(img, dx, dy, dw, dh);
             ctx.globalAlpha = 1.0;
         }
 
-        state.pieces.forEach(piece => {
-            if (piece === state.dragPiece) return;
-            drawJigsawPiece(piece, false);
-        });
-        if (state.dragPiece) drawJigsawPiece(state.dragPiece, true);
-
-        if (!state.isComplete && !state.isPaused) requestAnimationFrame(draw);
-    }
-
-    function drawJigsawPiece(piece, isDragging) {
-        if (!state.image) return;
-        const ctx = state.ctx;
-
-        ctx.save();
-        createJigsawPath(piece.currentX, piece.currentY, piece.width, piece.height, piece.shape);
-        ctx.clip();
-
-        if (isDragging) {
-            ctx.shadowColor = 'rgba(0,0,0,0.4)';
-            ctx.shadowBlur = 15;
-            ctx.shadowOffsetX = 6;
-            ctx.shadowOffsetY = 6;
+        var i;
+        for (i = 0; i < state.pieces.length; i++) {
+            if (state.pieces[i].isPlaced && state.pieces[i] !== state.dragPiece) {
+                drawJigsawPiece(state.pieces[i], false, true);
+            }
+        }
+        for (i = 0; i < state.pieces.length; i++) {
+            if (state.pieces[i].isPlaced && state.pieces[i] !== state.dragPiece) {
+                drawOpenEdges(state.pieces[i]);
+            }
+        }
+        for (i = 0; i < state.pieces.length; i++) {
+            if (!state.pieces[i].isPlaced && state.pieces[i] !== state.dragPiece) {
+                drawJigsawPiece(state.pieces[i], false, false);
+            }
+        }
+        if (state.dragPiece) {
+            drawJigsawPiece(state.dragPiece, true, false);
         }
 
-        const img = state.image;
-        const srcX = piece.col * (img.width / CONFIG.cols);
-        const srcY = piece.row * (img.height / CONFIG.rows);
-        const srcW = img.width / CONFIG.cols;
-        const srcH = img.height / CONFIG.rows;
+        if (!state.isComplete && !state.isPaused) {
+            requestAnimationFrame(draw);
+        }
+    }
 
-        ctx.drawImage(img, srcX, srcY, srcW, srcH,
-            piece.currentX, piece.currentY, piece.width, piece.height);
-        ctx.restore();
+    function drawJigsawPiece(piece, isDragging, isPlaced) {
+        if (!state.image) return;
+        var ctx = state.ctx;
 
-        ctx.save();
-        createJigsawPath(piece.currentX, piece.currentY, piece.width, piece.height, piece.shape);
-        if (piece.isPlaced) {
-            ctx.strokeStyle = 'rgba(255, 107, 53, 0.9)';
-            ctx.lineWidth = 3;
-            ctx.stroke();
+        var img = state.image;
+        var srcX = piece.col * (img.width / CONFIG.cols);
+        var srcY = piece.row * (img.height / CONFIG.rows);
+        var srcW = img.width / CONFIG.cols;
+        var srcH = img.height / CONFIG.rows;
+
+        if (isPlaced) {
+            var overlap = 3;
+            ctx.save();
+            ctx.drawImage(img, srcX, srcY, srcW, srcH,
+                piece.currentX - overlap, piece.currentY - overlap,
+                piece.width + overlap * 2, piece.height + overlap * 2);
+            ctx.restore();
         } else {
+            ctx.save();
+            createJigsawPath(piece.currentX, piece.currentY, piece.width, piece.height, piece.shape);
+            ctx.clip();
+
+            if (isDragging) {
+                ctx.shadowColor = 'rgba(0,0,0,0.4)';
+                ctx.shadowBlur = 15;
+                ctx.shadowOffsetX = 6;
+                ctx.shadowOffsetY = 6;
+            }
+
+            ctx.drawImage(img, srcX, srcY, srcW, srcH,
+                piece.currentX, piece.currentY, piece.width, piece.height);
+            ctx.restore();
+
+            ctx.save();
+            createJigsawPath(piece.currentX, piece.currentY, piece.width, piece.height, piece.shape);
             ctx.strokeStyle = isDragging ? 'rgba(255, 107, 53, 1)' : 'rgba(40, 40, 40, 0.5)';
             ctx.lineWidth = isDragging ? 3 : 1.5;
             ctx.stroke();
+            ctx.restore();
+        }
+    }
+
+    function drawOpenEdges(piece) {
+        var ctx = state.ctx;
+        var edges = getOpenEdges(piece);
+        var tabSize = Math.min(piece.width, piece.height) * 0.22;
+
+        ctx.save();
+        ctx.strokeStyle = 'rgba(255, 107, 53, 0.9)';
+        ctx.lineWidth = 3;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        if (edges.top) {
+            ctx.beginPath();
+            if (piece.shape.top === 0) {
+                ctx.moveTo(piece.currentX, piece.currentY);
+                ctx.lineTo(piece.currentX + piece.width, piece.currentY);
+            } else {
+                drawTabPath(piece.currentX, piece.currentY, piece.currentX + piece.width, piece.currentY, piece.shape.top * tabSize, 'h');
+            }
+            ctx.stroke();
+        }
+        if (edges.right) {
+            ctx.beginPath();
+            if (piece.shape.right === 0) {
+                ctx.moveTo(piece.currentX + piece.width, piece.currentY);
+                ctx.lineTo(piece.currentX + piece.width, piece.currentY + piece.height);
+            } else {
+                drawTabPath(piece.currentX + piece.width, piece.currentY, piece.currentX + piece.width, piece.currentY + piece.height, piece.shape.right * tabSize, 'v');
+            }
+            ctx.stroke();
+        }
+        if (edges.bottom) {
+            ctx.beginPath();
+            if (piece.shape.bottom === 0) {
+                ctx.moveTo(piece.currentX + piece.width, piece.currentY + piece.height);
+                ctx.lineTo(piece.currentX, piece.currentY + piece.height);
+            } else {
+                drawTabPath(piece.currentX + piece.width, piece.currentY + piece.height, piece.currentX, piece.currentY + piece.height, -piece.shape.bottom * tabSize, 'h');
+            }
+            ctx.stroke();
+        }
+        if (edges.left) {
+            ctx.beginPath();
+            if (piece.shape.left === 0) {
+                ctx.moveTo(piece.currentX, piece.currentY + piece.height);
+                ctx.lineTo(piece.currentX, piece.currentY);
+            } else {
+                drawTabPath(piece.currentX, piece.currentY + piece.height, piece.currentX, piece.currentY, -piece.shape.left * tabSize, 'v');
+            }
+            ctx.stroke();
         }
         ctx.restore();
     }
 
+    function drawTabPath(x1, y1, x2, y2, size, dir) {
+        var ctx = state.ctx;
+        var midX = (x1 + x2) / 2;
+        var midY = (y1 + y2) / 2;
+        var len = Math.abs(dir === 'h' ? x2 - x1 : y2 - y1);
+        var neckW = len * 0.32;
+        var neckStart = (dir === 'h' ? midX : midY) - neckW / 2;
+        var neckEnd = (dir === 'h' ? midX : midY) + neckW / 2;
+        var tabSize = Math.min(Math.abs(x2-x1), Math.abs(y2-y1)) * 0.22;
+
+        if (dir === 'h') {
+            var offY = size;
+            ctx.moveTo(neckStart, y1);
+            ctx.bezierCurveTo(neckStart, y1 + offY*0.15, neckStart - tabSize*0.15, y1 + offY*0.4, neckStart - tabSize*0.18, midY + offY*0.55);
+            ctx.bezierCurveTo(neckStart - tabSize*0.22, midY + offY*1.05, midX - tabSize*0.28, midY + offY*1.15, midX, midY + offY);
+            ctx.bezierCurveTo(midX + tabSize*0.28, midY + offY*1.15, neckEnd + tabSize*0.22, midY + offY*1.05, neckEnd + tabSize*0.18, midY + offY*0.55);
+            ctx.bezierCurveTo(neckEnd + tabSize*0.15, y1 + offY*0.4, neckEnd, y1 + offY*0.15, neckEnd, y1);
+            ctx.lineTo(x2, y2);
+        } else {
+            var offX = size;
+            ctx.moveTo(x1, neckStart);
+            ctx.bezierCurveTo(x1 + offX*0.15, neckStart, x1 + offX*0.4, neckStart - tabSize*0.15, midX + offX*0.55, neckStart - tabSize*0.18);
+            ctx.bezierCurveTo(midX + offX*1.05, neckStart - tabSize*0.22, midX + offX*1.15, midY - tabSize*0.28, midX + offX, midY);
+            ctx.bezierCurveTo(midX + offX*1.15, midY + tabSize*0.28, midX + offX*1.05, neckEnd + tabSize*0.22, midX + offX*0.55, neckEnd + tabSize*0.18);
+            ctx.bezierCurveTo(x1 + offX*0.4, neckEnd + tabSize*0.15, x1 + offX*0.15, neckEnd, x1, neckEnd);
+            ctx.lineTo(x2, y2);
+        }
+    }
+
     function createJigsawPath(x, y, w, h, shape) {
-        const ctx = state.ctx;
-        const tabSize = Math.min(w, h) * 0.22;
+        var ctx = state.ctx;
+        var tabSize = Math.min(w, h) * 0.22;
 
         ctx.beginPath();
         ctx.moveTo(x, y);
@@ -801,16 +1054,17 @@
     }
 
     function drawTab(x1, y1, x2, y2, size, dir) {
-        const ctx = state.ctx;
-        const midX = (x1 + x2) / 2, midY = (y1 + y2) / 2;
-        const len = Math.abs(dir === 'h' ? x2 - x1 : y2 - y1);
-        const neckW = len * 0.32;
-        const neckStart = (dir === 'h' ? midX : midY) - neckW / 2;
-        const neckEnd = (dir === 'h' ? midX : midY) + neckW / 2;
-        const tabSize = Math.min(Math.abs(x2-x1), Math.abs(y2-y1)) * 0.22;
+        var ctx = state.ctx;
+        var midX = (x1 + x2) / 2;
+        var midY = (y1 + y2) / 2;
+        var len = Math.abs(dir === 'h' ? x2 - x1 : y2 - y1);
+        var neckW = len * 0.32;
+        var neckStart = (dir === 'h' ? midX : midY) - neckW / 2;
+        var neckEnd = (dir === 'h' ? midX : midY) + neckW / 2;
+        var tabSize = Math.min(Math.abs(x2-x1), Math.abs(y2-y1)) * 0.22;
 
         if (dir === 'h') {
-            const offY = size;
+            var offY = size;
             ctx.lineTo(neckStart, y1);
             ctx.bezierCurveTo(neckStart, y1 + offY*0.15, neckStart - tabSize*0.15, y1 + offY*0.4, neckStart - tabSize*0.18, midY + offY*0.55);
             ctx.bezierCurveTo(neckStart - tabSize*0.22, midY + offY*1.05, midX - tabSize*0.28, midY + offY*1.15, midX, midY + offY);
@@ -818,7 +1072,7 @@
             ctx.bezierCurveTo(neckEnd + tabSize*0.15, y1 + offY*0.4, neckEnd, y1 + offY*0.15, neckEnd, y1);
             ctx.lineTo(x2, y2);
         } else {
-            const offX = size;
+            var offX = size;
             ctx.lineTo(x1, neckStart);
             ctx.bezierCurveTo(x1 + offX*0.15, neckStart, x1 + offX*0.4, neckStart - tabSize*0.15, midX + offX*0.55, neckStart - tabSize*0.18);
             ctx.bezierCurveTo(midX + offX*1.05, neckStart - tabSize*0.22, midX + offX*1.15, midY - tabSize*0.28, midX + offX, midY);
@@ -829,16 +1083,24 @@
     }
 
     function getCoords(e) {
-        const rect = state.canvas.getBoundingClientRect();
-        const scaleX = state.canvas.width / rect.width, scaleY = state.canvas.height / rect.height;
-        return { x: (e.clientX - rect.left) * scaleX, y: (e.clientY - rect.top) * scaleY };
+        var canvas = state.canvas;
+        var rect = canvas.getBoundingClientRect();
+        var scaleX = canvas.width / rect.width;
+        var scaleY = canvas.height / rect.height;
+        return {
+            x: (e.clientX - rect.left) * scaleX,
+            y: (e.clientY - rect.top) * scaleY
+        };
     }
 
     function handleStart(e) {
         if (state.isPaused || state.isComplete) return;
-        const {x, y} = getCoords(e);
-        for (let i = state.pieces.length - 1; i >= 0; i--) {
-            const p = state.pieces[i];
+        var coords = getCoords(e);
+        var x = coords.x;
+        var y = coords.y;
+        var i;
+        for (i = state.pieces.length - 1; i >= 0; i--) {
+            var p = state.pieces[i];
             if (p.isPlaced) continue;
             if (x >= p.currentX - 10 && x <= p.currentX + p.width + 10 &&
                 y >= p.currentY - 10 && y <= p.currentY + p.height + 10) {
@@ -854,29 +1116,43 @@
 
     function handleMove(e) {
         if (!state.dragPiece) return;
-        const {x, y} = getCoords(e);
-        state.dragPiece.currentX = x - state.dragOffsetX;
-        state.dragPiece.currentY = y - state.dragOffsetY;
+        var coords = getCoords(e);
+        var newX = coords.x - state.dragOffsetX;
+        var newY = coords.y - state.dragOffsetY;
+
+        // Ограничение: кусочки не могут выйти за рыжую границу
+        var borderMargin = 5;
+        var maxX = CONFIG.canvasWidth - state.dragPiece.width - borderMargin;
+        var maxY = CONFIG.canvasHeight - state.dragPiece.height - borderMargin;
+        newX = Math.max(borderMargin, Math.min(maxX, newX));
+        newY = Math.max(borderMargin, Math.min(maxY, newY));
+
+        state.dragPiece.currentX = newX;
+        state.dragPiece.currentY = newY;
     }
 
     function handleEnd() {
         if (!state.dragPiece) return;
-        const p = state.dragPiece;
+        var p = state.dragPiece;
         state.dragPiece = null;
         state.moveCount++;
 
-        const dx = p.currentX - p.correctX, dy = p.currentY - p.correctY;
-        const dist = Math.sqrt(dx*dx + dy*dy);
+        var dx = p.currentX - p.correctX;
+        var dy = p.currentY - p.correctY;
+        var dist = Math.sqrt(dx*dx + dy*dy);
 
         if (dist < CONFIG.snapRadius) {
-            p.currentX = p.correctX; p.currentY = p.correctY; p.isPlaced = true;
+            p.currentX = p.correctX;
+            p.currentY = p.correctY;
+            p.isPlaced = true;
             state.comboCount++;
             checkAchievement('combo', state.comboCount >= 5);
             checkAchievements();
-            if (state.pieces.every(piece => piece.isPlaced)) {
+            if (state.pieces.every(function(piece) { return piece.isPlaced; })) {
                 state.isComplete = true;
                 checkAchievements();
                 saveAchievements();
+                drawCompletedImage();
                 showCompletion();
             }
         } else {
@@ -887,75 +1163,122 @@
         updateUI();
     }
 
+    function drawCompletedImage() {
+        if (!state.ctx || !state.image) return;
+        var ctx = state.ctx;
+        var canvas = state.canvas;
+        var img = state.image;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        var rows = CONFIG.rows;
+        var cols = CONFIG.cols;
+        var pieceW = img.width / cols;
+        var pieceH = img.height / rows;
+        var scale = Math.min(canvas.width / img.width, canvas.height / img.height) * 0.7;
+        var displayW = img.width * scale;
+        var displayH = img.height * scale;
+        var offsetX = (canvas.width - displayW) / 2;
+        var offsetY = (canvas.height - displayH) / 2;
+        var dpW = pieceW * scale;
+        var dpH = pieceH * scale;
+
+        for (var r = 0; r < rows; r++) {
+            for (var c = 0; c < cols; c++) {
+                var x = offsetX + c * dpW;
+                var y = offsetY + r * dpH;
+                var srcX = c * pieceW;
+                var srcY = r * pieceH;
+
+                ctx.save();
+                ctx.drawImage(img, srcX, srcY, pieceW, pieceH, x, y, dpW, dpH);
+                ctx.restore();
+            }
+        }
+    }
+
     function showCompletion() {
-        const area = document.getElementById('bpCanvasArea');
-        const overlay = document.createElement('div');
-        overlay.style.position = 'absolute';
-        overlay.style.top = '0';
-        overlay.style.left = '0';
-        overlay.style.right = '0';
-        overlay.style.bottom = '0';
-        overlay.style.background = 'rgba(255,255,255,0.95)';
-        overlay.style.display = 'flex';
-        overlay.style.alignItems = 'center';
-        overlay.style.justifyContent = 'center';
-        overlay.style.zIndex = '100';
+        var canvasArea = document.getElementById('bpCanvasArea');
 
-        const box = document.createElement('div');
-        box.style.textAlign = 'center';
-        box.style.padding = '40px';
+        // Меняем цвет таймера на рыжий
+        var timerCloud = document.getElementById('bpTimer');
+        if (timerCloud) timerCloud.style.color = '#ff6b35';
 
-        const emoji = document.createElement('div');
-        emoji.textContent = '';
-        emoji.style.fontSize = '64px';
-        box.appendChild(emoji);
+        var congratsDiv = document.createElement('div');
+        congratsDiv.id = 'bpCongratsBanner';
+        congratsDiv.style.position = 'absolute';
+        congratsDiv.style.top = '20px';
+        congratsDiv.style.left = '50%';
+        congratsDiv.style.transform = 'translateX(-50%)';
+        congratsDiv.style.zIndex = '100';
+        congratsDiv.style.textAlign = 'center';
+        congratsDiv.style.pointerEvents = 'none';
 
-        const title = document.createElement('h2');
-        title.textContent = 'Поздравляем!';
-        title.style.fontSize = '36px';
+        var title = document.createElement('div');
+        title.textContent = '🎉 Поздравляем!';
+        title.style.fontSize = '48px';
         title.style.fontWeight = '900';
-        title.style.margin = '10px 0';
         title.style.fontFamily = 'Georgia, serif';
-        box.appendChild(title);
+        title.style.color = '#1a1a1a';
+        title.style.textShadow = '2px 2px 4px rgba(255,255,255,0.8), -2px -2px 4px rgba(255,255,255,0.8), 2px -2px 4px rgba(255,255,255,0.8), -2px 2px 4px rgba(255,255,255,0.8)';
+        title.style.margin = '0';
+        title.style.letterSpacing = '2px';
+        congratsDiv.appendChild(title);
 
-        const text = document.createElement('p');
-        text.textContent = `Пазл собран за ${formatTime(state.elapsedTime)}`;
-        text.style.fontSize = '18px';
-        text.style.color = '#666';
-        text.style.marginBottom = '24px';
-        box.appendChild(text);
+        var timeText = document.createElement('div');
+        timeText.textContent = 'Пазл собран за ' + formatTime(state.elapsedTime);
+        timeText.style.fontSize = '20px';
+        timeText.style.fontWeight = '600';
+        timeText.style.color = '#333';
+        timeText.style.textShadow = '1px 1px 3px rgba(255,255,255,0.9), -1px -1px 3px rgba(255,255,255,0.9)';
+        timeText.style.marginTop = '8px';
+        congratsDiv.appendChild(timeText);
 
-        const btn = document.createElement('button');
-        btn.textContent = 'Новая игра';
-        btn.style.background = '#1a1a1a';
-        btn.style.color = '#fff';
-        btn.style.border = 'none';
-        btn.style.borderRadius = '8px';
-        btn.style.padding = '14px 36px';
-        btn.style.fontSize = '16px';
-        btn.style.fontWeight = '700';
-        btn.style.cursor = 'pointer';
-        btn.style.textTransform = 'uppercase';
-        btn.style.letterSpacing = '2px';
+        canvasArea.appendChild(congratsDiv);
 
-        btn.addEventListener('click', () => {
+        var newGameBtn = document.createElement('button');
+        newGameBtn.id = 'bpNewGameBtn';
+        newGameBtn.textContent = 'НОВАЯ ИГРА';
+        newGameBtn.style.position = 'absolute';
+        newGameBtn.style.bottom = '30px';
+        newGameBtn.style.left = '50%';
+        newGameBtn.style.transform = 'translateX(-50%)';
+        newGameBtn.style.zIndex = '100';
+        newGameBtn.style.background = '#1a1a1a';
+        newGameBtn.style.color = '#fff';
+        newGameBtn.style.border = '2px solid #ff6b35';
+        newGameBtn.style.borderRadius = '12px';
+        newGameBtn.style.padding = '16px 40px';
+        newGameBtn.style.fontSize = '18px';
+        newGameBtn.style.fontWeight = '700';
+        newGameBtn.style.cursor = 'pointer';
+        newGameBtn.style.textTransform = 'uppercase';
+        newGameBtn.style.letterSpacing = '2px';
+        newGameBtn.style.transition = 'all 0.2s ease';
+        newGameBtn.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
+        newGameBtn.addEventListener('mouseenter', function() {
+            newGameBtn.style.background = '#ff6b35';
+            newGameBtn.style.transform = 'translateX(-50%) scale(1.05)';
+        });
+        newGameBtn.addEventListener('mouseleave', function() {
+            newGameBtn.style.background = '#1a1a1a';
+            newGameBtn.style.transform = 'translateX(-50%) scale(1)';
+        });
+        newGameBtn.addEventListener('click', function() {
             localStorage.removeItem('bp_game_state');
             location.reload();
         });
-
-        box.appendChild(btn);
-        overlay.appendChild(box);
-        area.appendChild(overlay);
+        canvasArea.appendChild(newGameBtn);
     }
 
     function checkAchievements() {
-        const placed = state.pieces.filter(p => p.isPlaced).length;
-        const total = state.pieces.length;
-        const time = state.elapsedTime;
+        var placed = state.pieces.filter(function(p) { return p.isPlaced; }).length;
+        var total = state.pieces.length;
+        var time = state.elapsedTime;
 
-        state.achievements.forEach(ach => {
+        state.achievements.forEach(function(ach) {
             if (ach.unlocked) return;
-            let unlock = false;
+            var unlock = false;
             if (ach.id === 'first' && placed >= 1) unlock = true;
             if (ach.id === 'quarter' && placed >= total * 0.25) unlock = true;
             if (ach.id === 'half' && placed >= total * 0.5) unlock = true;
@@ -977,7 +1300,14 @@
     }
 
     function checkAchievement(id, condition) {
-        const ach = state.achievements.find(a => a.id === id);
+        var ach = null;
+        var i;
+        for (i = 0; i < state.achievements.length; i++) {
+            if (state.achievements[i].id === id) {
+                ach = state.achievements[i];
+                break;
+            }
+        }
         if (ach && !ach.unlocked && condition) {
             ach.unlocked = true;
             showToast(ach);
@@ -986,15 +1316,14 @@
     }
 
     function showToast(ach) {
-        const container = document.getElementById('bpToastContainer');
-        const toast = document.createElement('div');
+        var container = document.getElementById('bpToastContainer');
+        var toast = document.createElement('div');
         toast.style.position = 'fixed';
         toast.style.top = '20px';
         toast.style.right = '20px';
         toast.style.zIndex = '10001';
-        toast.style.animation = 'bpSlideIn 0.4s ease';
 
-        const inner = document.createElement('div');
+        var inner = document.createElement('div');
         inner.style.background = '#1a1a1a';
         inner.style.color = '#ffffff';
         inner.style.padding = '16px 24px';
@@ -1003,8 +1332,8 @@
         inner.style.boxShadow = '0 8px 30px rgba(0,0,0,0.3)';
         inner.style.minWidth = '280px';
 
-        const title = document.createElement('div');
-        title.textContent = `🏆 ${ach.title}`;
+        var title = document.createElement('div');
+        title.textContent = '🏆 ' + ach.title;
         title.style.fontWeight = '800';
         title.style.fontSize = '14px';
         title.style.color = '#ff6b35';
@@ -1013,7 +1342,7 @@
         title.style.letterSpacing = '1px';
         inner.appendChild(title);
 
-        const desc = document.createElement('div');
+        var desc = document.createElement('div');
         desc.textContent = ach.desc;
         desc.style.fontSize = '13px';
         desc.style.color = '#ccc';
@@ -1021,15 +1350,21 @@
 
         toast.appendChild(inner);
         container.appendChild(toast);
-        setTimeout(() => toast.remove(), 4000);
+        setTimeout(function() { toast.remove(); }, 4000);
     }
 
     function togglePause() {
         state.isPaused = !state.isPaused;
-        const btn = document.getElementById('bpPauseBtn');
-        btn.textContent = state.isPaused ? '▶' : '⏸';
+        var btn = document.getElementById('bpPauseBtn');
+        btn.innerHTML = state.isPaused ? '<span style="font-size:20px;">▶</span>' : '<span style="font-size:20px;">⏸</span>';
+
+        var timerCloud = document.getElementById('bpTimer');
+
         if (state.isPaused) {
-            const ctx = state.ctx;
+            // Таймер останавливается — меняем цвет на рыжий
+            if (timerCloud) timerCloud.style.color = '#ff6b35';
+
+            var ctx = state.ctx;
             ctx.fillStyle = 'rgba(255,255,255,0.85)';
             ctx.fillRect(0, 0, state.canvas.width, state.canvas.height);
             ctx.fillStyle = '#1a1a1a';
@@ -1038,13 +1373,15 @@
             ctx.textBaseline = 'middle';
             ctx.fillText('ПАУЗА', state.canvas.width / 2, state.canvas.height / 2);
         } else {
+            // Возобновление — белый цвет
+            if (timerCloud) timerCloud.style.color = '#ffffff';
             draw();
         }
     }
 
     function toggleShowImage() {
         state.showImage = !state.showImage;
-        const btn = document.getElementById('bpShowBtn');
+        var btn = document.getElementById('bpShowBtn');
         if (state.showImage) {
             btn.style.background = '#ff6b35';
             btn.style.color = '#ffffff';
@@ -1060,10 +1397,10 @@
     }
 
     function renderAchievements() {
-        const grid = document.getElementById('bpAchGrid');
+        var grid = document.getElementById('bpAchGrid');
         grid.innerHTML = '';
-        state.achievements.forEach(ach => {
-            const item = document.createElement('div');
+        state.achievements.forEach(function(ach) {
+            var item = document.createElement('div');
             item.style.background = ach.unlocked ? 'linear-gradient(135deg, #fff5f0, #ffe8e0)' : '#f5f5f5';
             item.style.border = ach.unlocked ? '1px solid #ff6b35' : '1px solid #e0e0e0';
             item.style.borderRadius = '8px';
@@ -1071,22 +1408,21 @@
             item.style.display = 'flex';
             item.style.alignItems = 'center';
             item.style.gap = '10px';
-            item.style.transition = 'all 0.3s';
 
-            const icon = document.createElement('span');
+            var icon = document.createElement('span');
             icon.textContent = ach.unlocked ? ach.icon : '🔒';
             icon.style.fontSize = '22px';
             item.appendChild(icon);
 
-            const content = document.createElement('div');
-            const title = document.createElement('div');
+            var content = document.createElement('div');
+            var title = document.createElement('div');
             title.textContent = ach.title;
             title.style.fontSize = '12px';
             title.style.fontWeight = '700';
             title.style.color = '#1a1a1a';
             content.appendChild(title);
 
-            const desc = document.createElement('div');
+            var desc = document.createElement('div');
             desc.textContent = ach.desc;
             desc.style.fontSize = '10px';
             desc.style.color = '#666';
@@ -1099,7 +1435,7 @@
     }
 
     function startTimer() {
-        state.timerInterval = setInterval(() => {
+        state.timerInterval = setInterval(function() {
             if (!state.isPaused && !state.isComplete) {
                 state.elapsedTime++;
                 updateUI();
@@ -1109,56 +1445,46 @@
 
     function updateUI() {
         document.getElementById('bpTimer').textContent = formatTime(state.elapsedTime);
-        const placed = state.pieces.filter(p => p.isPlaced).length;
-        document.getElementById('bpCounter').textContent = `${placed} / ${state.pieces.length}`;
+        var placed = state.pieces.filter(function(p) { return p.isPlaced; }).length;
+        var total = state.pieces.length;
+
+        var fill = document.getElementById('bpProgressBarFill');
+        if (fill && total > 0) {
+            var percent = (placed / total) * 100;
+            fill.style.width = percent + '%';
+        }
     }
 
     function formatTime(sec) {
-        const m = Math.floor(sec / 60), s = sec % 60;
+        var m = Math.floor(sec / 60);
+        var s = sec % 60;
         return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
     }
 
     function saveState() {
-        const data = {
-            pieces: state.pieces.map(p => ({ id: p.id, currentX: p.currentX, currentY: p.currentY, isPlaced: p.isPlaced })),
-            elapsedTime: state.elapsedTime, moveCount: state.moveCount, mistakes: state.mistakes
+        var data = {
+            pieces: state.pieces.map(function(p) {
+                return { id: p.id, currentX: p.currentX, currentY: p.currentY, isPlaced: p.isPlaced };
+            }),
+            elapsedTime: state.elapsedTime,
+            moveCount: state.moveCount,
+            mistakes: state.mistakes
         };
         localStorage.setItem('bp_game_state', JSON.stringify(data));
     }
 
-    function loadState() {
-        const saved = localStorage.getItem('bp_game_state');
-        if (saved) {
-            const data = JSON.parse(saved);
-            state.elapsedTime = data.elapsedTime || 0;
-            state.moveCount = data.moveCount || 0;
-            state.mistakes = data.mistakes || 0;
-        }
-    }
-
-    function restoreState() {
-        const saved = localStorage.getItem('bp_game_state');
-        if (saved && state.pieces.length > 0) {
-            const data = JSON.parse(saved);
-            if (data.pieces) {
-                data.pieces.forEach(sp => {
-                    const p = state.pieces.find(piece => piece.id === sp.id);
-                    if (p) { p.currentX = sp.currentX; p.currentY = sp.currentY; p.isPlaced = sp.isPlaced; }
-                });
-            }
-        }
-    }
-
     function saveAchievements() {
-        const unlocked = state.achievements.filter(a => a.unlocked).map(a => a.id);
+        var unlocked = state.achievements.filter(function(a) { return a.unlocked; }).map(function(a) { return a.id; });
         localStorage.setItem('bp_achievements', JSON.stringify(unlocked));
     }
 
     function loadAchievements() {
-        const saved = localStorage.getItem('bp_achievements');
+        var saved = localStorage.getItem('bp_achievements');
         if (saved) {
-            const unlocked = JSON.parse(saved);
-            ACHIEVEMENTS.forEach(ach => { if (unlocked.includes(ach.id)) ach.unlocked = true; });
+            var unlocked = JSON.parse(saved);
+            ACHIEVEMENTS.forEach(function(ach) {
+                if (unlocked.indexOf(ach.id) !== -1) ach.unlocked = true;
+            });
         }
     }
 
@@ -1173,7 +1499,6 @@
         checkAchievement('ten_games', state.gamesCount >= 10);
     }
 
-    // Инициализация
     createPage();
 })();</script></p></div></article></main><footer class="footer"><div class="wrapper"><div class="footer__copyright"><p>Powered by Publii</p></div><button id="backToTop" class="footer__bttop" aria-label="Back to top" title="Back to top"><svg width="20" height="20"><use xlink:href="https://nevemerus.github.io/primepride/assets/svg/svg-map.svg#toparrow"/></svg></button></div></footer><script defer="defer" src="https://nevemerus.github.io/primepride/assets/js/scripts.min.js?v&#x3D;548663b90e1600fd2c2dd54433d04b71"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
         for (var i = 0; i < images.length; i++) {
