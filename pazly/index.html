@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Пазлы - Sirena</title><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://nevemerus.github.io/primepride/pazly/"><link rel="alternate" type="application/atom+xml" href="https://nevemerus.github.io/primepride/feed.xml" title="Sirena - RSS"><link rel="alternate" type="application/json" href="https://nevemerus.github.io/primepride/feed.json" title="Sirena - JSON"><meta property="og:title" content="Пазлы"><meta property="og:site_name" content="Sirena"><meta property="og:description" content=""><meta property="og:url" content="https://nevemerus.github.io/primepride/pazly/"><meta property="og:type" content="article"><link rel="stylesheet" href="https://nevemerus.github.io/primepride/assets/css/style.css?v&#x3D;2c0939c0c4815ec2c3e7fecf8a71b1b1"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://nevemerus.github.io/primepride/pazly/"},"headline":"Пазлы","datePublished":"2026-10-29T23:28+03:00","dateModified":"2026-10-30T21:59+03:00","description":"","author":{"@type":"Person","name":"Sirena","url":"https://nevemerus.github.io/primepride/authors/sirena/"},"publisher":{"@type":"Organization","name":"Sirena"}}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Пазлы - Sirena</title><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://nevemerus.github.io/primepride/pazly/"><link rel="alternate" type="application/atom+xml" href="https://nevemerus.github.io/primepride/feed.xml" title="Sirena - RSS"><link rel="alternate" type="application/json" href="https://nevemerus.github.io/primepride/feed.json" title="Sirena - JSON"><meta property="og:title" content="Пазлы"><meta property="og:site_name" content="Sirena"><meta property="og:description" content=""><meta property="og:url" content="https://nevemerus.github.io/primepride/pazly/"><meta property="og:type" content="article"><link rel="stylesheet" href="https://nevemerus.github.io/primepride/assets/css/style.css?v&#x3D;2c0939c0c4815ec2c3e7fecf8a71b1b1"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://nevemerus.github.io/primepride/pazly/"},"headline":"Пазлы","datePublished":"2026-10-29T23:28+03:00","dateModified":"2026-10-30T22:22+03:00","description":"","author":{"@type":"Person","name":"Sirena","url":"https://nevemerus.github.io/primepride/authors/sirena/"},"publisher":{"@type":"Organization","name":"Sirena"}}</script><noscript><style>img[loading] {
                     opacity: 1;
                 }</style></noscript></head><body class="page-template"><header class="top js-header"><a class="logo" href="https://nevemerus.github.io/primepride/">Sirena</a><nav class="navbar js-navbar" aria-label="Main"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://nevemerus.github.io/primepride/" title="Главная страница Sirena Bengal House" target="_self">Главная</a></li><li><a href="https://nevemerus.github.io/primepride/magazin/" title="Магазин Sirena Bengal House — товары для кошек" target="_self">Магазин</a></li><li><a href="https://nevemerus.github.io/primepride/vstupay-v-primepride/" title="Поддержать проект и получить эксклюзивный контент о бенгалах" target="_blank">Вступай в PrimePride🐾</a></li><li><a href="https://nevemerus.github.io/primepride/bengalgames/" title="Бенгальские игры" target="_self">Бенгальские игры 🎮</a></li></ul></nav></header><main class="page"><article class="content"><div class="hero hero--noimage"><header class="hero__content"><div class="wrapper"><h1>Пазлы</h1></div></header></div><div class="entry-wrapper content__entry"><div id="bengal-puzzle-wrapper"></div><p><script>(function() {
     var wrapper = document.getElementById('bengal-puzzle-wrapper');
@@ -18,7 +18,7 @@
         imageUrl: 'https://nevemerus.github.io/primepride/sirenka.jpg',
         rows: 3,
         cols: 3,
-        snapRadius: 35,
+        snapRadius: 25,
         canvasWidth: 1400,
         canvasHeight: 1400,
         backgroundUrl: 'https://nevemerus.github.io/primepride/LapkiBengalPuzzle.jpg'
@@ -31,7 +31,7 @@
         canvas: null, ctx: null, showImage: false, gamesCount: 0, comboCount: 0,
         zoomLevel: 1, backgroundColor: '#fafafa', bgColorIndex: 0,
         assemblyX: 0, assemblyY: 0, assemblyW: 0, assemblyH: 0,
-        pieceGroups: [], draggedGroup: []
+        draggedGroup: [], groupOffsets: {}
     };
 
     var BG_COLORS = ['#fafafa', '#d0d0d0', '#666666'];
@@ -39,7 +39,7 @@
     var ACHIEVEMENTS = [
         { id: 'first', title: 'Первый шаг', desc: 'Установи первый кусочек', icon: '🎯', unlocked: false },
         { id: 'quarter', title: 'Четверть пути', desc: 'Собери 25% пазла', icon: '📊', unlocked: false },
-        { id: 'half', title: 'Половина дела', desc: 'Собери 50% пазла', icon: '⚡', unlocked: false },
+        { id: 'half', title: 'Половина дела', desc: 'Собери 50% пазла', icon: '', unlocked: false },
         { id: 'three_quarters', title: 'Почти готово', desc: 'Собери 75% пазла', icon: '🔥', unlocked: false },
         { id: 'speed_30', title: 'Молния', desc: 'Собери за 30 секунд', icon: '', unlocked: false },
         { id: 'speed_60', title: 'Скорость', desc: 'Собери за 1 минуту', icon: '🏎️', unlocked: false },
@@ -464,14 +464,16 @@
         canvasArea.style.background = state.backgroundColor;
         canvasArea.style.transition = 'background 0.3s ease';
         canvasArea.style.overflow = 'auto';
+        canvasArea.style.display = 'flex';
+        canvasArea.style.justifyContent = 'center';
+        canvasArea.style.alignItems = 'center';
 
         var canvasWrapper = document.createElement('div');
         canvasWrapper.id = 'bpCanvasWrapper';
         canvasWrapper.style.position = 'relative';
         canvasWrapper.style.width = CONFIG.canvasWidth + 'px';
         canvasWrapper.style.height = CONFIG.canvasHeight + 'px';
-        canvasWrapper.style.margin = '0 auto';
-        canvasWrapper.style.transformOrigin = 'top left';
+        canvasWrapper.style.transformOrigin = 'center center';
         canvasWrapper.style.transition = 'transform 0.2s ease';
 
         var canvas = document.createElement('canvas');
@@ -660,7 +662,7 @@
         CONFIG.cols = cols;
 
         var totalPieces = rows * cols;
-        CONFIG.snapRadius = Math.max(15, Math.min(35, 100 / Math.sqrt(totalPieces)));
+        CONFIG.snapRadius = Math.max(15, Math.min(30, 80 / Math.sqrt(totalPieces)));
 
         state.isComplete = false;
         state.isPaused = false;
@@ -671,10 +673,10 @@
         state.showImage = false;
         state.comboCount = 0;
         state.dragPiece = null;
+        state.draggedGroup = [];
+        state.groupOffsets = {};
         state.zoomLevel = 1;
         state.bgColorIndex = 0;
-        state.pieceGroups = [];
-        state.draggedGroup = [];
 
         state.achievements = ACHIEVEMENTS.map(function(a) {
             return { id: a.id, title: a.title, desc: a.desc, icon: a.icon, unlocked: false };
@@ -707,11 +709,18 @@
         img.onload = function() {
             state.image = img;
             
-            // Загрузка фонового изображения
             var bgImg = new Image();
             bgImg.crossOrigin = 'anonymous';
             bgImg.onload = function() {
                 state.backgroundImage = bgImg;
+                createPieces();
+                buildProgressBar();
+                startTimer();
+                setupCanvas();
+                draw();
+                updateUI();
+            };
+            bgImg.onerror = function() {
                 createPieces();
                 buildProgressBar();
                 startTimer();
@@ -784,7 +793,7 @@
                     width: dpW, height: dpH,
                     shape: shapes[r][c],
                     isPlaced: false,
-                    groupId: null,
+                    groupId: 'p_' + r + '_' + c,
                     id: 'p_' + r + '_' + c
                 });
             }
@@ -833,52 +842,10 @@
         }, {passive: false});
     }
 
-    function arePiecesAdjacent(piece1, piece2) {
-        // Проверяем, являются ли кусочки соседними в правильной позиции
-        var dr = Math.abs(piece1.row - piece2.row);
-        var dc = Math.abs(piece1.col - piece2.col);
-        return (dr === 1 && dc === 0) || (dr === 0 && dc === 1);
-    }
-
-    function getPiecesNearby(piece) {
-        var nearby = [];
-        var threshold = piece.width * 1.5; // Расстояние для "склеивания"
-        
-        for (var i = 0; i < state.pieces.length; i++) {
-            var other = state.pieces[i];
-            if (other === piece || other.isPlaced) continue;
-            
-            var dx = Math.abs(other.currentX - piece.currentX);
-            var dy = Math.abs(other.currentY - piece.currentY);
-            
-            if (dx < threshold && dy < threshold) {
-                nearby.push(other);
-            }
-        }
-        return nearby;
-    }
-
-    function findGroup(piece) {
-        var group = [piece];
-        var visited = {};
-        visited[piece.id] = true;
-        
-        var queue = [piece];
-        while (queue.length > 0) {
-            var current = queue.shift();
-            var nearby = getPiecesNearby(current);
-            
-            for (var i = 0; i < nearby.length; i++) {
-                var neighbor = nearby[i];
-                if (!visited[neighbor.id] && arePiecesAdjacent(current, neighbor)) {
-                    visited[neighbor.id] = true;
-                    group.push(neighbor);
-                    queue.push(neighbor);
-                }
-            }
-        }
-        
-        return group;
+    function getGroup(piece) {
+        return state.pieces.filter(function(p) {
+            return p.groupId === piece.groupId && !p.isPlaced;
+        });
     }
 
     function isPiecePlacedAt(row, col) {
@@ -910,19 +877,16 @@
         var canvas = state.canvas;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Рисуем фоновое изображение за пределами игровой зоны
         if (state.backgroundImage) {
             ctx.save();
-            ctx.globalAlpha = 0.3;
+            ctx.globalAlpha = 0.25;
             ctx.drawImage(state.backgroundImage, 0, 0, canvas.width, canvas.height);
             ctx.restore();
         }
 
-        // Цвет фона внутри игровой зоны
         ctx.fillStyle = state.backgroundColor;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Черная пунктирная рамка вокруг зоны сборки
         ctx.strokeStyle = 'rgba(0, 0, 0, 0.4)';
         ctx.lineWidth = 3;
         ctx.setLineDash([15, 10]);
@@ -930,7 +894,6 @@
             state.assemblyW + 20, state.assemblyH + 20);
         ctx.setLineDash([]);
 
-        // Тонкая рыжая линия — граница, за которую нельзя убрать кусочки
         var borderMargin = 5;
         ctx.strokeStyle = 'rgba(255, 107, 53, 0.6)';
         ctx.lineWidth = 2;
@@ -950,7 +913,6 @@
             ctx.globalAlpha = 1.0;
         }
 
-        // Сортируем кусочки: сначала неустановленные, потом установленные
         var piecesToDraw = state.pieces.slice().sort(function(a, b) {
             if (a.isPlaced && !b.isPlaced) return 1;
             if (!a.isPlaced && b.isPlaced) return -1;
@@ -977,10 +939,8 @@
             }
         }
         
-        // Рисуем перетаскиваемый кусочек и его группу
         if (state.dragPiece) {
             drawJigsawPiece(state.dragPiece, true, false);
-            // Рисуем остальные кусочки группы
             for (i = 0; i < state.draggedGroup.length; i++) {
                 var groupPiece = state.draggedGroup[i];
                 if (groupPiece !== state.dragPiece) {
@@ -1161,7 +1121,7 @@
             ctx.lineTo(x2, y2);
         } else {
             var offX = size;
-            ctx.lineTo(x1, neckStart);
+            ctx.moveTo(x1, neckStart);
             ctx.bezierCurveTo(x1 + offX*0.15, neckStart, x1 + offX*0.4, neckStart - tabSize*0.15, midX + offX*0.55, neckStart - tabSize*0.18);
             ctx.bezierCurveTo(midX + offX*1.05, neckStart - tabSize*0.22, midX + offX*1.15, midY - tabSize*0.28, midX + offX, midY);
             ctx.bezierCurveTo(midX + offX*1.15, midY + tabSize*0.28, midX + offX*1.05, neckEnd + tabSize*0.22, midX + offX*0.55, neckEnd + tabSize*0.18);
@@ -1181,6 +1141,21 @@
         };
     }
 
+    function getGroupBounds(group) {
+        var minX = Infinity, minY = Infinity;
+        var maxX = -Infinity, maxY = -Infinity;
+        
+        for (var i = 0; i < group.length; i++) {
+            var p = group[i];
+            minX = Math.min(minX, p.currentX);
+            minY = Math.min(minY, p.currentY);
+            maxX = Math.max(maxX, p.currentX + p.width);
+            maxY = Math.max(maxY, p.currentY + p.height);
+        }
+        
+        return { minX: minX, minY: minY, maxX: maxX, maxY: maxY };
+    }
+
     function handleStart(e) {
         if (state.isPaused || state.isComplete) return;
         var coords = getCoords(e);
@@ -1188,27 +1163,27 @@
         var y = coords.y;
         var i;
         
-        // Ищем кусочек под курсором (сначала неустановленные)
         for (i = state.pieces.length - 1; i >= 0; i--) {
             var p = state.pieces[i];
             if (p.isPlaced) continue;
             if (x >= p.currentX - 10 && x <= p.currentX + p.width + 10 &&
                 y >= p.currentY - 10 && y <= p.currentY + p.height + 10) {
+                
                 state.dragPiece = p;
+                state.draggedGroup = getGroup(p);
                 state.dragOffsetX = x - p.currentX;
                 state.dragOffsetY = y - p.currentY;
                 
-                // Находим группу кусочков, которые нужно перемещать вместе
-                state.draggedGroup = findGroup(p);
-                
-                // Сохраняем смещения для каждого кусочка в группе
-                for (var j = 0; j < state.draggedGroup.length; j++) {
-                    var gp = state.draggedGroup[j];
-                    gp.dragOffsetX = gp.currentX - p.currentX;
-                    gp.dragOffsetY = gp.currentY - p.currentY;
+                // Вычисляем относительные смещения для всех кусочков в группе
+                state.groupOffsets = {};
+                for (var k = 0; k < state.draggedGroup.length; k++) {
+                    var gp = state.draggedGroup[k];
+                    state.groupOffsets[gp.id] = {
+                        x: gp.currentX - p.currentX,
+                        y: gp.currentY - p.currentY
+                    };
                 }
                 
-                // Удаляем все кусочки группы из массива и добавляем в конец (чтобы рисовались сверху)
                 for (var k = state.draggedGroup.length - 1; k >= 0; k--) {
                     var gp = state.draggedGroup[k];
                     var idx = state.pieces.indexOf(gp);
@@ -1226,54 +1201,73 @@
         if (!state.dragPiece) return;
         var coords = getCoords(e);
         
-        // Двигаем главный кусочек
         var newX = coords.x - state.dragOffsetX;
         var newY = coords.y - state.dragOffsetY;
         
-        // Ограничение: кусочки не могут выйти за рыжую границу
+        // Вычисляем смещение
+        var deltaX = newX - state.dragPiece.currentX;
+        var deltaY = newY - state.dragPiece.currentY;
+        
+        // Проверяем границы для всей группы
         var borderMargin = 5;
-        var maxX = CONFIG.canvasWidth - state.dragPiece.width - borderMargin;
-        var maxY = CONFIG.canvasHeight - state.dragPiece.height - borderMargin;
-        newX = Math.max(borderMargin, Math.min(maxX, newX));
-        newY = Math.max(borderMargin, Math.min(maxY, newY));
+        var bounds = getGroupBounds(state.draggedGroup);
         
-        state.dragPiece.currentX = newX;
-        state.dragPiece.currentY = newY;
+        var newMinX = bounds.minX + deltaX;
+        var newMinY = bounds.minY + deltaY;
+        var newMaxX = bounds.maxX + deltaX;
+        var newMaxY = bounds.maxY + deltaY;
         
-        // Двигаем остальные кусочки группы
+        // Ограничиваем движение всей группы
+        if (newMinX < borderMargin) {
+            deltaX += (borderMargin - newMinX);
+        }
+        if (newMinY < borderMargin) {
+            deltaY += (borderMargin - newMinY);
+        }
+        if (newMaxX > CONFIG.canvasWidth - borderMargin) {
+            deltaX -= (newMaxX - (CONFIG.canvasWidth - borderMargin));
+        }
+        if (newMaxY > CONFIG.canvasHeight - borderMargin) {
+            deltaY -= (newMaxY - (CONFIG.canvasHeight - borderMargin));
+        }
+        
+        // Двигаем всю группу синхронно
         for (var i = 0; i < state.draggedGroup.length; i++) {
             var gp = state.draggedGroup[i];
-            if (gp !== state.dragPiece) {
-                gp.currentX = newX + gp.dragOffsetX;
-                gp.currentY = newY + gp.dragOffsetY;
-                
-                // Также ограничиваем группу
-                var gpMaxX = CONFIG.canvasWidth - gp.width - borderMargin;
-                var gpMaxY = CONFIG.canvasHeight - gp.height - borderMargin;
-                gp.currentX = Math.max(borderMargin, Math.min(gpMaxX, gp.currentX));
-                gp.currentY = Math.max(borderMargin, Math.min(gpMaxY, gp.currentY));
-            }
+            gp.currentX += deltaX;
+            gp.currentY += deltaY;
         }
     }
 
     function handleEnd() {
         if (!state.dragPiece) return;
-        var p = state.dragPiece;
+        var primary = state.dragPiece;
         state.dragPiece = null;
-        state.draggedGroup = [];
         state.moveCount++;
 
-        var dx = p.currentX - p.correctX;
-        var dy = p.currentY - p.correctY;
-        var dist = Math.sqrt(dx*dx + dy*dy);
+        // 1. Проверяем, встала ли вся группа на своё абсолютное правильное место
+        var allCorrect = true;
+        for (var i = 0; i < state.draggedGroup.length; i++) {
+            var gp = state.draggedGroup[i];
+            var dist = Math.sqrt(Math.pow(gp.currentX - gp.correctX, 2) + Math.pow(gp.currentY - gp.correctY, 2));
+            if (dist >= CONFIG.snapRadius) {
+                allCorrect = false;
+                break;
+            }
+        }
 
-        if (dist < CONFIG.snapRadius) {
-            p.currentX = p.correctX;
-            p.currentY = p.correctY;
-            p.isPlaced = true;
-            state.comboCount++;
+        if (allCorrect) {
+            // Примагничиваем всю группу к правильным координатам
+            for (var i = 0; i < state.draggedGroup.length; i++) {
+                var gp = state.draggedGroup[i];
+                gp.currentX = gp.correctX;
+                gp.currentY = gp.correctY;
+                gp.isPlaced = true;
+            }
+            state.comboCount += state.draggedGroup.length;
             checkAchievement('combo', state.comboCount >= 5);
             checkAchievements();
+            
             if (state.pieces.every(function(piece) { return piece.isPlaced; })) {
                 state.isComplete = true;
                 checkAchievements();
@@ -1282,9 +1276,48 @@
                 showCompletion();
             }
         } else {
-            state.mistakes++;
-            state.comboCount = 0;
+            // 2. Логика относительного склеивания
+            var pieceW = state.pieces[0].width;
+            var pieceH = state.pieces[0].height;
+            var merged = false;
+
+            for (var i = 0; i < state.draggedGroup.length; i++) {
+                var target = state.draggedGroup[i];
+                
+                for (var j = 0; j < state.pieces.length; j++) {
+                    var other = state.pieces[j];
+                    if (other.isPlaced || other.groupId === target.groupId) continue;
+
+                    var isNeighbor = (Math.abs(target.row - other.row) + Math.abs(target.col - other.col)) === 1;
+                    
+                    if (isNeighbor) {
+                        var expX = target.currentX + (other.col - target.col) * pieceW;
+                        var expY = target.currentY + (other.row - target.row) * pieceH;
+
+                        var dist = Math.sqrt(Math.pow(other.currentX - expX, 2) + Math.pow(other.currentY - expY, 2));
+                        
+                        if (dist < CONFIG.snapRadius) {
+                            // ЖЕСТКОЕ СКЛЕИВАНИЕ - фиксируем позицию other относительно target
+                            other.currentX = expX;
+                            other.currentY = expY;
+                            
+                            var oldGroupId = other.groupId;
+                            var newGroupId = target.groupId;
+
+                            for (var k = 0; k < state.pieces.length; k++) {
+                                if (state.pieces[k].groupId === oldGroupId) {
+                                    state.pieces[k].groupId = newGroupId;
+                                }
+                            }
+                            merged = true;
+                        }
+                    }
+                }
+            }
         }
+        
+        state.draggedGroup = [];
+        state.groupOffsets = {};
         saveState();
         updateUI();
     }
@@ -1587,7 +1620,7 @@
     function saveState() {
         var data = {
             pieces: state.pieces.map(function(p) {
-                return { id: p.id, currentX: p.currentX, currentY: p.currentY, isPlaced: p.isPlaced };
+                return { id: p.id, currentX: p.currentX, currentY: p.currentY, isPlaced: p.isPlaced, groupId: p.groupId };
             }),
             elapsedTime: state.elapsedTime,
             moveCount: state.moveCount,
