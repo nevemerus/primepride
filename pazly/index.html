@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Пазлы - Sirena</title><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://nevemerus.github.io/primepride/pazly/"><link rel="alternate" type="application/atom+xml" href="https://nevemerus.github.io/primepride/feed.xml" title="Sirena - RSS"><link rel="alternate" type="application/json" href="https://nevemerus.github.io/primepride/feed.json" title="Sirena - JSON"><meta property="og:title" content="Пазлы"><meta property="og:site_name" content="Sirena"><meta property="og:description" content=""><meta property="og:url" content="https://nevemerus.github.io/primepride/pazly/"><meta property="og:type" content="article"><link rel="stylesheet" href="https://nevemerus.github.io/primepride/assets/css/style.css?v&#x3D;2c0939c0c4815ec2c3e7fecf8a71b1b1"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://nevemerus.github.io/primepride/pazly/"},"headline":"Пазлы","datePublished":"2026-10-29T23:28+03:00","dateModified":"2026-10-30T22:22+03:00","description":"","author":{"@type":"Person","name":"Sirena","url":"https://nevemerus.github.io/primepride/authors/sirena/"},"publisher":{"@type":"Organization","name":"Sirena"}}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Пазлы - Sirena</title><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://nevemerus.github.io/primepride/pazly/"><link rel="alternate" type="application/atom+xml" href="https://nevemerus.github.io/primepride/feed.xml" title="Sirena - RSS"><link rel="alternate" type="application/json" href="https://nevemerus.github.io/primepride/feed.json" title="Sirena - JSON"><meta property="og:title" content="Пазлы"><meta property="og:site_name" content="Sirena"><meta property="og:description" content=""><meta property="og:url" content="https://nevemerus.github.io/primepride/pazly/"><meta property="og:type" content="article"><link rel="stylesheet" href="https://nevemerus.github.io/primepride/assets/css/style.css?v&#x3D;2c0939c0c4815ec2c3e7fecf8a71b1b1"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://nevemerus.github.io/primepride/pazly/"},"headline":"Пазлы","datePublished":"2026-10-29T23:28+03:00","dateModified":"2026-10-31T19:37+03:00","description":"","author":{"@type":"Person","name":"Sirena","url":"https://nevemerus.github.io/primepride/authors/sirena/"},"publisher":{"@type":"Organization","name":"Sirena"}}</script><noscript><style>img[loading] {
                     opacity: 1;
                 }</style></noscript></head><body class="page-template"><header class="top js-header"><a class="logo" href="https://nevemerus.github.io/primepride/">Sirena</a><nav class="navbar js-navbar" aria-label="Main"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://nevemerus.github.io/primepride/" title="Главная страница Sirena Bengal House" target="_self">Главная</a></li><li><a href="https://nevemerus.github.io/primepride/magazin/" title="Магазин Sirena Bengal House — товары для кошек" target="_self">Магазин</a></li><li><a href="https://nevemerus.github.io/primepride/vstupay-v-primepride/" title="Поддержать проект и получить эксклюзивный контент о бенгалах" target="_blank">Вступай в PrimePride🐾</a></li><li><a href="https://nevemerus.github.io/primepride/bengalgames/" title="Бенгальские игры" target="_self">Бенгальские игры 🎮</a></li></ul></nav></header><main class="page"><article class="content"><div class="hero hero--noimage"><header class="hero__content"><div class="wrapper"><h1>Пазлы</h1></div></header></div><div class="entry-wrapper content__entry"><div id="bengal-puzzle-wrapper"></div><p><script>(function() {
     var wrapper = document.getElementById('bengal-puzzle-wrapper');
@@ -16,11 +16,11 @@
 
     var CONFIG = {
         imageUrl: 'https://nevemerus.github.io/primepride/sirenka.jpg',
-        rows: 3,
-        cols: 3,
+        rows: 4,
+        cols: 4,
         snapRadius: 25,
-        canvasWidth: 1400,
-        canvasHeight: 1400,
+        canvasWidth: 1200,
+        canvasHeight: 900,
         backgroundUrl: 'https://nevemerus.github.io/primepride/LapkiBengalPuzzle.jpg'
     };
 
@@ -31,7 +31,14 @@
         canvas: null, ctx: null, showImage: false, gamesCount: 0, comboCount: 0,
         zoomLevel: 1, backgroundColor: '#fafafa', bgColorIndex: 0,
         assemblyX: 0, assemblyY: 0, assemblyW: 0, assemblyH: 0,
-        draggedGroup: [], groupOffsets: {}
+        draggedGroup: [], groupOffsets: {},
+        useBackgroundImage: true,
+        timerColorBeforePause: '#ffffff',
+        isPanning: false,
+        panStartX: 0,
+        panStartY: 0,
+        panOffsetX: 0,
+        panOffsetY: 0
     };
 
     var BG_COLORS = ['#fafafa', '#d0d0d0', '#666666'];
@@ -39,18 +46,18 @@
     var ACHIEVEMENTS = [
         { id: 'first', title: 'Первый шаг', desc: 'Установи первый кусочек', icon: '🎯', unlocked: false },
         { id: 'quarter', title: 'Четверть пути', desc: 'Собери 25% пазла', icon: '📊', unlocked: false },
-        { id: 'half', title: 'Половина дела', desc: 'Собери 50% пазла', icon: '', unlocked: false },
+        { id: 'half', title: 'Половина дела', desc: 'Собери 50% пазла', icon: '⚡', unlocked: false },
         { id: 'three_quarters', title: 'Почти готово', desc: 'Собери 75% пазла', icon: '🔥', unlocked: false },
-        { id: 'speed_30', title: 'Молния', desc: 'Собери за 30 секунд', icon: '', unlocked: false },
+        { id: 'speed_30', title: 'Молния', desc: 'Собери за 30 секунд', icon: '⚡', unlocked: false },
         { id: 'speed_60', title: 'Скорость', desc: 'Собери за 1 минуту', icon: '🏎️', unlocked: false },
         { id: 'speed_120', title: 'Быстро', desc: 'Собери за 2 минуты', icon: '💨', unlocked: false },
         { id: 'master', title: 'Мастер', desc: 'Собери пазл полностью', icon: '👑', unlocked: false },
         { id: 'perfect', title: 'Идеально', desc: 'Без единой ошибки', icon: '💎', unlocked: false },
-        { id: 'no_hints', title: 'Самостоятельно', desc: 'Собери без подсказок', icon: '', unlocked: false },
+        { id: 'no_hints', title: 'Самостоятельно', desc: 'Собери без подсказок', icon: '🌟', unlocked: false },
         { id: 'five_games', title: 'Опытный', desc: 'Сыграй 5 игр', icon: '🎮', unlocked: false },
         { id: 'ten_games', title: 'Ветеран', desc: 'Сыграй 10 игр', icon: '🏆', unlocked: false },
         { id: 'quick_start', title: 'Стартовый рывок', desc: '3 кусочка за 10 сек', icon: '🚀', unlocked: false },
-        { id: 'combo', title: 'Комбо', desc: '5 кусочков подряд', icon: '', unlocked: false },
+        { id: 'combo', title: 'Комбо', desc: '5 кусочков подряд', icon: '🔗', unlocked: false },
         { id: 'patient', title: 'Терпение', desc: 'Играй 10+ минут', icon: '⏳', unlocked: false }
     ];
 
@@ -298,6 +305,7 @@
         toolbar.style.alignItems = 'center';
         toolbar.style.justifyContent = 'space-between';
         toolbar.style.padding = '0 20px';
+        toolbar.style.zIndex = '10';
 
         var toolbarLeft = document.createElement('div');
         toolbarLeft.style.display = 'flex';
@@ -460,19 +468,18 @@
         canvasArea.id = 'bpCanvasArea';
         canvasArea.style.position = 'relative';
         canvasArea.style.width = '100%';
-        canvasArea.style.height = '1200px';
+        canvasArea.style.height = CONFIG.canvasHeight + 'px';
         canvasArea.style.background = state.backgroundColor;
         canvasArea.style.transition = 'background 0.3s ease';
-        canvasArea.style.overflow = 'auto';
-        canvasArea.style.display = 'flex';
-        canvasArea.style.justifyContent = 'center';
-        canvasArea.style.alignItems = 'center';
+        canvasArea.style.overflow = 'hidden';
+        canvasArea.style.cursor = 'grab';
 
         var canvasWrapper = document.createElement('div');
         canvasWrapper.id = 'bpCanvasWrapper';
         canvasWrapper.style.position = 'relative';
         canvasWrapper.style.width = CONFIG.canvasWidth + 'px';
         canvasWrapper.style.height = CONFIG.canvasHeight + 'px';
+        canvasWrapper.style.margin = '0 auto';
         canvasWrapper.style.transformOrigin = 'center center';
         canvasWrapper.style.transition = 'transform 0.2s ease';
 
@@ -485,6 +492,24 @@
 
         canvasWrapper.appendChild(canvas);
         canvasArea.appendChild(canvasWrapper);
+
+        var congratsContainer = document.createElement('div');
+        congratsContainer.id = 'bpCongratsContainer';
+        congratsContainer.style.display = 'none';
+        congratsContainer.style.position = 'absolute';
+        congratsContainer.style.top = '0';
+        congratsContainer.style.left = '0';
+        congratsContainer.style.right = '0';
+        congratsContainer.style.bottom = '0';
+        congratsContainer.style.background = state.backgroundColor;
+        congratsContainer.style.zIndex = '100';
+        congratsContainer.style.flexDirection = 'column';
+        congratsContainer.style.justifyContent = 'center';
+        congratsContainer.style.alignItems = 'center';
+        congratsContainer.style.textAlign = 'center';
+        congratsContainer.style.padding = '40px';
+
+        canvasArea.appendChild(congratsContainer);
         gameContainer.appendChild(canvasArea);
         gameScreen.appendChild(gameContainer);
         page.appendChild(gameScreen);
@@ -561,7 +586,7 @@
         });
         document.getElementById('bpMenuBtn').addEventListener('click', backToMenu);
         document.getElementById('bpFullscreenBtn').addEventListener('click', toggleFullscreen);
-        document.getElementById('bpZoomResetBtn').addEventListener('click', function() { setZoom(1); });
+        document.getElementById('bpZoomResetBtn').addEventListener('click', function() { setZoom(1); resetPan(); });
         document.getElementById('bpBgColorBtn').addEventListener('click', cycleBackgroundColor);
 
         document.getElementById('bpAchOverlay').addEventListener('click', function(e) {
@@ -575,12 +600,26 @@
         updatePiecesInfo();
     }
 
+    function resetPan() {
+        state.panOffsetX = 0;
+        state.panOffsetY = 0;
+        updatePan();
+    }
+
     function cycleBackgroundColor() {
         state.bgColorIndex = (state.bgColorIndex + 1) % BG_COLORS.length;
-        setBackgroundColor(BG_COLORS[state.bgColorIndex]);
+        var newColor = BG_COLORS[state.bgColorIndex];
+        setBackgroundColor(newColor);
+        
+        if (state.bgColorIndex !== 0) {
+            state.useBackgroundImage = false;
+        } else {
+            state.useBackgroundImage = true;
+        }
+        
         var btn = document.getElementById('bpBgColorBtn');
         if (btn) {
-            btn.style.background = BG_COLORS[state.bgColorIndex];
+            btn.style.background = newColor;
         }
     }
 
@@ -589,6 +628,10 @@
         var canvasArea = document.getElementById('bpCanvasArea');
         if (canvasArea) {
             canvasArea.style.background = color;
+        }
+        var congratsContainer = document.getElementById('bpCongratsContainer');
+        if (congratsContainer) {
+            congratsContainer.style.background = color;
         }
     }
 
@@ -613,9 +656,13 @@
 
     function setZoom(zoom) {
         state.zoomLevel = Math.max(0.2, Math.min(3, zoom));
+        updatePan();
+    }
+
+    function updatePan() {
         var wrapper = document.getElementById('bpCanvasWrapper');
         if (wrapper) {
-            wrapper.style.transform = 'scale(' + state.zoomLevel + ')';
+            wrapper.style.transform = 'translate(' + state.panOffsetX + 'px, ' + state.panOffsetY + 'px) scale(' + state.zoomLevel + ')';
         }
     }
 
@@ -677,6 +724,11 @@
         state.groupOffsets = {};
         state.zoomLevel = 1;
         state.bgColorIndex = 0;
+        state.useBackgroundImage = true;
+        state.timerColorBeforePause = '#ffffff';
+        state.isPanning = false;
+        state.panOffsetX = 0;
+        state.panOffsetY = 0;
 
         state.achievements = ACHIEVEMENTS.map(function(a) {
             return { id: a.id, title: a.title, desc: a.desc, icon: a.icon, unlocked: false };
@@ -688,7 +740,14 @@
         document.getElementById('bpStartScreen').style.display = 'none';
         document.getElementById('bpGameScreen').style.display = 'block';
 
+        var congratsContainer = document.getElementById('bpCongratsContainer');
+        if (congratsContainer) {
+            congratsContainer.style.display = 'none';
+            congratsContainer.innerHTML = '';
+        }
+
         setZoom(1);
+        resetPan();
         setBackgroundColor(BG_COLORS[0]);
 
         var timerCloud = document.getElementById('bpTimer');
@@ -721,6 +780,7 @@
                 updateUI();
             };
             bgImg.onerror = function() {
+                state.backgroundImage = null;
                 createPieces();
                 buildProgressBar();
                 startTimer();
@@ -746,7 +806,7 @@
 
         var pieceW = imgW / cols;
         var pieceH = imgH / rows;
-        var scale = Math.min(cW / imgW, cH / imgH) * 0.55;
+        var scale = Math.min(cW / imgW, cH / imgH) * 0.6;
         var displayW = imgW * scale;
         var displayH = imgH * scale;
         var offsetX = (cW - displayW) / 2;
@@ -808,11 +868,50 @@
         state.canvas.addEventListener('mousemove', handleMove);
         state.canvas.addEventListener('mouseup', handleEnd);
         state.canvas.addEventListener('mouseleave', handleEnd);
+        state.canvas.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+        
         state.canvas.addEventListener('touchstart', function(e) { e.preventDefault(); handleStart(e.touches[0]); }, {passive: false});
         state.canvas.addEventListener('touchmove', function(e) { e.preventDefault(); handleMove(e.touches[0]); }, {passive: false});
         state.canvas.addEventListener('touchend', function(e) { e.preventDefault(); handleEnd(); }, {passive: false});
 
         var canvasArea = document.getElementById('bpCanvasArea');
+        
+        canvasArea.addEventListener('mousedown', function(e) {
+            if (e.button === 2) {
+                e.preventDefault();
+                state.isPanning = true;
+                state.panStartX = e.clientX - state.panOffsetX;
+                state.panStartY = e.clientY - state.panOffsetY;
+                canvasArea.style.cursor = 'grabbing';
+            }
+        });
+        
+        canvasArea.addEventListener('mousemove', function(e) {
+            if (state.isPanning) {
+                state.panOffsetX = e.clientX - state.panStartX;
+                state.panOffsetY = e.clientY - state.panStartY;
+                updatePan();
+            }
+        });
+        
+        canvasArea.addEventListener('mouseup', function(e) {
+            if (e.button === 2 && state.isPanning) {
+                state.isPanning = false;
+                canvasArea.style.cursor = 'grab';
+            }
+        });
+        
+        canvasArea.addEventListener('mouseleave', function() {
+            if (state.isPanning) {
+                state.isPanning = false;
+                canvasArea.style.cursor = 'grab';
+            }
+        });
+        
+        canvasArea.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
         canvasArea.addEventListener('wheel', function(e) {
             e.preventDefault();
             var delta = e.deltaY > 0 ? -0.2 : 0.2;
@@ -877,7 +976,7 @@
         var canvas = state.canvas;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        if (state.backgroundImage) {
+        if (state.useBackgroundImage && state.backgroundImage) {
             ctx.save();
             ctx.globalAlpha = 0.25;
             ctx.drawImage(state.backgroundImage, 0, 0, canvas.width, canvas.height);
@@ -904,7 +1003,7 @@
         if (state.showImage && state.image) {
             ctx.globalAlpha = 0.15;
             var img = state.image;
-            var sc = Math.min(canvas.width / img.width, canvas.height / img.height) * 0.55;
+            var sc = Math.min(canvas.width / img.width, canvas.height / img.height) * 0.6;
             var dw = img.width * sc;
             var dh = img.height * sc;
             var dx = (canvas.width - dw) / 2;
@@ -1121,7 +1220,7 @@
             ctx.lineTo(x2, y2);
         } else {
             var offX = size;
-            ctx.moveTo(x1, neckStart);
+            ctx.lineTo(x1, neckStart);
             ctx.bezierCurveTo(x1 + offX*0.15, neckStart, x1 + offX*0.4, neckStart - tabSize*0.15, midX + offX*0.55, neckStart - tabSize*0.18);
             ctx.bezierCurveTo(midX + offX*1.05, neckStart - tabSize*0.22, midX + offX*1.15, midY - tabSize*0.28, midX + offX, midY);
             ctx.bezierCurveTo(midX + offX*1.15, midY + tabSize*0.28, midX + offX*1.05, neckEnd + tabSize*0.22, midX + offX*0.55, neckEnd + tabSize*0.18);
@@ -1157,7 +1256,7 @@
     }
 
     function handleStart(e) {
-        if (state.isPaused || state.isComplete) return;
+        if (state.isPaused || state.isComplete || state.isPanning) return;
         var coords = getCoords(e);
         var x = coords.x;
         var y = coords.y;
@@ -1174,7 +1273,6 @@
                 state.dragOffsetX = x - p.currentX;
                 state.dragOffsetY = y - p.currentY;
                 
-                // Вычисляем относительные смещения для всех кусочков в группе
                 state.groupOffsets = {};
                 for (var k = 0; k < state.draggedGroup.length; k++) {
                     var gp = state.draggedGroup[k];
@@ -1198,17 +1296,16 @@
     }
 
     function handleMove(e) {
+        if (state.isPanning) return;
         if (!state.dragPiece) return;
         var coords = getCoords(e);
         
         var newX = coords.x - state.dragOffsetX;
         var newY = coords.y - state.dragOffsetY;
         
-        // Вычисляем смещение
         var deltaX = newX - state.dragPiece.currentX;
         var deltaY = newY - state.dragPiece.currentY;
         
-        // Проверяем границы для всей группы
         var borderMargin = 5;
         var bounds = getGroupBounds(state.draggedGroup);
         
@@ -1217,7 +1314,6 @@
         var newMaxX = bounds.maxX + deltaX;
         var newMaxY = bounds.maxY + deltaY;
         
-        // Ограничиваем движение всей группы
         if (newMinX < borderMargin) {
             deltaX += (borderMargin - newMinX);
         }
@@ -1231,7 +1327,6 @@
             deltaY -= (newMaxY - (CONFIG.canvasHeight - borderMargin));
         }
         
-        // Двигаем всю группу синхронно
         for (var i = 0; i < state.draggedGroup.length; i++) {
             var gp = state.draggedGroup[i];
             gp.currentX += deltaX;
@@ -1240,12 +1335,12 @@
     }
 
     function handleEnd() {
+        if (state.isPanning) return;
         if (!state.dragPiece) return;
         var primary = state.dragPiece;
         state.dragPiece = null;
         state.moveCount++;
 
-        // 1. Проверяем, встала ли вся группа на своё абсолютное правильное место
         var allCorrect = true;
         for (var i = 0; i < state.draggedGroup.length; i++) {
             var gp = state.draggedGroup[i];
@@ -1257,7 +1352,6 @@
         }
 
         if (allCorrect) {
-            // Примагничиваем всю группу к правильным координатам
             for (var i = 0; i < state.draggedGroup.length; i++) {
                 var gp = state.draggedGroup[i];
                 gp.currentX = gp.correctX;
@@ -1276,10 +1370,8 @@
                 showCompletion();
             }
         } else {
-            // 2. Логика относительного склеивания
             var pieceW = state.pieces[0].width;
             var pieceH = state.pieces[0].height;
-            var merged = false;
 
             for (var i = 0; i < state.draggedGroup.length; i++) {
                 var target = state.draggedGroup[i];
@@ -1297,7 +1389,6 @@
                         var dist = Math.sqrt(Math.pow(other.currentX - expX, 2) + Math.pow(other.currentY - expY, 2));
                         
                         if (dist < CONFIG.snapRadius) {
-                            // ЖЕСТКОЕ СКЛЕИВАНИЕ - фиксируем позицию other относительно target
                             other.currentX = expX;
                             other.currentY = expY;
                             
@@ -1309,7 +1400,6 @@
                                     state.pieces[k].groupId = newGroupId;
                                 }
                             }
-                            merged = true;
                         }
                     }
                 }
@@ -1357,20 +1447,17 @@
     }
 
     function showCompletion() {
-        var canvasArea = document.getElementById('bpCanvasArea');
+        var congratsContainer = document.getElementById('bpCongratsContainer');
+        if (!congratsContainer) return;
 
         var timerCloud = document.getElementById('bpTimer');
-        if (timerCloud) timerCloud.style.color = '#ff6b35';
+        if (timerCloud) {
+            timerCloud.style.color = '#ff6b35';
+            state.timerColorBeforePause = '#ff6b35';
+        }
 
-        var congratsDiv = document.createElement('div');
-        congratsDiv.id = 'bpCongratsBanner';
-        congratsDiv.style.position = 'absolute';
-        congratsDiv.style.top = '20px';
-        congratsDiv.style.left = '50%';
-        congratsDiv.style.transform = 'translateX(-50%)';
-        congratsDiv.style.zIndex = '100';
-        congratsDiv.style.textAlign = 'center';
-        congratsDiv.style.pointerEvents = 'none';
+        congratsContainer.style.display = 'flex';
+        congratsContainer.innerHTML = '';
 
         var title = document.createElement('div');
         title.textContent = '🎉 Поздравляем!';
@@ -1378,30 +1465,21 @@
         title.style.fontWeight = '900';
         title.style.fontFamily = 'Georgia, serif';
         title.style.color = '#1a1a1a';
-        title.style.textShadow = '2px 2px 4px rgba(255,255,255,0.8), -2px -2px 4px rgba(255,255,255,0.8), 2px -2px 4px rgba(255,255,255,0.8), -2px 2px 4px rgba(255,255,255,0.8)';
-        title.style.margin = '0';
+        title.style.margin = '0 0 10px 0';
         title.style.letterSpacing = '2px';
-        congratsDiv.appendChild(title);
+        congratsContainer.appendChild(title);
 
         var timeText = document.createElement('div');
         timeText.textContent = 'Пазл собран за ' + formatTime(state.elapsedTime);
         timeText.style.fontSize = '20px';
         timeText.style.fontWeight = '600';
         timeText.style.color = '#333';
-        timeText.style.textShadow = '1px 1px 3px rgba(255,255,255,0.9), -1px -1px 3px rgba(255,255,255,0.9)';
-        timeText.style.marginTop = '8px';
-        congratsDiv.appendChild(timeText);
-
-        canvasArea.appendChild(congratsDiv);
+        timeText.style.margin = '0 0 20px 0';
+        congratsContainer.appendChild(timeText);
 
         var newGameBtn = document.createElement('button');
         newGameBtn.id = 'bpNewGameBtn';
         newGameBtn.textContent = 'НОВАЯ ИГРА';
-        newGameBtn.style.position = 'absolute';
-        newGameBtn.style.bottom = '30px';
-        newGameBtn.style.left = '50%';
-        newGameBtn.style.transform = 'translateX(-50%)';
-        newGameBtn.style.zIndex = '100';
         newGameBtn.style.background = '#1a1a1a';
         newGameBtn.style.color = '#fff';
         newGameBtn.style.border = '2px solid #ff6b35';
@@ -1416,17 +1494,17 @@
         newGameBtn.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
         newGameBtn.addEventListener('mouseenter', function() {
             newGameBtn.style.background = '#ff6b35';
-            newGameBtn.style.transform = 'translateX(-50%) scale(1.05)';
+            newGameBtn.style.transform = 'scale(1.05)';
         });
         newGameBtn.addEventListener('mouseleave', function() {
             newGameBtn.style.background = '#1a1a1a';
-            newGameBtn.style.transform = 'translateX(-50%) scale(1)';
+            newGameBtn.style.transform = 'scale(1)';
         });
         newGameBtn.addEventListener('click', function() {
             localStorage.removeItem('bp_game_state');
             location.reload();
         });
-        canvasArea.appendChild(newGameBtn);
+        congratsContainer.appendChild(newGameBtn);
     }
 
     function checkAchievements() {
@@ -1519,7 +1597,10 @@
         var timerCloud = document.getElementById('bpTimer');
 
         if (state.isPaused) {
-            if (timerCloud) timerCloud.style.color = '#ff6b35';
+            if (timerCloud) {
+                state.timerColorBeforePause = timerCloud.style.color || '#ffffff';
+                timerCloud.style.color = '#ff6b35';
+            }
 
             var ctx = state.ctx;
             ctx.fillStyle = 'rgba(255,255,255,0.85)';
@@ -1530,7 +1611,9 @@
             ctx.textBaseline = 'middle';
             ctx.fillText('ПАУЗА', state.canvas.width / 2, state.canvas.height / 2);
         } else {
-            if (timerCloud) timerCloud.style.color = '#ffffff';
+            if (timerCloud) {
+                timerCloud.style.color = state.timerColorBeforePause;
+            }
             draw();
         }
     }
