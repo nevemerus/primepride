@@ -1,18 +1,18 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Пазлы - Sirena</title><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://nevemerus.github.io/primepride/pazly/"><link rel="alternate" type="application/atom+xml" href="https://nevemerus.github.io/primepride/feed.xml" title="Sirena - RSS"><link rel="alternate" type="application/json" href="https://nevemerus.github.io/primepride/feed.json" title="Sirena - JSON"><meta property="og:title" content="Пазлы"><meta property="og:site_name" content="Sirena"><meta property="og:description" content=""><meta property="og:url" content="https://nevemerus.github.io/primepride/pazly/"><meta property="og:type" content="article"><link rel="stylesheet" href="https://nevemerus.github.io/primepride/assets/css/style.css?v&#x3D;2c0939c0c4815ec2c3e7fecf8a71b1b1"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://nevemerus.github.io/primepride/pazly/"},"headline":"Пазлы","datePublished":"2026-10-29T23:28+03:00","dateModified":"2026-10-31T19:37+03:00","description":"","author":{"@type":"Person","name":"Sirena","url":"https://nevemerus.github.io/primepride/authors/sirena/"},"publisher":{"@type":"Organization","name":"Sirena"}}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Пазлы - Sirena</title><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://nevemerus.github.io/primepride/pazly/"><link rel="alternate" type="application/atom+xml" href="https://nevemerus.github.io/primepride/feed.xml" title="Sirena - RSS"><link rel="alternate" type="application/json" href="https://nevemerus.github.io/primepride/feed.json" title="Sirena - JSON"><meta property="og:title" content="Пазлы"><meta property="og:site_name" content="Sirena"><meta property="og:description" content=""><meta property="og:url" content="https://nevemerus.github.io/primepride/pazly/"><meta property="og:type" content="article"><link rel="stylesheet" href="https://nevemerus.github.io/primepride/assets/css/style.css?v&#x3D;2c0939c0c4815ec2c3e7fecf8a71b1b1"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://nevemerus.github.io/primepride/pazly/"},"headline":"Пазлы","datePublished":"2026-10-29T23:28+03:00","dateModified":"2026-11-02T10:58+03:00","description":"","author":{"@type":"Person","name":"Sirena","url":"https://nevemerus.github.io/primepride/authors/sirena/"},"publisher":{"@type":"Organization","name":"Sirena"}}</script><noscript><style>img[loading] {
                     opacity: 1;
                 }</style></noscript></head><body class="page-template"><header class="top js-header"><a class="logo" href="https://nevemerus.github.io/primepride/">Sirena</a><nav class="navbar js-navbar" aria-label="Main"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://nevemerus.github.io/primepride/" title="Главная страница Sirena Bengal House" target="_self">Главная</a></li><li><a href="https://nevemerus.github.io/primepride/magazin/" title="Магазин Sirena Bengal House — товары для кошек" target="_self">Магазин</a></li><li><a href="https://nevemerus.github.io/primepride/vstupay-v-primepride/" title="Поддержать проект и получить эксклюзивный контент о бенгалах" target="_blank">Вступай в PrimePride🐾</a></li><li><a href="https://nevemerus.github.io/primepride/bengalgames/" title="Бенгальские игры" target="_self">Бенгальские игры 🎮</a></li></ul></nav></header><main class="page"><article class="content"><div class="hero hero--noimage"><header class="hero__content"><div class="wrapper"><h1>Пазлы</h1></div></header></div><div class="entry-wrapper content__entry"><div id="bengal-puzzle-wrapper"></div><p><script>(function() {
     var wrapper = document.getElementById('bengal-puzzle-wrapper');
     wrapper.style.all = 'initial';
     wrapper.style.display = 'block';
     wrapper.style.width = '100%';
-    wrapper.style.background = '#ffffff';
+    wrapper.style.background = '#0a0a0a';
     wrapper.style.minHeight = '100vh';
     wrapper.style.padding = '0';
     wrapper.style.boxSizing = 'border-box';
     wrapper.style.fontFamily = "'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif";
     wrapper.style.position = 'relative';
     wrapper.style.overflowX = 'hidden';
-    wrapper.style.color = '#1a1a1a';
+    wrapper.style.color = '#ffffff';
 
     var CONFIG = {
         imageUrl: 'https://nevemerus.github.io/primepride/sirenka.jpg',
@@ -29,11 +29,11 @@
         timerInterval: null, dragPiece: null, dragOffsetX: 0, dragOffsetY: 0,
         moveCount: 0, mistakes: 0, achievements: [], gameStarted: false,
         canvas: null, ctx: null, showImage: false, gamesCount: 0, comboCount: 0,
-        zoomLevel: 1, backgroundColor: '#fafafa', bgColorIndex: 0,
+        zoomLevel: 1, backgroundColor: '#0a0a0a', bgColorIndex: 3,
         assemblyX: 0, assemblyY: 0, assemblyW: 0, assemblyH: 0,
         draggedGroup: [], groupOffsets: {},
         useBackgroundImage: true,
-        timerColorBeforePause: '#ffffff',
+        timerColorBeforePause: '#ff6b35',
         isPanning: false,
         panStartX: 0,
         panStartY: 0,
@@ -41,7 +41,7 @@
         panOffsetY: 0
     };
 
-    var BG_COLORS = ['#fafafa', '#d0d0d0', '#666666'];
+    var BG_COLORS = ['#ffffff', '#d0d0d0', '#666666', '#0a0a0a'];
 
     var ACHIEVEMENTS = [
         { id: 'first', title: 'Первый шаг', desc: 'Установи первый кусочек', icon: '🎯', unlocked: false },
@@ -78,21 +78,24 @@
         var line1 = document.createElement('div');
         line1.style.flex = '1';
         line1.style.height = '2px';
-        line1.style.background = '#1a1a1a';
+        line1.style.background = 'linear-gradient(90deg, transparent, #ff6b35, transparent)';
         line1.style.maxWidth = '200px';
+        line1.style.boxShadow = '0 0 10px #ff6b35';
 
         var h1 = document.createElement('h1');
         h1.style.fontSize = '56px';
         h1.style.fontWeight = '900';
-        h1.style.color = '#1a1a1a';
+        h1.style.color = '#ffffff';
         h1.style.margin = '0';
         h1.style.letterSpacing = '-2px';
         h1.style.whiteSpace = 'nowrap';
         h1.style.fontFamily = 'Georgia, Times New Roman, serif';
+        h1.style.textShadow = '0 0 20px rgba(255, 107, 53, 0.5)';
 
         var wordBengal = document.createElement('span');
         wordBengal.textContent = 'Bengal';
         wordBengal.style.marginRight = '30px';
+        wordBengal.style.color = '#ff6b35';
 
         var wordPuzzles = document.createElement('span');
         wordPuzzles.textContent = 'Puzzles';
@@ -103,8 +106,9 @@
         var line2 = document.createElement('div');
         line2.style.flex = '1';
         line2.style.height = '2px';
-        line2.style.background = '#1a1a1a';
+        line2.style.background = 'linear-gradient(90deg, transparent, #ff6b35, transparent)';
         line2.style.maxWidth = '200px';
+        line2.style.boxShadow = '0 0 10px #ff6b35';
 
         titleDiv.appendChild(line1);
         titleDiv.appendChild(h1);
@@ -133,26 +137,38 @@
         label1.style.fontWeight = '700';
         label1.style.textTransform = 'uppercase';
         label1.style.letterSpacing = '2px';
-        label1.style.color = '#1a1a1a';
+        label1.style.color = '#ff6b35';
         label1.style.minWidth = '200px';
+        label1.style.textShadow = '0 0 8px rgba(255, 107, 53, 0.4)';
 
         var select1 = document.createElement('select');
         select1.id = 'bpRows';
         select1.style.flex = '1';
-        select1.style.background = 'transparent';
-        select1.style.border = 'none';
-        select1.style.borderBottom = '2px solid #1a1a1a';
-        select1.style.padding = '8px 4px';
+        select1.style.background = 'rgba(255,255,255,0.05)';
+        select1.style.border = '2px solid #ff6b35';
+        select1.style.borderRadius = '8px';
+        select1.style.padding = '12px 16px';
         select1.style.fontSize = '16px';
-        select1.style.color = '#1a1a1a';
+        select1.style.color = '#ffffff';
         select1.style.outline = 'none';
+        select1.style.boxShadow = '0 0 15px rgba(255, 107, 53, 0.4), inset 0 0 10px rgba(255, 107, 53, 0.1)';
+        select1.style.transition = 'all 0.3s ease';
 
         [2, 3, 4, 5, 6, 7, 8, 10].forEach(function(val) {
             var opt = document.createElement('option');
             opt.value = val;
             opt.textContent = val;
+            opt.style.background = '#1a1a1a';
+            opt.style.color = '#ffffff';
             if (val === 3) opt.selected = true;
             select1.appendChild(opt);
+        });
+
+        select1.addEventListener('mouseenter', function() {
+            select1.style.boxShadow = '0 0 25px rgba(255, 107, 53, 0.6), inset 0 0 10px rgba(255, 107, 53, 0.2)';
+        });
+        select1.addEventListener('mouseleave', function() {
+            select1.style.boxShadow = '0 0 15px rgba(255, 107, 53, 0.4), inset 0 0 10px rgba(255, 107, 53, 0.1)';
         });
 
         row1.appendChild(label1);
@@ -170,26 +186,38 @@
         label2.style.fontWeight = '700';
         label2.style.textTransform = 'uppercase';
         label2.style.letterSpacing = '2px';
-        label2.style.color = '#1a1a1a';
+        label2.style.color = '#ff6b35';
         label2.style.minWidth = '200px';
+        label2.style.textShadow = '0 0 8px rgba(255, 107, 53, 0.4)';
 
         var select2 = document.createElement('select');
         select2.id = 'bpCols';
         select2.style.flex = '1';
-        select2.style.background = 'transparent';
-        select2.style.border = 'none';
-        select2.style.borderBottom = '2px solid #1a1a1a';
-        select2.style.padding = '8px 4px';
+        select2.style.background = 'rgba(255,255,255,0.05)';
+        select2.style.border = '2px solid #ff6b35';
+        select2.style.borderRadius = '8px';
+        select2.style.padding = '12px 16px';
         select2.style.fontSize = '16px';
-        select2.style.color = '#1a1a1a';
+        select2.style.color = '#ffffff';
         select2.style.outline = 'none';
+        select2.style.boxShadow = '0 0 15px rgba(255, 107, 53, 0.4), inset 0 0 10px rgba(255, 107, 53, 0.1)';
+        select2.style.transition = 'all 0.3s ease';
 
         [2, 3, 4, 5, 6, 7, 8, 10].forEach(function(val) {
             var opt = document.createElement('option');
             opt.value = val;
             opt.textContent = val;
+            opt.style.background = '#1a1a1a';
+            opt.style.color = '#ffffff';
             if (val === 3) opt.selected = true;
             select2.appendChild(opt);
+        });
+
+        select2.addEventListener('mouseenter', function() {
+            select2.style.boxShadow = '0 0 25px rgba(255, 107, 53, 0.6), inset 0 0 10px rgba(255, 107, 53, 0.2)';
+        });
+        select2.addEventListener('mouseleave', function() {
+            select2.style.boxShadow = '0 0 15px rgba(255, 107, 53, 0.4), inset 0 0 10px rgba(255, 107, 53, 0.1)';
         });
 
         row2.appendChild(label2);
@@ -207,8 +235,9 @@
         label3.style.fontWeight = '700';
         label3.style.textTransform = 'uppercase';
         label3.style.letterSpacing = '2px';
-        label3.style.color = '#1a1a1a';
+        label3.style.color = '#ff6b35';
         label3.style.minWidth = '200px';
+        label3.style.textShadow = '0 0 8px rgba(255, 107, 53, 0.4)';
 
         var input3 = document.createElement('input');
         input3.type = 'text';
@@ -216,13 +245,31 @@
         input3.value = CONFIG.imageUrl;
         input3.placeholder = 'https://...';
         input3.style.flex = '1';
-        input3.style.background = 'transparent';
-        input3.style.border = 'none';
-        input3.style.borderBottom = '2px solid #1a1a1a';
-        input3.style.padding = '8px 4px';
+        input3.style.background = 'rgba(255,255,255,0.05)';
+        input3.style.border = '2px solid #ff6b35';
+        input3.style.borderRadius = '8px';
+        input3.style.padding = '12px 16px';
         input3.style.fontSize = '16px';
-        input3.style.color = '#1a1a1a';
+        input3.style.color = '#ffffff';
         input3.style.outline = 'none';
+        input3.style.boxShadow = '0 0 15px rgba(255, 107, 53, 0.4), inset 0 0 10px rgba(255, 107, 53, 0.1)';
+        input3.style.transition = 'all 0.3s ease';
+        input3.style.caretColor = '#ff6b35';
+
+        input3.addEventListener('mouseenter', function() {
+            input3.style.boxShadow = '0 0 25px rgba(255, 107, 53, 0.6), inset 0 0 10px rgba(255, 107, 53, 0.2)';
+        });
+        input3.addEventListener('mouseleave', function() {
+            input3.style.boxShadow = '0 0 15px rgba(255, 107, 53, 0.4), inset 0 0 10px rgba(255, 107, 53, 0.1)';
+        });
+        input3.addEventListener('focus', function() {
+            input3.style.boxShadow = '0 0 30px rgba(255, 107, 53, 0.8), inset 0 0 10px rgba(255, 107, 53, 0.2)';
+            input3.style.borderColor = '#ff8c5a';
+        });
+        input3.addEventListener('blur', function() {
+            input3.style.boxShadow = '0 0 15px rgba(255, 107, 53, 0.4), inset 0 0 10px rgba(255, 107, 53, 0.1)';
+            input3.style.borderColor = '#ff6b35';
+        });
 
         row3.appendChild(label3);
         row3.appendChild(input3);
@@ -232,8 +279,10 @@
         piecesInfo.id = 'bpPiecesInfo';
         piecesInfo.style.textAlign = 'center';
         piecesInfo.style.fontSize = '14px';
-        piecesInfo.style.color = '#666';
+        piecesInfo.style.color = '#ff6b35';
         piecesInfo.style.marginTop = '10px';
+        piecesInfo.style.fontWeight = '600';
+        piecesInfo.style.textShadow = '0 0 8px rgba(255, 107, 53, 0.4)';
         settingsList.appendChild(piecesInfo);
 
         startScreen.appendChild(settingsList);
@@ -246,27 +295,27 @@
         startBtn.id = 'bpStartBtn';
         startBtn.textContent = 'НАЧАТЬ ИГРУ';
         startBtn.style.display = 'inline-block';
-        startBtn.style.background = 'transparent';
-        startBtn.style.border = '2px solid #1a1a1a';
-        startBtn.style.borderRadius = '8px';
-        startBtn.style.padding = '16px 48px';
+        startBtn.style.background = 'linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%)';
+        startBtn.style.border = '2px solid #ff6b35';
+        startBtn.style.borderRadius = '12px';
+        startBtn.style.padding = '18px 56px';
         startBtn.style.fontSize = '20px';
         startBtn.style.fontWeight = '800';
         startBtn.style.textTransform = 'uppercase';
         startBtn.style.letterSpacing = '3px';
-        startBtn.style.color = '#1a1a1a';
+        startBtn.style.color = '#ffffff';
         startBtn.style.cursor = 'pointer';
         startBtn.style.transition = 'all 0.3s ease';
+        startBtn.style.boxShadow = '0 0 30px rgba(255, 107, 53, 0.6), 0 0 60px rgba(255, 107, 53, 0.3)';
+        startBtn.style.textShadow = '0 2px 4px rgba(0,0,0,0.3)';
 
         startBtn.addEventListener('mouseenter', function() {
-            startBtn.style.background = '#1a1a1a';
-            startBtn.style.color = '#ffffff';
-            startBtn.style.transform = 'scale(1.05)';
+            startBtn.style.transform = 'scale(1.08) translateY(-2px)';
+            startBtn.style.boxShadow = '0 0 40px rgba(255, 107, 53, 0.8), 0 0 80px rgba(255, 107, 53, 0.4)';
         });
         startBtn.addEventListener('mouseleave', function() {
-            startBtn.style.background = 'transparent';
-            startBtn.style.color = '#1a1a1a';
-            startBtn.style.transform = 'scale(1)';
+            startBtn.style.transform = 'scale(1) translateY(0)';
+            startBtn.style.boxShadow = '0 0 30px rgba(255, 107, 53, 0.6), 0 0 60px rgba(255, 107, 53, 0.3)';
         });
 
         btnWrap.appendChild(startBtn);
@@ -274,9 +323,10 @@
 
         var divider = document.createElement('div');
         divider.style.width = '100%';
-        divider.style.height = '1px';
-        divider.style.background = '#1a1a1a';
+        divider.style.height = '2px';
+        divider.style.background = 'linear-gradient(90deg, transparent, #ff6b35, transparent)';
         divider.style.margin = '30px 0';
+        divider.style.boxShadow = '0 0 10px #ff6b35';
         startScreen.appendChild(divider);
 
         page.appendChild(startScreen);
@@ -290,22 +340,23 @@
         gameContainer.style.position = 'relative';
         gameContainer.style.maxWidth = '1400px';
         gameContainer.style.margin = '0 auto';
-        gameContainer.style.border = '1px solid #d0d0d0';
-        gameContainer.style.borderRadius = '12px';
+        gameContainer.style.border = '2px solid #ff6b35';
+        gameContainer.style.borderRadius = '16px';
         gameContainer.style.overflow = 'hidden';
-        gameContainer.style.background = '#ffffff';
-        gameContainer.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+        gameContainer.style.background = '#0a0a0a';
+        gameContainer.style.boxShadow = '0 0 40px rgba(255, 107, 53, 0.4), 0 0 80px rgba(255, 107, 53, 0.2)';
 
         var toolbar = document.createElement('div');
         toolbar.style.position = 'relative';
         toolbar.style.height = '70px';
-        toolbar.style.background = '#ffffff';
-        toolbar.style.borderBottom = '1px solid #e0e0e0';
+        toolbar.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)';
+        toolbar.style.borderBottom = '2px solid #ff6b35';
         toolbar.style.display = 'flex';
         toolbar.style.alignItems = 'center';
         toolbar.style.justifyContent = 'space-between';
         toolbar.style.padding = '0 20px';
         toolbar.style.zIndex = '10';
+        toolbar.style.boxShadow = '0 4px 20px rgba(255, 107, 53, 0.2)';
 
         var toolbarLeft = document.createElement('div');
         toolbarLeft.style.display = 'flex';
@@ -321,20 +372,25 @@
             btn.style.height = '44px';
             btn.style.borderRadius = '50%';
             btn.style.border = '2px solid #ff6b35';
-            btn.style.background = '#ffffff';
+            btn.style.background = 'rgba(255,255,255,0.05)';
             btn.style.cursor = 'pointer';
             btn.style.display = 'flex';
             btn.style.alignItems = 'center';
             btn.style.justifyContent = 'center';
             btn.style.transition = 'all 0.2s ease';
             btn.style.color = '#ff6b35';
+            btn.style.boxShadow = '0 0 10px rgba(255, 107, 53, 0.3)';
             btn.addEventListener('mouseenter', function() {
                 btn.style.background = '#ff6b35';
                 btn.style.color = '#ffffff';
+                btn.style.boxShadow = '0 0 20px rgba(255, 107, 53, 0.6)';
+                btn.style.transform = 'scale(1.1)';
             });
             btn.addEventListener('mouseleave', function() {
-                btn.style.background = '#ffffff';
+                btn.style.background = 'rgba(255,255,255,0.05)';
                 btn.style.color = '#ff6b35';
+                btn.style.boxShadow = '0 0 10px rgba(255, 107, 53, 0.3)';
+                btn.style.transform = 'scale(1)';
             });
             return btn;
         }
@@ -348,20 +404,25 @@
             btn.style.height = '40px';
             btn.style.borderRadius = '50%';
             btn.style.border = '2px solid #ff6b35';
-            btn.style.background = '#ffffff';
+            btn.style.background = 'rgba(255,255,255,0.05)';
             btn.style.cursor = 'pointer';
             btn.style.display = 'flex';
             btn.style.alignItems = 'center';
             btn.style.justifyContent = 'center';
             btn.style.transition = 'all 0.2s ease';
             btn.style.color = '#ff6b35';
+            btn.style.boxShadow = '0 0 10px rgba(255, 107, 53, 0.3)';
             btn.addEventListener('mouseenter', function() {
                 btn.style.background = '#ff6b35';
                 btn.style.color = '#ffffff';
+                btn.style.boxShadow = '0 0 20px rgba(255, 107, 53, 0.6)';
+                btn.style.transform = 'scale(1.1)';
             });
             btn.addEventListener('mouseleave', function() {
-                btn.style.background = '#ffffff';
+                btn.style.background = 'rgba(255,255,255,0.05)';
                 btn.style.color = '#ff6b35';
+                btn.style.boxShadow = '0 0 10px rgba(255, 107, 53, 0.3)';
+                btn.style.transform = 'scale(1)';
             });
             return btn;
         }
@@ -381,8 +442,8 @@
         timerCloud.style.left = '50%';
         timerCloud.style.top = '50%';
         timerCloud.style.transform = 'translate(-50%, -50%)';
-        timerCloud.style.background = '#1a1a1a';
-        timerCloud.style.color = '#ffffff';
+        timerCloud.style.background = 'transparent';
+        timerCloud.style.color = '#ff6b35';
         timerCloud.style.padding = '8px 24px';
         timerCloud.style.borderRadius = '20px';
         timerCloud.style.fontFamily = "'Courier New', monospace";
@@ -391,7 +452,8 @@
         timerCloud.style.letterSpacing = '2px';
         timerCloud.style.minWidth = '120px';
         timerCloud.style.textAlign = 'center';
-        timerCloud.style.transition = 'color 0.3s ease';
+        timerCloud.style.transition = 'all 0.3s ease';
+        timerCloud.style.textShadow = '0 0 10px rgba(255, 107, 53, 0.8), 0 0 20px rgba(255, 107, 53, 0.4), 0 0 30px rgba(255, 107, 53, 0.2)';
 
         var toolbarRight = document.createElement('div');
         toolbarRight.style.display = 'flex';
@@ -410,11 +472,14 @@
         bgColorBtn.style.background = state.backgroundColor;
         bgColorBtn.style.cursor = 'pointer';
         bgColorBtn.style.transition = 'all 0.2s ease';
+        bgColorBtn.style.boxShadow = '0 0 10px rgba(255, 107, 53, 0.3)';
         bgColorBtn.addEventListener('mouseenter', function() {
             bgColorBtn.style.transform = 'scale(1.1)';
+            bgColorBtn.style.boxShadow = '0 0 20px rgba(255, 107, 53, 0.6)';
         });
         bgColorBtn.addEventListener('mouseleave', function() {
             bgColorBtn.style.transform = 'scale(1)';
+            bgColorBtn.style.boxShadow = '0 0 10px rgba(255, 107, 53, 0.3)';
         });
 
         var fullscreenBtn = makeCircleBtn('bpFullscreenBtn', '⛶', 'На весь экран');
@@ -434,11 +499,11 @@
         progressBarContainer.id = 'bpProgressBarContainer';
         progressBarContainer.style.width = '100%';
         progressBarContainer.style.height = '10px';
-        progressBarContainer.style.background = '#e8e8e8';
+        progressBarContainer.style.background = '#1a1a1a';
         progressBarContainer.style.position = 'relative';
         progressBarContainer.style.overflow = 'hidden';
-        progressBarContainer.style.borderTop = '1px solid #e0e0e0';
-        progressBarContainer.style.borderBottom = '1px solid #e0e0e0';
+        progressBarContainer.style.borderTop = '1px solid #ff6b35';
+        progressBarContainer.style.borderBottom = '1px solid #ff6b35';
 
         var progressBarFill = document.createElement('div');
         progressBarFill.id = 'bpProgressBarFill';
@@ -449,7 +514,7 @@
         progressBarFill.style.width = '0%';
         progressBarFill.style.background = 'linear-gradient(90deg, #ff6b35 0%, #ff8c5a 50%, #ff6b35 100%)';
         progressBarFill.style.transition = 'width 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-        progressBarFill.style.boxShadow = '0 0 8px rgba(255, 107, 53, 0.5)';
+        progressBarFill.style.boxShadow = '0 0 15px rgba(255, 107, 53, 0.8)';
 
         var progressBarSegments = document.createElement('div');
         progressBarSegments.id = 'bpProgressBarSegments';
@@ -501,7 +566,7 @@
         congratsContainer.style.left = '0';
         congratsContainer.style.right = '0';
         congratsContainer.style.bottom = '0';
-        congratsContainer.style.background = state.backgroundColor;
+        congratsContainer.style.background = 'rgba(0, 0, 0, 0.85)';
         congratsContainer.style.zIndex = '100';
         congratsContainer.style.flexDirection = 'column';
         congratsContainer.style.justifyContent = 'center';
@@ -522,14 +587,14 @@
         achOverlay.style.left = '0';
         achOverlay.style.right = '0';
         achOverlay.style.bottom = '0';
-        achOverlay.style.background = 'rgba(0,0,0,0.7)';
+        achOverlay.style.background = 'rgba(0,0,0,0.85)';
         achOverlay.style.zIndex = '10000';
         achOverlay.style.alignItems = 'center';
         achOverlay.style.justifyContent = 'center';
         achOverlay.style.padding = '20px';
 
         var achModal = document.createElement('div');
-        achModal.style.background = '#ffffff';
+        achModal.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)';
         achModal.style.borderRadius = '16px';
         achModal.style.padding = '30px';
         achModal.style.maxWidth = '600px';
@@ -537,6 +602,7 @@
         achModal.style.maxHeight = '80vh';
         achModal.style.overflowY = 'auto';
         achModal.style.border = '2px solid #ff6b35';
+        achModal.style.boxShadow = '0 0 40px rgba(255, 107, 53, 0.5)';
 
         var achTitle = document.createElement('h3');
         achTitle.textContent = 'Достижения';
@@ -544,6 +610,8 @@
         achTitle.style.margin = '0 0 20px 0';
         achTitle.style.textAlign = 'center';
         achTitle.style.fontWeight = '800';
+        achTitle.style.color = '#ff6b35';
+        achTitle.style.textShadow = '0 0 10px rgba(255, 107, 53, 0.5)';
         achModal.appendChild(achTitle);
 
         var achGrid = document.createElement('div');
@@ -558,14 +626,24 @@
         achClose.textContent = 'Закрыть';
         achClose.style.display = 'block';
         achClose.style.margin = '20px auto 0';
-        achClose.style.background = '#1a1a1a';
+        achClose.style.background = 'linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%)';
         achClose.style.color = '#fff';
-        achClose.style.border = 'none';
+        achClose.style.border = '2px solid #ff6b35';
         achClose.style.borderRadius = '8px';
         achClose.style.padding = '12px 32px';
         achClose.style.fontSize = '14px';
         achClose.style.fontWeight = '700';
         achClose.style.cursor = 'pointer';
+        achClose.style.boxShadow = '0 0 20px rgba(255, 107, 53, 0.5)';
+        achClose.style.transition = 'all 0.3s ease';
+        achClose.addEventListener('mouseenter', function() {
+            achClose.style.transform = 'scale(1.05)';
+            achClose.style.boxShadow = '0 0 30px rgba(255, 107, 53, 0.7)';
+        });
+        achClose.addEventListener('mouseleave', function() {
+            achClose.style.transform = 'scale(1)';
+            achClose.style.boxShadow = '0 0 20px rgba(255, 107, 53, 0.5)';
+        });
         achModal.appendChild(achClose);
 
         achOverlay.appendChild(achModal);
@@ -611,7 +689,7 @@
         var newColor = BG_COLORS[state.bgColorIndex];
         setBackgroundColor(newColor);
         
-        if (state.bgColorIndex !== 0) {
+        if (state.bgColorIndex !== 3) {
             state.useBackgroundImage = false;
         } else {
             state.useBackgroundImage = true;
@@ -628,10 +706,6 @@
         var canvasArea = document.getElementById('bpCanvasArea');
         if (canvasArea) {
             canvasArea.style.background = color;
-        }
-        var congratsContainer = document.getElementById('bpCongratsContainer');
-        if (congratsContainer) {
-            congratsContainer.style.background = color;
         }
     }
 
@@ -689,7 +763,7 @@
         for (var i = 0; i < total; i++) {
             var seg = document.createElement('div');
             seg.style.flex = '1';
-            seg.style.borderRight = i < total - 1 ? '1px solid rgba(255,255,255,0.6)' : 'none';
+            seg.style.borderRight = i < total - 1 ? '1px solid rgba(255,107,53,0.4)' : 'none';
             seg.style.height = '100%';
             segments.appendChild(seg);
         }
@@ -723,9 +797,9 @@
         state.draggedGroup = [];
         state.groupOffsets = {};
         state.zoomLevel = 1;
-        state.bgColorIndex = 0;
+        state.bgColorIndex = 3;
         state.useBackgroundImage = true;
-        state.timerColorBeforePause = '#ffffff';
+        state.timerColorBeforePause = '#ff6b35';
         state.isPanning = false;
         state.panOffsetX = 0;
         state.panOffsetY = 0;
@@ -748,10 +822,13 @@
 
         setZoom(1);
         resetPan();
-        setBackgroundColor(BG_COLORS[0]);
+        setBackgroundColor(BG_COLORS[3]);
 
         var timerCloud = document.getElementById('bpTimer');
-        if (timerCloud) timerCloud.style.color = '#ffffff';
+        if (timerCloud) {
+            timerCloud.style.color = '#ff6b35';
+            timerCloud.style.textShadow = '0 0 10px rgba(255, 107, 53, 0.8), 0 0 20px rgba(255, 107, 53, 0.4), 0 0 30px rgba(255, 107, 53, 0.2)';
+        }
 
         loadImage(url);
     }
@@ -986,7 +1063,7 @@
         ctx.fillStyle = state.backgroundColor;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        ctx.strokeStyle = 'rgba(0, 0, 0, 0.4)';
+        ctx.strokeStyle = 'rgba(255, 107, 53, 0.4)';
         ctx.lineWidth = 3;
         ctx.setLineDash([15, 10]);
         ctx.strokeRect(state.assemblyX - 10, state.assemblyY - 10,
@@ -1076,10 +1153,10 @@
             ctx.clip();
 
             if (isDragging) {
-                ctx.shadowColor = 'rgba(0,0,0,0.4)';
-                ctx.shadowBlur = 15;
-                ctx.shadowOffsetX = 6;
-                ctx.shadowOffsetY = 6;
+                ctx.shadowColor = 'rgba(255,107,53,0.6)';
+                ctx.shadowBlur = 20;
+                ctx.shadowOffsetX = 8;
+                ctx.shadowOffsetY = 8;
             }
 
             ctx.drawImage(img, srcX, srcY, srcW, srcH,
@@ -1088,7 +1165,7 @@
 
             ctx.save();
             createJigsawPath(piece.currentX, piece.currentY, piece.width, piece.height, piece.shape);
-            ctx.strokeStyle = isDragging ? 'rgba(255, 107, 53, 1)' : 'rgba(40, 40, 40, 0.5)';
+            ctx.strokeStyle = isDragging ? 'rgba(255, 107, 53, 1)' : 'rgba(255, 107, 53, 0.5)';
             ctx.lineWidth = isDragging ? 3 : 1.5;
             ctx.stroke();
             ctx.restore();
@@ -1453,6 +1530,7 @@
         var timerCloud = document.getElementById('bpTimer');
         if (timerCloud) {
             timerCloud.style.color = '#ff6b35';
+            timerCloud.style.textShadow = '0 0 15px rgba(255, 107, 53, 1), 0 0 30px rgba(255, 107, 53, 0.6), 0 0 45px rgba(255, 107, 53, 0.3)';
             state.timerColorBeforePause = '#ff6b35';
         }
 
@@ -1464,23 +1542,24 @@
         title.style.fontSize = '48px';
         title.style.fontWeight = '900';
         title.style.fontFamily = 'Georgia, serif';
-        title.style.color = '#1a1a1a';
+        title.style.color = '#ff6b35';
         title.style.margin = '0 0 10px 0';
         title.style.letterSpacing = '2px';
+        title.style.textShadow = '0 0 20px rgba(255, 107, 53, 0.6)';
         congratsContainer.appendChild(title);
 
         var timeText = document.createElement('div');
         timeText.textContent = 'Пазл собран за ' + formatTime(state.elapsedTime);
         timeText.style.fontSize = '20px';
         timeText.style.fontWeight = '600';
-        timeText.style.color = '#333';
+        timeText.style.color = '#ffffff';
         timeText.style.margin = '0 0 20px 0';
         congratsContainer.appendChild(timeText);
 
         var newGameBtn = document.createElement('button');
         newGameBtn.id = 'bpNewGameBtn';
         newGameBtn.textContent = 'НОВАЯ ИГРА';
-        newGameBtn.style.background = '#1a1a1a';
+        newGameBtn.style.background = 'linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%)';
         newGameBtn.style.color = '#fff';
         newGameBtn.style.border = '2px solid #ff6b35';
         newGameBtn.style.borderRadius = '12px';
@@ -1491,14 +1570,16 @@
         newGameBtn.style.textTransform = 'uppercase';
         newGameBtn.style.letterSpacing = '2px';
         newGameBtn.style.transition = 'all 0.2s ease';
-        newGameBtn.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
+        newGameBtn.style.boxShadow = '0 0 30px rgba(255, 107, 53, 0.6)';
         newGameBtn.addEventListener('mouseenter', function() {
-            newGameBtn.style.background = '#ff6b35';
+            newGameBtn.style.background = '#ff8c5a';
             newGameBtn.style.transform = 'scale(1.05)';
+            newGameBtn.style.boxShadow = '0 0 40px rgba(255, 107, 53, 0.8)';
         });
         newGameBtn.addEventListener('mouseleave', function() {
-            newGameBtn.style.background = '#1a1a1a';
+            newGameBtn.style.background = 'linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%)';
             newGameBtn.style.transform = 'scale(1)';
+            newGameBtn.style.boxShadow = '0 0 30px rgba(255, 107, 53, 0.6)';
         });
         newGameBtn.addEventListener('click', function() {
             localStorage.removeItem('bp_game_state');
@@ -1560,12 +1641,12 @@
         toast.style.zIndex = '10001';
 
         var inner = document.createElement('div');
-        inner.style.background = '#1a1a1a';
+        inner.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)';
         inner.style.color = '#ffffff';
         inner.style.padding = '16px 24px';
         inner.style.borderRadius = '12px';
-        inner.style.borderLeft = '4px solid #ff6b35';
-        inner.style.boxShadow = '0 8px 30px rgba(0,0,0,0.3)';
+        inner.style.border = '2px solid #ff6b35';
+        inner.style.boxShadow = '0 8px 30px rgba(255,107,53,0.5), 0 0 20px rgba(255, 107, 53, 0.3)';
         inner.style.minWidth = '280px';
 
         var title = document.createElement('div');
@@ -1598,21 +1679,26 @@
 
         if (state.isPaused) {
             if (timerCloud) {
-                state.timerColorBeforePause = timerCloud.style.color || '#ffffff';
+                state.timerColorBeforePause = timerCloud.style.color || '#ff6b35';
                 timerCloud.style.color = '#ff6b35';
+                timerCloud.style.textShadow = '0 0 15px rgba(255, 107, 53, 1), 0 0 30px rgba(255, 107, 53, 0.6), 0 0 45px rgba(255, 107, 53, 0.3)';
             }
 
             var ctx = state.ctx;
-            ctx.fillStyle = 'rgba(255,255,255,0.85)';
+            ctx.fillStyle = 'rgba(0,0,0,0.85)';
             ctx.fillRect(0, 0, state.canvas.width, state.canvas.height);
-            ctx.fillStyle = '#1a1a1a';
+            ctx.fillStyle = '#ff6b35';
             ctx.font = 'bold 48px Georgia, serif';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
+            ctx.shadowColor = '#ff6b35';
+            ctx.shadowBlur = 20;
             ctx.fillText('ПАУЗА', state.canvas.width / 2, state.canvas.height / 2);
+            ctx.shadowBlur = 0;
         } else {
             if (timerCloud) {
                 timerCloud.style.color = state.timerColorBeforePause;
+                timerCloud.style.textShadow = '0 0 10px rgba(255, 107, 53, 0.8), 0 0 20px rgba(255, 107, 53, 0.4), 0 0 30px rgba(255, 107, 53, 0.2)';
             }
             draw();
         }
@@ -1624,9 +1710,11 @@
         if (state.showImage) {
             btn.style.background = '#ff6b35';
             btn.style.color = '#ffffff';
+            btn.style.boxShadow = '0 0 20px rgba(255, 107, 53, 0.6)';
         } else {
-            btn.style.background = '#ffffff';
+            btn.style.background = 'rgba(255,255,255,0.05)';
             btn.style.color = '#ff6b35';
+            btn.style.boxShadow = '0 0 10px rgba(255, 107, 53, 0.3)';
         }
     }
 
@@ -1640,13 +1728,16 @@
         grid.innerHTML = '';
         state.achievements.forEach(function(ach) {
             var item = document.createElement('div');
-            item.style.background = ach.unlocked ? 'linear-gradient(135deg, #fff5f0, #ffe8e0)' : '#f5f5f5';
-            item.style.border = ach.unlocked ? '1px solid #ff6b35' : '1px solid #e0e0e0';
+            item.style.background = ach.unlocked ? 'linear-gradient(135deg, rgba(255,107,53,0.2), rgba(255,140,90,0.1))' : 'rgba(255,255,255,0.05)';
+            item.style.border = ach.unlocked ? '2px solid #ff6b35' : '1px solid rgba(255,255,255,0.1)';
             item.style.borderRadius = '8px';
             item.style.padding = '12px';
             item.style.display = 'flex';
             item.style.alignItems = 'center';
             item.style.gap = '10px';
+            if (ach.unlocked) {
+                item.style.boxShadow = '0 0 15px rgba(255, 107, 53, 0.3)';
+            }
 
             var icon = document.createElement('span');
             icon.textContent = ach.unlocked ? ach.icon : '🔒';
@@ -1658,13 +1749,13 @@
             title.textContent = ach.title;
             title.style.fontSize = '12px';
             title.style.fontWeight = '700';
-            title.style.color = '#1a1a1a';
+            title.style.color = ach.unlocked ? '#ff6b35' : '#888';
             content.appendChild(title);
 
             var desc = document.createElement('div');
             desc.textContent = ach.desc;
             desc.style.fontSize = '10px';
-            desc.style.color = '#666';
+            desc.style.color = '#888';
             desc.style.marginTop = '2px';
             content.appendChild(desc);
 
