@@ -1,11 +1,11 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Пазлы - Sirena</title><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://nevemerus.github.io/primepride/pazly/"><link rel="alternate" type="application/atom+xml" href="https://nevemerus.github.io/primepride/feed.xml" title="Sirena - RSS"><link rel="alternate" type="application/json" href="https://nevemerus.github.io/primepride/feed.json" title="Sirena - JSON"><meta property="og:title" content="Пазлы"><meta property="og:site_name" content="Sirena"><meta property="og:description" content=""><meta property="og:url" content="https://nevemerus.github.io/primepride/pazly/"><meta property="og:type" content="article"><link rel="stylesheet" href="https://nevemerus.github.io/primepride/assets/css/style.css?v&#x3D;2c0939c0c4815ec2c3e7fecf8a71b1b1"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://nevemerus.github.io/primepride/pazly/"},"headline":"Пазлы","datePublished":"2026-10-29T23:28+03:00","dateModified":"2026-11-02T10:58+03:00","description":"","author":{"@type":"Person","name":"Sirena","url":"https://nevemerus.github.io/primepride/authors/sirena/"},"publisher":{"@type":"Organization","name":"Sirena"}}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Пазлы - Sirena</title><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://nevemerus.github.io/primepride/pazly/"><link rel="alternate" type="application/atom+xml" href="https://nevemerus.github.io/primepride/feed.xml" title="Sirena - RSS"><link rel="alternate" type="application/json" href="https://nevemerus.github.io/primepride/feed.json" title="Sirena - JSON"><meta property="og:title" content="Пазлы"><meta property="og:site_name" content="Sirena"><meta property="og:description" content=""><meta property="og:url" content="https://nevemerus.github.io/primepride/pazly/"><meta property="og:type" content="article"><link rel="stylesheet" href="https://nevemerus.github.io/primepride/assets/css/style.css?v&#x3D;2c0939c0c4815ec2c3e7fecf8a71b1b1"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://nevemerus.github.io/primepride/pazly/"},"headline":"Пазлы","datePublished":"2026-10-29T23:28+03:00","dateModified":"2026-11-03T16:54+03:00","description":"","author":{"@type":"Person","name":"Sirena","url":"https://nevemerus.github.io/primepride/authors/sirena/"},"publisher":{"@type":"Organization","name":"Sirena"}}</script><noscript><style>img[loading] {
                     opacity: 1;
                 }</style></noscript></head><body class="page-template"><header class="top js-header"><a class="logo" href="https://nevemerus.github.io/primepride/">Sirena</a><nav class="navbar js-navbar" aria-label="Main"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://nevemerus.github.io/primepride/" title="Главная страница Sirena Bengal House" target="_self">Главная</a></li><li><a href="https://nevemerus.github.io/primepride/magazin/" title="Магазин Sirena Bengal House — товары для кошек" target="_self">Магазин</a></li><li><a href="https://nevemerus.github.io/primepride/vstupay-v-primepride/" title="Поддержать проект и получить эксклюзивный контент о бенгалах" target="_blank">Вступай в PrimePride🐾</a></li><li><a href="https://nevemerus.github.io/primepride/bengalgames/" title="Бенгальские игры" target="_self">Бенгальские игры 🎮</a></li><li><a href="https://nevemerus.github.io/primepride/galereya/" target="_self">Галерея</a></li></ul></nav></header><main class="page"><article class="content"><div class="hero hero--noimage"><header class="hero__content"><div class="wrapper"><h1>Пазлы</h1></div></header></div><div class="entry-wrapper content__entry"><div id="bengal-puzzle-wrapper"></div><p><script>(function() {
     var wrapper = document.getElementById('bengal-puzzle-wrapper');
     wrapper.style.all = 'initial';
     wrapper.style.display = 'block';
     wrapper.style.width = '100%';
-    wrapper.style.background = '#0a0a0a';
+    wrapper.style.background = 'transparent';
     wrapper.style.minHeight = '100vh';
     wrapper.style.padding = '0';
     wrapper.style.boxSizing = 'border-box';
@@ -13,6 +13,170 @@
     wrapper.style.position = 'relative';
     wrapper.style.overflowX = 'hidden';
     wrapper.style.color = '#ffffff';
+    wrapper.style.zIndex = '10';
+
+    // Создаём фоновый слой с фигурами паззлов
+    var bgLayer = document.createElement('div');
+    bgLayer.id = 'bpBgLayer';
+    bgLayer.style.position = 'fixed';
+    bgLayer.style.top = '0';
+    bgLayer.style.left = '0';
+    bgLayer.style.width = '100vw';
+    bgLayer.style.height = '100vh';
+    bgLayer.style.pointerEvents = 'none';
+    bgLayer.style.zIndex = '0';
+    bgLayer.style.overflow = 'hidden';
+    document.body.insertBefore(bgLayer, document.body.firstChild);
+
+    var bgCanvas = document.createElement('canvas');
+    bgCanvas.id = 'bpBgCanvas';
+    bgCanvas.style.width = '100%';
+    bgCanvas.style.height = '100%';
+    bgLayer.appendChild(bgCanvas);
+
+    var fgCanvas = document.createElement('canvas');
+    fgCanvas.id = 'bpFgCanvas';
+    fgCanvas.style.width = '100%';
+    fgCanvas.style.height = '100%';
+    bgLayer.appendChild(fgCanvas);
+
+    var bgPuzzlePieces = [];
+    var fgPuzzlePieces = [];
+
+    function generateDecorativePuzzlePieces() {
+        bgPuzzlePieces = [];
+        fgPuzzlePieces = [];
+        var docWidth = window.innerWidth;
+        var docHeight = window.innerHeight;
+        
+        for (var i = 0; i < 25; i++) {
+            bgPuzzlePieces.push({
+                x: Math.random() * docWidth,
+                y: Math.random() * docHeight,
+                size: 80 + Math.random() * 150,
+                rotation: Math.random() * Math.PI * 2,
+                shape: {
+                    top: Math.random() > 0.5 ? 1 : -1,
+                    right: Math.random() > 0.5 ? 1 : -1,
+                    bottom: Math.random() > 0.5 ? 1 : -1,
+                    left: Math.random() > 0.5 ? 1 : -1
+                }
+            });
+        }
+        for (var i = 0; i < 12; i++) {
+            fgPuzzlePieces.push({
+                x: Math.random() * docWidth,
+                y: Math.random() * docHeight,
+                size: 100 + Math.random() * 180,
+                rotation: Math.random() * Math.PI * 2,
+                shape: {
+                    top: Math.random() > 0.5 ? 1 : -1,
+                    right: Math.random() > 0.5 ? 1 : -1,
+                    bottom: Math.random() > 0.5 ? 1 : -1,
+                    left: Math.random() > 0.5 ? 1 : -1
+                }
+            });
+        }
+    }
+
+    function drawTab(ctx, x1, y1, x2, y2, size, dir) {
+        var midX = (x1 + x2) / 2;
+        var midY = (y1 + y2) / 2;
+        var len = Math.abs(dir === 'h' ? x2 - x1 : y2 - y1);
+        var neckW = len * 0.32;
+        var neckStart = (dir === 'h' ? midX : midY) - neckW / 2;
+        var neckEnd = (dir === 'h' ? midX : midY) + neckW / 2;
+        var tabSize = Math.min(Math.abs(x2-x1), Math.abs(y2-y1)) * 0.22;
+
+        if (dir === 'h') {
+            var offY = size;
+            ctx.lineTo(neckStart, y1);
+            ctx.bezierCurveTo(neckStart, y1 + offY*0.15, neckStart - tabSize*0.15, y1 + offY*0.4, neckStart - tabSize*0.18, midY + offY*0.55);
+            ctx.bezierCurveTo(neckStart - tabSize*0.22, midY + offY*1.05, midX - tabSize*0.28, midY + offY*1.15, midX, midY + offY);
+            ctx.bezierCurveTo(midX + tabSize*0.28, midY + offY*1.15, neckEnd + tabSize*0.22, midY + offY*1.05, neckEnd + tabSize*0.18, midY + offY*0.55);
+            ctx.bezierCurveTo(neckEnd + tabSize*0.15, y1 + offY*0.4, neckEnd, y1 + offY*0.15, neckEnd, y1);
+            ctx.lineTo(x2, y2);
+        } else {
+            var offX = size;
+            ctx.lineTo(x1, neckStart);
+            ctx.bezierCurveTo(x1 + offX*0.15, neckStart, x1 + offX*0.4, neckStart - tabSize*0.15, midX + offX*0.55, neckStart - tabSize*0.18);
+            ctx.bezierCurveTo(midX + offX*1.05, neckStart - tabSize*0.22, midX + offX*1.15, midY - tabSize*0.28, midX + offX, midY);
+            ctx.bezierCurveTo(midX + offX*1.15, midY + tabSize*0.28, midX + offX*1.05, neckEnd + tabSize*0.22, midX + offX*0.55, neckEnd + tabSize*0.18);
+            ctx.bezierCurveTo(x1 + offX*0.4, neckEnd + tabSize*0.15, x1 + offX*0.15, neckEnd, x1, neckEnd);
+            ctx.lineTo(x2, y2);
+        }
+    }
+
+    function drawPuzzlePieceOutline(ctx, x, y, size, rotation, shape, isNeon) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(rotation);
+        
+        var w = size;
+        var h = size;
+        var tabSize = size * 0.22;
+        
+        if (isNeon) {
+            ctx.strokeStyle = 'rgba(255, 107, 53, 0.4)';
+            ctx.lineWidth = 3;
+            ctx.shadowColor = '#ff6b35';
+            ctx.shadowBlur = 25;
+        } else {
+            ctx.strokeStyle = 'rgba(255, 107, 53, 0.12)';
+            ctx.lineWidth = 2;
+            ctx.shadowBlur = 0;
+        }
+        
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        
+        if (shape.top === 0) ctx.lineTo(w, 0);
+        else drawTab(ctx, 0, 0, w, 0, shape.top * tabSize, 'h');
+        
+        if (shape.right === 0) ctx.lineTo(w, h);
+        else drawTab(ctx, w, 0, w, h, shape.right * tabSize, 'v');
+        
+        if (shape.bottom === 0) ctx.lineTo(0, h);
+        else drawTab(ctx, w, h, 0, h, -shape.bottom * tabSize, 'h');
+        
+        if (shape.left === 0) ctx.lineTo(0, 0);
+        else drawTab(ctx, 0, h, 0, 0, -shape.left * tabSize, 'v');
+        
+        ctx.closePath();
+        ctx.stroke();
+        ctx.restore();
+    }
+
+    function drawBackgroundPieces() {
+        var bgCtx = bgCanvas.getContext('2d');
+        var fgCtx = fgCanvas.getContext('2d');
+        
+        bgCanvas.width = window.innerWidth;
+        bgCanvas.height = window.innerHeight;
+        fgCanvas.width = window.innerWidth;
+        fgCanvas.height = window.innerHeight;
+        
+        bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+        fgCtx.clearRect(0, 0, fgCanvas.width, fgCanvas.height);
+
+        for (var i = 0; i < bgPuzzlePieces.length; i++) {
+            var p = bgPuzzlePieces[i];
+            drawPuzzlePieceOutline(bgCtx, p.x, p.y, p.size, p.rotation, p.shape, false);
+        }
+
+        for (var i = 0; i < fgPuzzlePieces.length; i++) {
+            var p = fgPuzzlePieces[i];
+            drawPuzzlePieceOutline(fgCtx, p.x, p.y, p.size, p.rotation, p.shape, true);
+        }
+    }
+
+    generateDecorativePuzzlePieces();
+    drawBackgroundPieces();
+
+    window.addEventListener('resize', function() {
+        generateDecorativePuzzlePieces();
+        drawBackgroundPieces();
+    });
 
     var CONFIG = {
         imageUrl: 'https://nevemerus.github.io/primepride/sirenka.jpg',
@@ -67,6 +231,8 @@
         page.style.margin = '0 auto';
         page.style.padding = '40px 20px';
         page.style.minHeight = '100vh';
+        page.style.position = 'relative';
+        page.style.zIndex = '10';
 
         var titleDiv = document.createElement('div');
         titleDiv.style.display = 'flex';
@@ -808,7 +974,6 @@
             return { id: a.id, title: a.title, desc: a.desc, icon: a.icon, unlocked: false };
         });
         loadAchievements();
-
         saveGamesCount();
 
         document.getElementById('bpStartScreen').style.display = 'none';
