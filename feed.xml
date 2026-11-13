@@ -3,7 +3,7 @@
     <title>Sirena</title>
     <link href="https://nevemerus.github.io/primepride/feed.xml" rel="self" />
     <link href="https://nevemerus.github.io/primepride" />
-    <updated>2026-11-12T04:21:10+03:00</updated>
+    <updated>2026-11-13T10:32:12+03:00</updated>
     <author>
         <name>Sirena</name>
     </author>
@@ -1045,6 +1045,32 @@ video.volume = 1;
             margin-left: 4px;
         }
 
+        /* ===== РЕАЛЬНОЕ ПРЕВЬЮ ВИДЕО ===== */
+        .thumb-frame {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 */
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .thumb-frame iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            pointer-events: none;
+        }
+
+        .video-thumbnail.has-preview::before,
+        .video-thumbnail.has-preview::after {
+            display: none;
+        }
+
         .video-badge {
             position: absolute;
             top: 10px;
@@ -1056,6 +1082,7 @@ video.volume = 1;
             font-size: 12px;
             font-weight: 700;
             border: 1px solid #ff6b00;
+            z-index: 3;
         }
 
         .video-info {
@@ -1076,7 +1103,109 @@ video.volume = 1;
             line-height: 1.5;
         }
 
-        /* Плеер */
+        /* =====================================================
+           ===== SHORTS — вертикальные карточки 9:16 ==========
+           ===================================================== */
+        .shorts-section {
+            margin-bottom: 40px;
+        }
+
+        .shorts-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 26px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .shorts-heading .bolt {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            background: linear-gradient(135deg, #ff6b00, #ff8c42);
+            color: #fff;
+            font-size: 19px;
+            box-shadow: 0 0 18px rgba(255, 107, 0, 0.55);
+        }
+
+        .shorts-heading .accent {
+            color: #ff6b00;
+        }
+
+        .shorts-row {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        /* Карточка-«телефон» */
+        .shorts-card {
+            width: 210px;
+            border-radius: 20px;
+            background: linear-gradient(160deg, #1a1a1a, #232323);
+        }
+
+        .shorts-card .video-thumbnail {
+            height: auto;
+            aspect-ratio: 9 / 16; /* вертикальный формат шортсов */
+            background: linear-gradient(160deg, #141414, #000);
+        }
+
+        /* Уменьшенная кнопка Play для вертикальных карточек */
+        .shorts-card .video-thumbnail::before {
+            width: 54px;
+            height: 54px;
+        }
+
+        .shorts-card .video-thumbnail::after {
+            font-size: 20px;
+            margin-left: 3px;
+        }
+
+        /* Превью клипа заполняет всю вертикальную карточку */
+        .shorts-card .thumb-frame {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            padding-bottom: 0;
+            transform: none;
+        }
+
+        /* Бейдж SHORTS — фирменный оранжевый */
+        .shorts-badge {
+            background: linear-gradient(135deg, #ff6b00, #ff8c42);
+            color: #fff;
+            border: none;
+            box-shadow: 0 4px 16px rgba(255, 107, 0, 0.5);
+            animation: shortsPulse 2.6s ease-in-out infinite;
+        }
+
+        @keyframes shortsPulse {
+            0%, 100% { box-shadow: 0 4px 16px rgba(255, 107, 0, 0.5); }
+            50%      { box-shadow: 0 4px 26px rgba(255, 107, 0, 0.85); }
+        }
+
+        .shorts-card .video-info {
+            padding: 14px 16px 18px;
+        }
+
+        .shorts-card .video-title {
+            font-size: 15px;
+        }
+
+        .shorts-card .video-description {
+            font-size: 12px;
+        }
+
+        /* ===== Плеер ===== */
         #video-player-container {
             display: none;
             max-width: 900px;
@@ -1088,7 +1217,6 @@ video.volume = 1;
             -ms-user-select: none;
         }
 
-        /* Надпись BengalTube с анимированной рамкой */
         .bengal-tube-logo {
             position: relative;
             text-align: center;
@@ -1170,7 +1298,6 @@ video.volume = 1;
             line-height: 1;
         }
 
-        /* Миниатюрная информационная строка */
         .video-info-line-wrapper {
             display: flex;
             align-items: center;
@@ -1235,6 +1362,53 @@ video.volume = 1;
             border: none;
         }
 
+        /* =====================================================
+           ===== SHORTS — вертикальный плеер «как телефон» ====
+           ===================================================== */
+        #video-player-container.shorts-mode .video-wrapper {
+            padding-bottom: 0;
+            height: min(74vh, 746px);
+            width: auto;
+            aspect-ratio: 9 / 16;
+            margin: 0 auto;
+            border: 2px solid rgba(255, 107, 0, 0.9);
+            border-radius: 30px;
+            background: #000;
+            box-shadow:
+                0 0 25px rgba(255, 107, 0, 0.4),
+                0 0 80px rgba(255, 107, 0, 0.18),
+                0 20px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        #video-player-container.shorts-mode .video-wrapper iframe {
+            border-radius: 28px;
+        }
+
+        /* Бейдж SHORTS над вертикальным плеером */
+        .shorts-player-tag {
+            display: none;
+            text-align: center;
+            margin: 14px 0 10px;
+        }
+
+        #video-player-container.shorts-mode .shorts-player-tag {
+            display: block;
+        }
+
+        .shorts-player-tag span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #ff6b00, #ff8c42);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            box-shadow: 0 4px 18px rgba(255, 107, 0, 0.5);
+        }
+
         /* Кнопка назад */
         #back-btn {
             position: relative;
@@ -1278,7 +1452,7 @@ video.volume = 1;
             transform: translateX(-4px);
         }
 
-        /* Адаптивность */
+        /* ===== Адаптивность ===== */
         @media (max-width: 768px) {
             h1 {
                 font-size: 32px;
@@ -1290,6 +1464,14 @@ video.volume = 1;
 
             .video-thumbnail {
                 height: 160px;
+            }
+
+            .shorts-row {
+                justify-content: center;
+            }
+
+            .shorts-card {
+                width: 165px;
             }
 
             .bengal-tube-frame {
@@ -1318,6 +1500,15 @@ video.volume = 1;
                 white-space: normal;
             }
 
+            #video-player-container.shorts-mode .video-wrapper {
+                height: min(68vh, 620px);
+                border-radius: 24px;
+            }
+
+            #video-player-container.shorts-mode .video-wrapper iframe {
+                border-radius: 22px;
+            }
+
             #back-btn {
                 padding: 18px 24px;
                 font-size: 14px;
@@ -1332,47 +1523,16 @@ video.volume = 1;
     <h1>🎬 Видео с соревнований</h1>
     <p class="subtitle">Sirena Bengal House - Бенгальские кошки</p>
 
-    <!-- Экран выбора видео -->
-    <div id="video-selection">
-        <div class="video-card" onclick="selectVideo(0)">
-            <div class="video-thumbnail">
-                <span class="video-badge">ВИДЕО 1</span>
-            </div>
-            <div class="video-info">
-                <div class="video-title">Соревнования - Свободная тема</div>
-                <div class="video-description">Первое видео с соревнований. Свободная программа.</div>
-            </div>
-        </div>
+    <!-- Горизонтальные видео -->
+    <div id="video-selection"></div>
 
-        <div class="video-card" onclick="selectVideo(1)">
-            <div class="video-thumbnail">
-                <span class="video-badge">ВИДЕО 2</span>
-            </div>
-            <div class="video-info">
-                <div class="video-title">Соревнования - Тема "Болельщик"</div>
-                <div class="video-description">Второе видео с соревнований. Тема: болельщик.</div>
-            </div>
+    <!-- Полка Shorts -->
+    <div class="shorts-section" id="shorts-section" style="display: none;">
+        <div class="shorts-heading">
+            <span class="bolt">⚡</span>
+            <span>Shorts <span class="accent">— вертикальные видео</span></span>
         </div>
-
-        <div class="video-card" onclick="selectVideo(2)">
-            <div class="video-thumbnail">
-                <span class="video-badge">ВИДЕО 3</span>
-            </div>
-            <div class="video-info">
-                <div class="video-title">Соревнования - Свободная тема</div>
-                <div class="video-description">Третье видео с соревнований. Свободная программа.</div>
-            </div>
-        </div>
-
-        <div class="video-card" onclick="selectVideo(3)">
-            <div class="video-thumbnail" style="background: linear-gradient(135deg, #ff8c42, #ff6b00);">
-                <span class="video-badge" style="background: #ff6b00; color: #fff;">SHORTS</span>
-            </div>
-            <div class="video-info">
-                <div class="video-title">Никогда не забывай что я бенгал</div>
-                <div class="video-description">Короткое видео (шортс) о бенгальских кошках.</div>
-            </div>
-        </div>
+        <div class="shorts-row" id="shorts-selection"></div>
     </div>
 
     <!-- Плеер -->
@@ -1398,11 +1558,14 @@ video.volume = 1;
             </div>
         </div>
 
+        <!-- Бейдж для шортсов -->
+        <div class="shorts-player-tag"><span>⚡ SHORTS · 9:16</span></div>
+
         <!-- Миниатюрная информационная строка -->
         <div class="video-info-line-wrapper">
             <div class="side-line"></div>
             <div class="video-info-line">
-                <span class="label">Альбом:</span> Видео с соревнований
+                <span class="label">Альбом:</span> <span id="current-album">Видео с соревнований</span>
                 <span class="label">Вы смотрите:</span> <span id="current-video-title">Sirena Bengal House - Бенгальские кошки</span>
             </div>
             <div class="side-line right"></div>
@@ -1412,7 +1575,6 @@ video.volume = 1;
             <!-- Сюда будет вставлен iframe -->
         </div>
         
-        <!-- Кнопка назад внизу на всю ширину -->
         <button id="back-btn" onclick="backToSelection()">
             <svg viewBox="0 0 24 24">
                 <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
@@ -1426,45 +1588,177 @@ video.volume = 1;
 const videos = [
     {
         embedUrl: 'https://vk.com/video_ext.php?oid=-241638584&id=456239023&hd=2',
-        title: 'Соревнования - Свободная тема'
+        title: 'Соревнования - Свободная тема',
+        description: 'Первое видео с соревнований. Свободная программа.',
+        type: 'video',   // 'video' = горизонтальное 16:9
+        thumb: ''
     },
     {
         embedUrl: 'https://vk.com/video_ext.php?oid=-241638584&id=456239024&hd=2',
-        title: 'Соревнования - Тема "Болельщик"'
+        title: 'Соревнования - Тема "Болельщик"',
+        description: 'Второе видео с соревнований. Тема: болельщик.',
+        type: 'video',
+        thumb: ''
     },
     {
         embedUrl: 'https://vk.com/video_ext.php?oid=-241638584&id=456239025&hd=2',
-        title: 'Соревнования - Свободная тема'
+        title: 'Соревнования - Свободная тема',
+        description: 'Третье видео с соревнований. Свободная программа.',
+        type: 'video',
+        thumb: ''
     },
     {
         embedUrl: 'https://vk.com/clip_ext.php?oid=-241638584&id=456239026&hd=2',
-        title: 'Никогда не забывай что я бенгал'
+        title: 'Никогда не забывай что я бенгал',
+        description: 'Короткое вертикальное видео (шортс) о бенгальских кошках.',
+        type: 'shorts',  // 'shorts' = вертикальное 9:16
+        thumb: ''
     }
 ];
 
 let currentVideoIndex = -1;
+const previewFrames = [];
 
+/* ===== ПОСТРОЕНИЕ КАРТОЧЕК ИЗ МАССИВА ===== */
+function buildSelection() {
+    const grid = document.getElementById('video-selection');
+    const shortsSection = document.getElementById('shorts-section');
+    const shortsRow = document.getElementById('shorts-selection');
+    let videoNum = 0;
+
+    videos.forEach((v, i) => {
+        const card = document.createElement('div');
+        card.className = 'video-card' + (v.type === 'shorts' ? ' shorts-card' : '');
+        card.dataset.index = i;
+
+        let badgeHtml, thumbClass;
+
+        if (v.type === 'shorts') {
+            badgeHtml = '<span class="video-badge shorts-badge">⚡ SHORTS</span>';
+            thumbClass = 'video-thumbnail shorts-thumb';
+        } else {
+            videoNum++;
+            badgeHtml = `<span class="video-badge">ВИДЕО ${videoNum}</span>`;
+            thumbClass = 'video-thumbnail';
+        }
+
+        card.innerHTML = `
+            <div class="${thumbClass}">${badgeHtml}</div>
+            <div class="video-info">
+                <div class="video-title">${v.title}</div>
+                <div class="video-description">${v.description}</div>
+            </div>
+        `;
+
+        card.addEventListener('click', () => selectVideo(i));
+
+        if (v.type === 'shorts') {
+            shortsRow.appendChild(card);
+        } else {
+            grid.appendChild(card);
+        }
+    });
+
+    if (shortsRow.children.length > 0) {
+        shortsSection.style.display = 'block';
+    }
+}
+
+/* ===== ВСТРАИВАНИЕ ПРЕВЬЮ В КАРТОЧКИ ===== */
+function initPreviews() {
+    const cards = document.querySelectorAll('.video-card');
+
+    cards.forEach(card => {
+        const i = parseInt(card.dataset.index, 10);
+        const thumb = card.querySelector('.video-thumbnail');
+        const video = videos[i];
+
+        if (video.thumb) {
+            thumb.style.backgroundImage = `url('${video.thumb}')`;
+            thumb.style.backgroundSize = 'cover';
+            thumb.style.backgroundPosition = 'center';
+            thumb.classList.add('has-preview');
+            return;
+        }
+
+        const frame = document.createElement('div');
+        frame.className = 'thumb-frame';
+
+        const iframe = document.createElement('iframe');
+        iframe.src = video.embedUrl;
+        iframe.setAttribute('allow', 'autoplay; encrypted-media; fullscreen; picture-in-picture;');
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('tabindex', '-1');
+        iframe.setAttribute('loading', 'lazy');
+        iframe.setAttribute('scrolling', 'no');
+
+        frame.appendChild(iframe);
+        thumb.appendChild(frame);
+        thumb.classList.add('has-preview');
+
+        previewFrames.push({ el: iframe, base: video.embedUrl });
+
+        const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        if (canHover) {
+            card.addEventListener('mouseenter', () => {
+                if (currentVideoIndex === -1) iframe.src = video.embedUrl + '&autoplay=1';
+            });
+            card.addEventListener('mouseleave', () => {
+                if (currentVideoIndex === -1) iframe.src = video.embedUrl;
+            });
+        }
+    });
+}
+
+function stopPreviews() {
+    previewFrames.forEach(p => {
+        if (p.el.src !== p.base) p.el.src = p.base;
+    });
+}
+
+/* ===== ПЛЕЕР ===== */
 function selectVideo(index) {
     currentVideoIndex = index;
+    stopPreviews();
+
+    const video = videos[index];
+    const player = document.getElementById('video-player-container');
+
+    // Переключаем вертикальный режим для шортсов
+    player.classList.toggle('shorts-mode', video.type === 'shorts');
+
     document.getElementById('video-selection').style.display = 'none';
-    document.getElementById('video-player-container').style.display = 'block';
-    
-    document.getElementById('current-video-title').textContent = videos[index].title;
-    
+    document.getElementById('shorts-section').style.display = 'none';
+    player.style.display = 'block';
+
+    document.getElementById('current-album').textContent =
+        video.type === 'shorts' ? 'Shorts' : 'Видео с соревнований';
+    document.getElementById('current-video-title').textContent = video.title;
+
     const wrapper = document.getElementById('video-wrapper');
-    wrapper.innerHTML = `<iframe loading="lazy" src="${videos[index].embedUrl}" allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen></iframe>`;
-    
-    document.getElementById('video-player-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    wrapper.innerHTML = `<iframe loading="lazy" src="${video.embedUrl}" allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen></iframe>`;
+
+    player.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function backToSelection() {
     document.getElementById('video-selection').style.display = 'grid';
+    const shortsSection = document.getElementById('shorts-section');
+    if (document.getElementById('shorts-selection').children.length > 0) {
+        shortsSection.style.display = 'block';
+    }
+    document.getElementById('video-player-container').classList.remove('shorts-mode');
     document.getElementById('video-player-container').style.display = 'none';
     document.getElementById('video-wrapper').innerHTML = '';
     currentVideoIndex = -1;
-    
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    buildSelection();
+    initPreviews();
+});
 </script>
 
 </body>
