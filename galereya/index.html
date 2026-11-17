@@ -24,7 +24,26 @@
                 }
             </style>
         </noscript>	
-        
+        <style>
+/* Убираем пустой hero-баннер темы Sirena */
+.hero, .hero--noimage, .hero__content, .hero .wrapper {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
+}
+
+/* На всякий случай — псевдоэлементы hero */
+.hero::before, .hero::after,
+.hero--noimage::before, .hero--noimage::after {
+    content: none !important;
+    display: none !important;
+}
+</style>
     </head>
     <body class="page-template">
         <header class="top js-header">
